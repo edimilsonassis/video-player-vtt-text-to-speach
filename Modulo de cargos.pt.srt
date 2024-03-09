@@ -398,19 +398,17 @@ Bom, vou contabilizar a comissão que cobro em determinado item, ok?
 99
 00:19:35,970 --> 00:19:39,070
 Contra, por exemplo, a conta visível, Ok?
-
 100
 00:19:39,790 --> 00:19:45,950
-Então, o módulo Cobrança tem que fazer a contabilização do débito e do crédito, ambos.
+Então, o módulo Cobrança deve fazer a contabilização do débito e do crédito, ambos.
 
 101
 00:19:46,330 --> 00:19:55,110
-Ou seja, a conta, por exemplo, de resultados, para a comissão, contra a
-conta da conta visível, tem que fazer as duas pernas da cadeira ou não.
+Ou seja, a conta de resultados, por exemplo, para a comissão, contra a conta visível, deve fazer as duas pernas da cadeira ou não.
 
 102
 00:19:55,640 --> 00:20:03,530
-Eu quero que ele faça a parte que você recebe, mesmo, do resultado, mas a outra parte, eu vinguei a operação do Estado, Ok?
+Eu quero que ele faça a parte em que você recebe, mesmo, do resultado, mas a outra parte, eu vinguei a operação do Estado, Ok?
 
 103
 00:20:04,055 --> 00:20:06,750
@@ -422,8 +420,7 @@ No Chile, é cobrada uma comissão por cada operação.
 
 105
 00:20:12,630 --> 00:20:18,530
-Então, se eu, por exemplo, tiver que sacar
-de uma conta, veja, ele cobra o imposto.
+Então, se eu, por exemplo, tiver que sacar de uma conta, veja, ele cobra o imposto.
 
 106
 00:20:19,030 --> 00:20:22,570
@@ -443,8 +440,7 @@ Então a ideia é que a operação se encarregue de dizer, se eu tiver três, eu
 
 110
 00:20:48,950 --> 00:21:00,730
-Então assim o cliente ganha, a gente deixa ele feliz, o cliente, o nosso cliente também,
-e por isso é como se fosse uma rede, é que eu unifico todos os movimentos em um só.
+Então assim o cliente ganha, a gente deixa ele feliz, o cliente, o nosso cliente também, e por isso é como se fosse uma rede, é que eu unifico todos os movimentos em um só.
 
 111
 00:21:01,380 --> 00:21:03,530
@@ -456,8 +452,7 @@ Esse foi o primeiro que surgiu em todos esses anos, que tenho usado para muitos 
 
 113
 00:21:10,450 --> 00:21:22,630
-Então, o que você tem que deixar claro é sempre, eu quero que o módulo corporal faça as duas pernas do
-meu assento, aquele que me cobra, o resultado um, ou outra conta pode ser um passivo, sempre será isso.
+Então, o que você tem que deixar claro é sempre, eu quero que o módulo corporal faça as duas pernas do meu assento, aquele que me cobra, o resultado um, ou outra conta pode ser um passivo, sempre será isso.
 
 114
 00:21:23,080 --> 00:21:30,670
@@ -481,8 +476,7 @@ E isso tem muito a ver também, temos então a ver com os esquemas e tudo mais, 
 
 119
 00:21:57,995 --> 00:22:13,610
-Se você concorda que falamos sobre isso na operação quando você executa, A caixinha aparecerá para poder mostrar os dados do cálculo
-dos encargos e eventualmente se quisermos modificar alguma coisa, como foi o caso do exonerado, poderíamos dizer, não quero cobrar aí.
+Se você concorda que falamos sobre isso na operação quando você executa, A caixinha aparecerá para poder mostrar os dados do cálculo dos encargos e eventualmente se quisermos modificar alguma coisa, como foi o caso do exonerado, poderíamos dizer, não quero cobrar aí.
 
 120
 00:22:14,110 --> 00:22:15,750

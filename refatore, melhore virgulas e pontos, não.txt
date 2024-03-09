@@ -1,1 +1,1 @@
-refatore, melhore virgulas e pontos, não altere muito a quantidade de caracteres por bloco, as virgulas podem ser quebra de bloco
+refatore, melhore virgulas e pontos, corrija a concordancia, não aumente a quantidade de caracteres por bloco, as virgulas podem ser quebra de bloco
