@@ -1794,7 +1794,7 @@ Então aqui me permite colocar três pequenos campos que posso nomear na operaç
 
 442
 01:01:50,180 --> 01:01:54,140
-Por exemplo, no caso do Peru
+Por exemplo, no caso do Peru,
 eu registro bem, quem é o cliente?
 
 443
@@ -1804,7 +1804,7 @@ a conta à vista, tanto faz?
 
 444
 01:01:58,640 --> 01:02:05,860
-Porque isso, depois, por exemplo, no caso do ITF, do imposto, eu
+Porque, depois, por exemplo, no caso do ITF, do imposto, eu
 tenho que informar para qual cliente cobrar e para qual operação.
 
 445
@@ -1813,7 +1813,7 @@ Então, eu guardo lá essa informação e qual é a taxa de câmbio que estava s
 
 446
 01:02:11,900 --> 01:02:17,120
-Então, as ideias que são três campos livres em pelúmes, se não
+Então, as ideias são três campos livres em pelúmes, se não
 fosse por isso, nenhum outro lugar colocaria para outra coisa.
 
 447
@@ -1822,19 +1822,19 @@ Mas eu posso fazer isso.
 
 448
 01:02:19,220 --> 01:02:24,100
-Então, nas operações eu sempre tenho que carregar esses campos para ter essa informação.
+Então, nas operações, eu sempre tenho que carregar esses campos para ter essa informação.
 
 449
 01:02:24,600 --> 01:02:26,120
-em seguida, carregado na tabela de faturas.
+Em seguida, carregado na tabela de faturas.
 
 450
 01:02:26,470 --> 01:02:29,920
-E por sua vez, na fatura
+E, por sua vez, na fatura,
 
 451
 01:02:31,440 --> 01:02:34,060
-linha, o que eu vou ter é
+o que eu vou ter é
 
 452
 01:02:37,370 --> 01:02:40,920
@@ -1862,11 +1862,11 @@ Existem alguns tablists aqui com seis posições na memória.
 
 458
 01:03:00,640 --> 01:03:02,720
-Em Valleza tabla você nunca terá informações.
+Em Valleza tabla, você nunca terá informações.
 
 459
 01:03:02,721 --> 01:03:06,046
-Sempre fui feliz porque como a palavra diz, fica na memória.
+Sempre fui feliz porque, como a palavra diz, fica na memória.
 
 460
 01:03:06,420 --> 01:03:14,500
@@ -1883,7 +1883,7 @@ Eles não colocam 1656.
 
 463
 01:03:24,170 --> 01:03:39,170
-O que está acontecendo? Eu chamo a mula da cobrança e na operação, por exemplo, eu tenho três cobranças no evento e quero
+O que está acontecendo? Eu chamo a mula da cobrança e, na operação, por exemplo, eu tenho três cobranças no evento e quero
 registrar um campozinho com a comissão, outro campozinho com o seguro, outro campozinho e quero conhecer cada um que valor tem.
 
 464
@@ -1896,8 +1896,8 @@ Isso permanece na minha memória.
 
 466
 01:03:50,670 --> 01:04:01,400
-Então, na tabela de cobranças na memória eu tenho informações para poder
-revisar na operação e poder registrar, posso mostrar, posso fazer o que preciso.
+Então, na tabela de cobranças na memória, eu tenho informações para poder
+revisar na operação e poder registrar. Posso mostrar, posso fazer o que preciso.
 
 467
 01:04:02,400 --> 01:04:03,400
@@ -1905,11 +1905,11 @@ O que está acontecendo?
 
 468
 01:04:04,000 --> 01:04:07,340
-Numa operação posso chamar a mula de carga diversas vezes.
+Numa operação, posso chamar a mula de carga diversas vezes.
 
 469
 01:04:08,230 --> 01:04:16,880
-Por exemplo, no caso do meu banco eu ligo, falo bem, ligo para o microsseguro,
+Por exemplo, no caso do meu banco, eu ligo, falo bem, ligo para o microsseguro,
 ligo depois para calcular o seguro e posso confirmar outras coisas.
 
 470
