@@ -2266,22 +2266,19 @@ Claro, isso é.
 
 556
 01:10:23,160 --> 01:10:28,460
-Ou em algum momento, posso verificar se a
-tabela com meu cor está processada e deixo-os.
+Ou em algum momento, posso verificar se a tabela com meu cor está processada e deixá-los.
 
 557
 01:10:29,080 --> 01:10:35,160
-Neste caso, por exemplo, o plano de pagamento, neste caso, na tabela, foi pago, tem os dados desse empréstimo.
+Neste caso, por exemplo, o plano de pagamento, na tabela, foi pago, tem os dados desse empréstimo.
 
 558
 01:10:35,380 --> 01:10:39,400
-Porque o que estou fazendo é mudar e ser se
-eu Se eu pagasse isso, como isso mudaria?
+Porque o que estou fazendo é mudar e ver se eu pagasse isso, como isso mudaria?
 
 559
 01:10:39,630 --> 01:10:45,180
-Bom, eu tenho alguns dados, mas os dados
-são diferentes do que vou ver na memória.
+Bom, eu tenho alguns dados, mas os dados são diferentes do que vou ver na memória.
 
 560
 01:10:45,280 --> 01:10:46,280
@@ -2289,30 +2286,27 @@ Não são iguais.
 
 561
 01:10:46,620 --> 01:10:52,940
-Então pode haver informação ou não, mas normalmente a informação que eu vejo na memória é diferente da que está no banco de dados naquele momento.
+Então pode haver informação ou não, mas normalmente a informação que vejo na memória é diferente da que está no banco de dados naquele momento.
 
 562
 01:10:52,941 --> 01:10:53,941
 
-
 563
 01:10:55,270 --> 01:11:07,780
-Então, se eu precisar, Mal posso esperar para me comprometer ou estou fazendo uma simulação que nem vou me comprometer,
-Eu faço na memória, e a operação foi finalizada e ela sumiu, porque algo que eu estava simulando não estava cortando.
+Então, se eu precisar, mal posso esperar para me comprometer ou estou fazendo uma simulação que nem vou me comprometer,
+eu faço na memória, e a operação foi finalizada e ela sumiu, porque algo que eu estava simulando não estava cortando.
 
 564
 01:11:10,340 --> 01:11:14,780
-Então, diferente, a ideia, Eu sei
-disso, que ele está me calculando.
+Então, diferente, a ideia, eu sei disso, que ele está me calculando.
 
 565
 01:11:15,120 --> 01:11:20,880
-Mas é importante saber que tudo o que é lembrado, São
-coisas específicas que o núcleo tem que ser planejado.
+Mas é importante saber que tudo o que é lembrado são coisas específicas que o núcleo tem que planejar.
 
 566
 01:11:21,000 --> 01:11:27,661
-Não é que eu inventei uma tabela e uso ela na memória, porque me ocorreu, se o COR não tiver planejado não vai funcionar.
+Não é que eu inventei uma tabela e uso ela na memória, porque me ocorreu, se o COR não tiver planejado, não vai funcionar.
 
 567
 01:11:28,180 --> 01:11:32,160
@@ -2320,17 +2314,16 @@ Você sempre tem que ter previsto o núcleo, aquela mesa específica.
 
 568
 01:11:35,230 --> 01:11:37,140
-E, em geral, eles são um plano para peru,
+E, em geral, eles são um plano para o Peru,
 
 569
 01:11:39,840 --> 01:11:51,940
 despesas com taxas, o das posições na memória, e por exemplo, agora temos um novo, com certeza multirejo,
-O dcmcronograma, que certamente é multitempo, também está sendo publicado na memória para isso.
+o dcmcronograma, que certamente é multitempo, também está sendo publicado na memória para isso.
 
 570
 01:11:52,940 --> 01:11:56,020
-Até agora, Não me
-lembro de muito mais.
+Até agora, não me lembro de muito mais.
 
 571
 01:11:58,600 --> 01:12:03,300
