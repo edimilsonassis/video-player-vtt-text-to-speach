@@ -568,7 +568,7 @@ Não sei, você nunca vê isso.
 
 142
 00:23:45,991 --> 00:23:51,110
-Não sei, posso te provar a verdade, não sei se é possível ou não.
+Não sei, posso te provar a verdade. Não sei se é possível ou não.
 
 143
 00:23:51,450 --> 00:23:53,190
@@ -576,8 +576,7 @@ Porque não sei como acessar, ou seja, o valor.
 
 144
 00:23:53,370 --> 00:24:05,350
-Em que campo você deve passar, qual camada está no mundo, se o valor que ele retorna para você, em
-geral, porque tem algumas parametrizações aí que normalmente são da camada 36, ​​se é essa que temos.
+Em que campo você deve passar? Qual camada está no mundo? Se o valor que ele retorna para você, em geral, porque tem algumas parametrizações aí que normalmente são da camada 36, ​​se é essa que temos.
 
 145
 00:24:05,845 --> 00:24:08,410
@@ -597,7 +596,7 @@ Aqui fica a questão: vou usar fórmulas ou não?
 
 149
 00:24:21,330 --> 00:24:26,390
-Se eu disser não é porque não uso fórmulas e dá certo.
+Se eu disser não, é porque não uso fórmulas e dá certo.
 
 150
 00:24:27,030 --> 00:24:33,790
@@ -609,17 +608,15 @@ Então, isso vai ser necessariamente.
 
 152
 00:24:41,870 --> 00:24:43,710
-Esta é a verdade em letras maiúsculas,
+Esta é a verdade em letras maiúsculas.
 
 153
 00:24:44,820 --> 00:24:49,810
-Caso contrário, isso é algo muito específico do meu
-banco, Não é algo muito genérico sobre decoração,
+Caso contrário, isso é algo muito específico do meu banco. Não é algo muito genérico sobre decoração.
 
 154
 00:24:54,660 --> 00:25:01,990
-Não me lembro exatamente por que definimos isso, mas é algo
-muito particular, não é algo genérico sobre o que move cartas.
+Não me lembro exatamente por que definimos isso, mas é algo muito particular. Não é algo genérico sobre o que move cartas.
 
 155
 00:25:02,430 --> 00:25:13,210
@@ -651,60 +648,51 @@ Não faz sentido se eu não inserisse a fórmula e você não inserisse as taxas
 
 162
 00:25:48,660 --> 00:26:04,560
-Mas, no caso de eu usar fórmula, ou no caso da garota básica, que sempre usa fórmula, eu poderia eventualmente não usar
-taxas, porque a partir de quando eu também não calculo nada de fórmula e não preciso de nenhuma variável aí para medir.
+Mas, no caso de eu usar fórmula, ou no caso da garota básica, que sempre usa fórmula, eu poderia eventualmente não usar taxas, porque a partir de quando eu também não calculo nada de fórmula e não preciso de nenhuma variável aí para medir.
 
 163
 00:26:07,790 --> 00:26:18,780
-Aqui vamos definir, bom, se neste caso eu tinha dito que não era uma fórmula, então
-se vou ter que definir taxas, e se o intervalo vai ser por quantidade ou por valor.
+Aqui vamos definir, bom, se neste caso eu tinha dito que não era uma fórmula, então se vou ter que definir taxas, e se o intervalo vai ser por quantidade ou por valor.
 
 164
 00:26:21,780 --> 00:26:46,480
-Então, vou definir uma faixa porque a tarifa eu posso dizer, bom, até 1000 eu cobro 10, até 5000 eu cobro 12, então existe uma faixa e pode ser, por
-exemplo, que a faixa seja para um valor, como a gente estava vendo aí, ou pode falar não, até 180 dias eu cobro 10, até 3600 dias, então esse é o valor.
+Então, vou definir uma faixa porque a tarifa eu posso dizer, bom, até 1000 eu cobro 10, até 5000 eu cobro 12, então existe uma faixa e pode ser, por exemplo, que a faixa seja para um valor, como a gente estava vendo aí, ou pode falar não, até 180 dias eu cobro 10, até 3600 dias, então esse é o valor.
 
 165
 00:26:50,070 --> 00:27:16,200
-Então aqui quando eu defino as taxas, bem, eu defino a moeda para a qual essa taxa será aplicada, porque posso definir uma cobrança e a
-mesma cobrança se aplica a moedas diferentes, mas posso precisar inserir taxas diferentes, porque eu digo , bom, se for em dólar vou cobrar 3
+Então aqui quando eu defino as taxas, bem, eu defino a moeda para a qual essa taxa será aplicada, porque posso definir uma cobrança e a mesma cobrança se aplica a moedas diferentes, mas posso precisar inserir taxas diferentes, porque eu digo, bom, se for em dólar vou cobrar 3 dólares,
 
 166
 00:27:16,960 --> 00:27:21,260
-dólares, mas se for em pesos vou colocar outro valor aí, porque obviamente vai ser um valor diferente.
+mas se for em pesos vou colocar outro valor aí, porque obviamente vai ser um valor diferente. 
 
 167
 00:27:21,965 --> 00:27:38,560
-Principalmente principalmente quando estamos falando de um valor fixo, que não faz muito sentido ele ser igual, um número em todos os valores, aí eu defino taxas diferentes, quando for um percentual eu poderia definir igual, mas vou tem que medir cada moeda.
+Principalmente quando estamos falando de um valor fixo, que não faz muito sentido ele ser igual, um número em todos os valores, aí eu defino taxas diferentes, quando for um percentual eu poderia definir igual, mas vou tem que medir cada moeda.
 
 168
 00:27:39,080 --> 00:27:44,140
-Se não for mais tarde, quando eu for usar o módulo de cobrança,
-ele não encontrará minha moeda e esse será o problema.
+Se não for mais tarde, quando eu for usar o módulo de cobrança, ele não encontrará minha moeda e esse será o problema. 
 
 169
 00:27:45,580 --> 00:27:48,740
-Não defino as taxas para todas as moedas que vou usar.
+Não defino as taxas para todas as moedas que vou usar. 
 
 170
 00:27:52,740 --> 00:28:03,970
-Aqui posso eventualmente dizer, bom, quero definir uma tarifa especial para esse cliente, a
-ideia nunca é usada, porque não tem muito desempenho se começarmos a parametrizar cada cliente.
+Aqui posso eventualmente dizer, bom, quero definir uma tarifa especial para esse cliente, a ideia nunca é usada, porque não tem muito desempenho se começarmos a parametrizar cada cliente.
 
 171
 00:28:04,870 --> 00:28:22,170
-A ideia é tentar, por exemplo, trazer para o segmento, num segmento se eu agrupar, uma determinada condição, aí tio de todos os clientes que são
-assim, eu cobro essa tarifa de todos esses clientes, eu cobro eles outro, mas se eu começar a parametrizar cada um dos clientes posso ter muitas taxas.
+A ideia é tentar, por exemplo, trazer para o segmento, num segmento se eu agrupar, uma determinada condição, aí tio de todos os clientes que são assim, eu cobro essa tarifa de todos esses clientes, eu cobro eles outro, mas se eu começar a parametrizar cada um dos clientes posso ter muitas taxas.
 
 172
 00:28:22,290 --> 00:28:29,910
-Então a ideia é tentar evitar usar o cliente, sozinho, se
-for motivo de força maior, mas sempre tente usar o segmento.
+Então a ideia é tentar evitar usar o cliente, sozinho, se for motivo de força maior, mas sempre tente usar o segmento.
 
 173
 00:28:33,310 --> 00:28:40,350
-Então no segmento, bom, eu posso definir, bom, eu cobro uma
-coisa dos homens, cobro outra das mulheres, o que vier na cabeça.
+Então no segmento, bom, eu posso definir, bom, eu cobro uma coisa dos homens, cobro outra das mulheres, o que vier na cabeça.
 
 174
 00:28:44,610 --> 00:28:45,610
@@ -716,8 +704,7 @@ Então, o que falamos hoje que pode fazer o valor variar aqui é a taxa.
 
 176
 00:28:53,720 --> 00:29:00,830
-É disso que estávamos falando, que no caso é do meu
-banco, ou eu defino a taxa, ou eu defino o valor.
+É disso que estávamos falando, que no caso é do meu banco, ou eu defino a taxa, ou eu defino o valor.
 
 177
 00:29:01,420 --> 00:29:08,730
@@ -741,7 +728,7 @@ E aí evitamos problemas com os tipos de campos e tudo mais.
 
 182
 00:29:26,370 --> 00:29:33,510
-E aqui o tópico é retornado, se for o caso Não, aqui cabe a questão de isso, mínimo e máximo ou não.
+E aqui o tópico é retornado, se for o caso. Não, aqui cabe a questão de isso, mínimo e máximo ou não.
 
 183
 00:29:34,520 --> 00:29:39,930
@@ -785,7 +772,7 @@ Então eu digo que sim, aqui você vai colocar a descrição do segmento.
 
 193
 00:30:43,960 --> 00:30:45,810
-e vai parametrizar um campo para mim lá.
+E vai parametrizar um campo para mim lá.
 
 194
 00:30:45,950 --> 00:30:50,130
@@ -805,7 +792,7 @@ Por exemplo, se forem empresas, se forem pessoas, vou cobrar-lhes uma comissão 
 
 198
 00:31:07,400 --> 00:31:16,850
-Noutro caso, não sei se são bancos ou se são empresas públicas,
+Noutro caso, não sei se são bancos ou se são empresas públicas.
 
 199
 00:31:17,980 --> 00:31:19,850
