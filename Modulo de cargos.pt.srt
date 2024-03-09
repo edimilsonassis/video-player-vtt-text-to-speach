@@ -1936,12 +1936,11 @@ Em seguida, filtre pelo evento e qual transação o está chamando.
 
 475
 01:04:42,020 --> 01:04:44,980
-Este valor é um valor constante.
+Este valor é constante.
 
 476
 01:04:46,120 --> 01:04:51,620
-Então, aqui em um clone diz que não tenho
-como saber e poder atualizar esse valor.
+Aqui, em um clone, não tenho como saber ou atualizar esse valor.
 
 477
 01:04:52,320 --> 01:04:53,840
@@ -1949,35 +1948,31 @@ Então, o que é uma constante?
 
 478
 01:04:54,600 --> 01:04:57,240
-Se eu adicionar transações quebrando isso.
+Se eu adicionar ou excluir transações, isso será quebrado.
 
 479
 01:04:57,640 --> 01:05:13,700
-Então, é muito importante que toda vez que você adicionar ou excluir transações você vá ver se naquela
-operação a tabela está lá, se tem cobranças na memória você vai e atualiza, se não, você quebrou.
+É muito importante verificar sempre se a tabela está presente na operação e se há cobranças na memória ao adicionar ou excluir transações. Caso contrário, ocorrerá uma quebra.
 
 480
 01:05:14,220 --> 01:05:17,480
-Então, isso é algo muito importante sempre verificar, certo?
+Então, isso é algo muito importante, sempre verificar, certo?
 
 481
 01:05:17,740 --> 01:05:20,860
-Porque isso nunca será
-atualizado automaticamente.
+Porque isso nunca será atualizado automaticamente.
 
 482
 01:05:21,320 --> 01:05:27,860
-Então, é sempre importante você olhar e dizer, bem, eu tenho essas cobranças na memória, então tenho que adicionar transações.
+Então, é sempre importante você olhar e dizer: "Bem, eu tenho essas cobranças na memória, então tenho que adicionar transações."
 
 483
 01:05:28,200 --> 01:05:32,640
-Não há problemas, mas eu vou e olho
-aqui e eu mudo a nuvem e parece bom lá.
+Não há problemas, mas eu vou e olho aqui e eu mudo a nuvem e parece bom lá.
 
 484
 01:05:33,290 --> 01:05:39,840
-Porque além do que acontece, Se eu não fizer isso, Você não vai
-me atacar dizendo que quebrou alguma coisa, certo? Sem mente.
+Porque além do que acontece, se eu não fizer isso, você não vai me atacar dizendo que quebrou alguma coisa, certo? Sem mente.
 
 485
 01:05:39,940 --> 01:05:46,730
