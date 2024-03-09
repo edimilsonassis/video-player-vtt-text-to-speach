@@ -1374,30 +1374,27 @@ No caso do campo faixa tarifária, quer dizer aquele campo, eu tenho que cobrar 
 
 342
 00:49:06,090 --> 00:49:09,130
-valores genéricos de diferentes segmentos,
+Valores genéricos de diferentes segmentos.
 
 343
 00:49:15,470 --> 00:49:21,540
-mas são como campos aí para usar, mas não é exatamente o que isso te dá, não sei.
+São campos para utilizar, mas não é exatamente o que eles fornecem, não sei.
 
 344
 00:49:23,110 --> 00:49:34,420
-Isso é, se eu quiser usar na fórmula, o campo taxa que eu
-parametrizei, eu uso 1770, mas é como usar na fórmula de cobrança.
+Por exemplo, se eu quiser usar o campo "taxa" que parametrizei na fórmula de cobrança, utilizo 1770.
 
 345
 00:49:36,580 --> 00:50:01,160
-Isso é, por exemplo, aqui, nas fórmulas que vocês veem, por exemplo, aqui do ITF, é aquele que
-eu falei sobre 34, é o que eu ganho multiplicando a alíquota do ITF pelo valor, ele retorna 34 .
+Nas fórmulas, como o ITF, por exemplo, é o resultado da multiplicação da alíquota do ITF pelo valor, que retorna 34.
 
 346
 00:50:01,480 --> 00:50:06,440
-Então, eu uso aqui nas fórmulas para calcular,
-porque tenho que resumir isso mais tarde.
+Utilizo essas fórmulas para calcular, pois preciso resumir posteriormente.
 
 347
 00:50:07,460 --> 00:50:09,280
-Em outro caso, é,
+Em outro caso,
 
 348
 00:50:16,020 --> 00:50:18,280
@@ -1405,36 +1402,35 @@ aqui em 1771,
 
 349
 00:50:20,330 --> 00:50:22,940
-é o valor vezes o valor fixo.
+é o valor multiplicado pelo valor fixo.
 
 350
 00:50:32,085 --> 00:50:40,920
-Mas isso é mais do que tudo e lembrar, e acima de tudo, lembrar que, como tem alguns campos que a gente tem, parametrizados aqui, não são coisas que se usam todos os dias.
+É importante lembrar que esses campos parametrizados não são utilizados diariamente.
 
 351
 00:50:41,270 --> 00:50:46,380
-Cabe, por exemplo, é 1771, é aquele que me retorna na taxa fixa.
+No caso do campo "cabe", por exemplo, é 1771, que retorna a taxa fixa.
 
 352
 00:50:46,680 --> 00:50:50,660
-Então, eu quero usar esse valor fixo, numa fórmula, eu uso aí.
+Posso utilizar esse valor fixo em uma fórmula.
 
 353
 00:50:50,880 --> 00:50:53,400
-Então, por que usar esse valor?
+Por que utilizar esse valor?
 
 354
 00:50:55,160 --> 00:50:59,640
-e em uma fórmula mais
-complexa, que parametrizei na taxa.
+Em uma fórmula mais complexa, que parametrizei na taxa.
 
 355
 00:50:59,641 --> 00:51:00,641
-Se entende?
+Entende?
 
 356
 00:51:01,870 --> 00:51:07,260
-Na verdade nesse caso é o valor fixo, que é o próprio valor fixo, eu poderia fazer também, para mim é igual a 34.
+Na verdade, nesse caso, o valor fixo é igual a 34.
 
 357
 00:51:07,690 --> 00:51:09,131
@@ -1446,7 +1442,7 @@ A diferença seria se houvesse um mínimo, um máximo, nada mais.
 
 359
 00:51:12,440 --> 00:51:17,800
-Esse aí sim, aquele da taxa, se não, ele sempre me devolve o 34.
+No caso da taxa, se não houver, sempre retorna 34.
 
 360
 00:51:17,980 --> 00:51:20,400
