@@ -1208,12 +1208,12 @@ Por exemplo, pelo empréstimo você vai cobrar e vai dizer, bom, tanto capital, 
 
 302
 00:43:08,980 --> 00:43:13,560
-E para os encargos com o valor total de todos os encargos.
+E para os encargos, com o valor total de todos os encargos.
 
 303
 00:43:14,100 --> 00:43:23,840
-E aí tem que desagregar, porque por exemplo teve seguro, teve comissão
-e vou precisar contabilizar cada um deles em áreas diferentes.
+E aí, temos que desagregar, porque, por exemplo, teve seguro e comissão.
+Precisaremos contabilizar cada um deles em áreas diferentes.
 
 304
 00:43:24,100 --> 00:43:33,340
@@ -1222,7 +1222,7 @@ transação que tinha o principal e o interesse amoroso nas cobranças.
 
 305
 00:43:33,550 --> 00:43:38,520
-E lá ele liga para o múltiplo de cobrança e diz, alô, às 11, 3, 45 eu coloquei o seguro.
+E lá ele liga para o múltiplo de cobrança e diz: "Alô, às 11:3:45 eu coloquei o seguro".
 
 306
 00:43:39,090 --> 00:43:42,040
@@ -1251,7 +1251,7 @@ o múltiplo de cobranças, você atribui um valor 1 para esse campo.
 
 312
 00:44:36,350 --> 00:44:43,860
-Como se quisesse dizer, esta é a clonagem que fiz para filmar, para os diferentes pivôs do múltiplo de cargas.
+Como se quisesse dizer: "Esta é a clonagem que fiz para filmar, para os diferentes pivôs do múltiplo de cargas".
 
 313
 00:44:44,190 --> 00:44:50,160
@@ -1276,12 +1276,13 @@ Então, essa condição não foi especificada lá.
 
 318
 00:45:12,520 --> 00:45:29,760
-Mas para os outros conceitos, na realidade é que mais do que juros de mora capital, se eu precisar colocar o 4-91 é diferente de 1 para
-que quando for aquela clonagem do múltiplo de encargos aí você não conta, você conta apenas no principal para que não tenhamos duplicatas.
+Mas para os outros conceitos, na realidade é mais do que juros de mora e capital.
+Se eu precisar colocar o 4-91 diferente de 1, para
+que quando for aquela clonagem do múltiplo de encargos, você não conta, você conta apenas no principal, para que não tenhamos duplicatas.
 
 319
 00:45:38,010 --> 00:45:44,130
-Então, bom, eles têm um valor mínimo, um valor máximo, a moeda para cobrar tudo igual como vimos antes.
+Então, eles têm um valor mínimo, um valor máximo e a moeda para cobrar tudo igual, como vimos antes.
 
 320
 00:45:45,190 --> 00:45:46,190
@@ -1289,20 +1290,19 @@ E a fórmula.
 
 321
 00:45:46,375 --> 00:45:58,910
-Temos que pensar na fórmula nesse caso, como vou montar os gastos por parcela, como se eu estivesse parando em cada uma das parcelas e tivesse que ver, bom, as fórmulas que tenho que usar eu às vezes uso para esses campos do plano de pagamento, é assim que diferenciamos cada um.
+Temos que pensar na fórmula nesse caso. Como vou montar os gastos por parcela? É como se eu estivesse parando em cada uma das parcelas e tivesse que ver as fórmulas que tenho que usar. Às vezes uso essas fórmulas para os campos do plano de pagamento. É assim que diferenciamos cada um.
 
 322
 00:46:01,720 --> 00:46:09,570
-E às vezes essas coisas também são feitas sem tentar um pouco e então vemos que funciona exatamente como precisamos.
+Às vezes, essas coisas também são feitas sem tentar um pouco. Então vemos que funciona exatamente como precisamos.
 
 323
 00:46:12,710 --> 00:46:16,110
-Aqui também podemos ir ver as tarifas, eles também têm tarifas.
+Aqui também podemos ver as tarifas. Eles também têm tarifas.
 
 324
 00:46:17,370 --> 00:46:26,310
-Por exemplo, neste caso, bem, eu tenho que cunhar um que cobro 10
-soles e cunhar dois que é duplicar é cobrar, 3 duplicar é contrato.
+Por exemplo, neste caso, eu tenho que cobrar 10 soles para um, cobrar dois é duplicar, cobrar três é contrato.
 
 325
 00:46:27,985 --> 00:46:30,706
@@ -1310,16 +1310,15 @@ Trata-se, por exemplo, de uma comissão pelo envio de extratos de conta.
 
 326
 00:46:31,090 --> 00:46:33,310
-E você vê aqui, por exemplo, imposto, não tem nada associado.
+E aqui, por exemplo, imposto, não tem nada associado.
 
 327
 00:46:33,660 --> 00:46:42,970
-Assim como vimos, no cadastro, que tem todas as tabelas diferentes, posso cadastrar tudo com catenates, na consulta também tem a mesma coisa.
+Assim como vimos no cadastro, que tem todas as tabelas diferentes, posso cadastrar tudo com catenates. Na consulta também tem a mesma coisa.
 
 328
 00:46:43,390 --> 00:46:52,410
-E você pode consultar tudo com catenação, que fica mais fácil de ler
-e entender como é visualizar a parametria de todas aquelas tabelas.
+E você pode consultar tudo com catenação, o que facilita a leitura e o entendimento da parametrização de todas aquelas tabelas.
 
 329
 00:47:00,120 --> 00:47:01,120
@@ -1331,7 +1330,7 @@ Existem alguns desses parâmetros que estão aqui nos parâmetros jotece.
 
 331
 00:47:20,930 --> 00:47:29,210
-Aqui você vê, por exemplo, o que estávamos falando nesse campo é que, para condicionar os esquemas contábeis, o registro clonado no original é o número 4.
+Aqui você vê, por exemplo, o que estávamos falando nesse campo. Para condicionar os esquemas contábeis, o registro clonado no original é o número 4.
 
 332
 00:47:29,610 --> 00:47:32,910
@@ -1351,24 +1350,23 @@ Esses campos que temos aqui são os que nos retornam os valores nas operações.
 
 336
 00:47:59,460 --> 00:48:05,010
-Sim, não é tudo o que é retornado, são os campos que o módulo de cobranças parametrizou para utilizar.
+Sim, não é tudo o que é retornado. São os campos que o módulo de cobranças parametrizou para utilizar.
 
 337
 00:48:05,011 --> 00:48:08,030
-Em alguns casos eles são entrada e outros são saída.
+Em alguns casos, eles são entrada e outros são saída.
 
 338
 00:48:15,230 --> 00:48:41,270
-Não é propriamente isso, a questão é, por exemplo, o valor tributável, é o que me devolve ou o valor do copo vezes a base tributável ou o valor do valor fixo.
+Não é propriamente isso. A questão é, por exemplo, o valor tributável. É o que me devolve o valor do copo vezes a base tributável ou o valor fixo.
 
 339
 00:48:41,670 --> 00:48:47,650
-Então, quero usá-lo em uma fórmula para este resultado,
-Aí tenho que clicar na fórmula desta posição.
+Então, quero usá-lo em uma fórmula para este resultado. Aí tenho que clicar na fórmula desta posição.
 
 340
 00:48:50,600 --> 00:49:00,490
-No caso do campo faixa tarifária, quer dizer aquele campo, eu tenho que cobrar por ele, aí, a faixa tarifária.
+No caso do campo faixa tarifária, quer dizer aquele campo, eu tenho que cobrar por ele. Aí, a faixa tarifária.
 
 341
 00:49:01,290 --> 00:49:03,050
