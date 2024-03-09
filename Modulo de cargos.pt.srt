@@ -2197,8 +2197,7 @@ Mas isso não significa, pelo menos, isso.
 
 539
 01:08:58,260 --> 01:09:03,800
-A ideia da memória É sempre que quero
-explorar algo que ainda não foi comprometido.
+A ideia da memória é sempre que quero explorar algo que ainda não foi comprometido.
 
 540
 01:09:03,940 --> 01:09:07,040
@@ -2210,8 +2209,7 @@ Portanto, existem conceitos diferentes.
 
 542
 01:09:10,100 --> 01:09:15,600
-Isso é que ele carrega na memória, É por isso que eu
-lhe disse que existe fisicamente, mas está sempre vazio.
+Isso é o que ele carrega na memória. É por isso que eu lhe disse que existe fisicamente, mas está sempre vazio.
 
 543
 01:09:15,920 --> 01:09:18,500
@@ -2223,18 +2221,15 @@ Isso é o que cobrar.
 
 545
 01:09:20,500 --> 01:09:27,620
-E também, o mesmo conceito de memória de algo
-que está na memória é usado para outras tabelas.
+E também, o mesmo conceito de memória de algo que está na memória é usado para outras tabelas.
 
 546
 01:09:28,100 --> 01:09:37,940
-A partir disso aqui também, o plano de pagamento, posso cadastrar, quero cadastrar, não
-tratável, quero mostrar, por exemplo neste caso serve para mostrar em um formulário.
+A partir disso aqui também, o plano de pagamento. Posso cadastrar, quero cadastrar, não tratável, quero mostrar. Por exemplo, neste caso, serve para mostrar em um formulário.
 
 547
 01:09:38,000 --> 01:09:45,580
-Estou fazendo uma preparação, vou agendar uma preparação, vou falar
-bem, Se o cliente me adiantar tanto dinheiro, como ficaria minha agenda?
+Estou fazendo uma preparação, vou agendar uma preparação, vou falar bem. Se o cliente me adiantar tanto dinheiro, como ficaria minha agenda?
 
 548
 01:09:46,200 --> 01:09:49,040
@@ -2242,8 +2237,7 @@ Então eu falo para ele o cor, como se você fosse fazer, ele não faz, só simu
 
 549
 01:09:49,140 --> 01:09:56,880
-E o que eu faço é ler o relatório, o plano de pagamento,
-se gasto adequadamente e posso dar mais, é a mesma ideia.
+E o que eu faço é ler o relatório, o plano de pagamento, se gasto adequadamente e posso dar mais. É a mesma ideia.
 
 550
 01:09:56,920 --> 01:10:01,921
@@ -2259,8 +2253,7 @@ São apenas aqueles que o cor planejou na memória, que são alguns específicos
 
 553
 01:10:08,520 --> 01:10:13,320
-Quando prevejo outro, não o tenho
-pronto, peço que publiquem este relatório.
+Quando prevejo outro, não o tenho pronto, peço que publiquem este relatório.
 
 554
 01:10:14,320 --> 01:10:22,160
