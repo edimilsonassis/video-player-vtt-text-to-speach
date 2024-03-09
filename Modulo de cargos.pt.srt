@@ -2019,8 +2019,7 @@ só precisa se preocupar quando vir transações aqui que a tabela principal é 
 
 495
 01:06:23,440 --> 01:06:26,320
-Se você não possui placa
-principal, adicione-a com calma.
+Se você não possui placa principal, adicione-a com calma.
 
 496
 01:06:26,650 --> 01:06:29,640
@@ -2028,13 +2027,11 @@ Você tem que olhar para as outras coisas, mas você não vai mais lidar.
 
 497
 01:06:30,000 --> 01:06:34,120
-Se você tem o que
-acontece, aqui está 56.
+Se você tem o que acontece, aqui está 56.
 
 498
 01:06:34,121 --> 01:06:40,280
-Então você vai, olha aqui e
-realmente 56, o que aconteceu?
+Então você vai, olha aqui e realmente 56, o que aconteceu?
 
 499
 01:06:40,380 --> 01:06:41,480
@@ -2054,8 +2051,7 @@ Então está bem.
 
 503
 01:06:47,060 --> 01:06:57,120
-Se eu adicionar aqui essa transação, eu adiciono aqui
-uma transação entre 55, 56, a nova começa usando 56.
+Se eu adicionar aqui essa transação, eu adiciono aqui uma transação entre 55 e 56. A nova começa usando 56.
 
 504
 01:06:57,810 --> 01:06:59,460
@@ -2063,8 +2059,7 @@ E o meu que chama o módulo do carro é o número 57.
 
 505
 01:06:59,461 --> 01:07:01,940
-Para saber o número, para
-onde você liga? É exatamente.
+Para saber o número, para onde você liga? É exatamente.
 
 506
 01:07:02,060 --> 01:07:03,560
