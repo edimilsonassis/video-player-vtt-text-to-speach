@@ -1470,8 +1470,7 @@ Existem alguns campos aqui também.
 
 366
 00:51:47,480 --> 00:52:00,461
-Aqui também posso configurar que, quando utilizo uma faixa de taxas, ele crie um campo especial que
-desejo utilizar, para poder definir que nem todas as faixas de taxas serão carregadas no mesmo campo.
+Aqui também posso configurar que, quando utilizo uma faixa de taxas, ele crie um campo especial que desejo utilizar, para poder definir que nem todas as faixas de taxas serão carregadas no mesmo campo.
 
 367
 00:52:01,980 --> 00:52:05,340
@@ -1483,8 +1482,7 @@ Mas se eu quiser definir algo mais aí, eu meio que uso aqui.
 
 369
 00:52:08,241 --> 00:52:17,160
-Então, quando quero fazer esse tipo de coisa especial na operação, tem a coisa mais
-genérica, para não confundir o usuário, que se pedirmos tantos dados, não sabe o que colocar.
+Então, quando quero fazer esse tipo de coisa especial na operação, tem a coisa mais genérica, para não confundir o usuário, que se pedirmos tantos dados, não sabe o que colocar.
 
 370
 00:52:17,880 --> 00:52:23,660
@@ -1500,11 +1498,11 @@ Então, fazemos isso com base.
 
 373
 00:52:44,160 --> 00:52:47,401
-Aqui também está o campo, o mundo tributável, de volta à mesma coisa.
+Aqui também está o campo do mundo tributável, voltando à mesma coisa.
 
 374
 00:52:47,440 --> 00:52:52,060
-Ou seja, quando eu quero, como que por defeito, ele manda que eu venha nos dias 24 a 39.
+Ou seja, quando eu quero, por padrão, ele assume que eu venha nos dias 24 a 39.
 
 375
 00:52:52,970 --> 00:53:01,960
@@ -1526,7 +1524,7 @@ E quero que eles usem um mundo tributável diferente para cada uma das posiçõe
 
 379
 00:53:21,400 --> 00:53:28,880
-Bem, então, nesse caso, o que eu tenho que fazer, Coloco três campos
+Bem, então, nesse caso, o que eu tenho que fazer? Coloco três campos
 diferentes e realizo a operação em cada campo com o valor que desejo.
 
 380
@@ -1535,7 +1533,7 @@ Para fazer isso de volta, aí fazemos por base.
 
 381
 00:53:32,320 --> 00:53:36,280
-Como eu disse, é difícil complicar muito alisoário ou você não sabe metrizar.
+Como eu disse, é difícil complicar muito o alisamento ou você não sabe mensurar.
 
 382
 00:53:36,540 --> 00:53:39,580
@@ -1544,7 +1542,7 @@ Então, há mais generalidade na operação.
 383
 00:53:39,930 --> 00:53:43,700
 Bem, são coisas muito particulares,
-lá se fizermos isso com base.
+lá, fazemos isso com base.
 
 384
 00:54:47,905 --> 00:54:51,810
@@ -1566,15 +1564,15 @@ E este campo 24 é simplesmente sim.
 388
 00:55:17,690 --> 00:55:23,530
 Aqui está um parâmetro adicional
-que posso colocar, O que é Notisplay?
+que posso colocar. O que é Notisplay?
 
 389
 00:55:24,240 --> 00:55:28,110
-A notificação do que sou eu quando executo a operação,
+A notificação do que sou eu quando executo a operação.
 
 390
 00:55:29,170 --> 00:55:30,211
-vamos executá-los e vir,
+Vamos executá-los e vir.
 
 391
 00:55:54,410 --> 00:55:56,080
