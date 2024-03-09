@@ -38,6 +38,7 @@ function speaksent() {
         utt.onend = null;
         return;
     }
+    writelog(sents[sind]);
     utt.text = sents[sind];
     utt.onend = nextind;
     writetime();
@@ -58,6 +59,10 @@ function speakelem() {
     if (limpar) {
         sents[sents.length - 1] = sents[sents.length - 1].slice(0, -1);
     }
+    // array filter
+    sents = sents.filter(function (e) {
+        return e.trim().length > 0;
+    });
     sind = 0;
     writetime();
     writelog("Início da legenda " + (arindex + 1));
@@ -80,6 +85,8 @@ function nextar() {
         } else {
             timeWithRate = timear[arindex] / ttsrange.value;
             timerid = setTimeout(speakelem, timeWithRate);
+            // duração do audio em segundos formatado
+            writelog("Próxima legenda em " + msectotime(timeWithRate) + " segundos");
         }
     }
 }
@@ -197,7 +204,9 @@ function writelog(e) {
 
 function writetime() {
     var e = Date.now() - start_time;
-    txtlog.value += msectotime(e) + " ";
+    var time = msectotime(e);
+    txtlog.value += time + " ";
+    // writelog(time);
 }
 
 function toggleme() {
@@ -294,7 +303,7 @@ ttsrange.addEventListener("change", function () {
         utt.rate = ttsrange.value;
     }
 
-    player.playbackRate = ttsrange.value * 0.9;
+    player.playbackRate = ttsrange.value;
 })
 
 txtspeak.addEventListener("change", function () {

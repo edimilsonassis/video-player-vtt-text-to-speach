@@ -118,7 +118,7 @@ Depois temos as taxas por cobrança. É isso que eu estava falando para vocês: 
 
 29
 00:09:23,960 --> 00:10:01,000
-Aqui, eu associo o evento ao cargo. Na primeira opção, você só define os eventos. Na segunda, você define os cargos. Nessa outra opção, você associa os eventos aos cargos. Um evento pode ter muitos cargos. Também é possível associar a cobrança com o imposto, pois eles trabalham juntos. Os impostos são registrados aqui, diferenciando-se do caso do ITF, que é definido como um encargo e não como um imposto.
+Aqui, eu associo o evento à cobrança. Na primeira opção, você só define os eventos. Na segunda, você define os cargos. Nessa outra opção, você associa os eventos aos cargos. Um evento pode ter muitos cargos. Também é possível associar a cobrança com o imposto, pois eles trabalham juntos. Os impostos são registrados aqui, diferenciando-se do caso do ITF, que é definido como um encargo e não como um imposto.
 
 30
 00:10:23,135 --> 00:10:31,560
@@ -135,6 +135,7 @@ Se for necessário fazer para as tabelas e bancos de dados, será muito mais com
 33
 00:10:45,905 --> 00:10:59,320
 Tirando o módulo de cobrança, é o único caso que as tabelas possuem chave estrangeira, então eles têm que ter cuidado na hora de criá-las, eles fazem os inserts nas tabelas, têm que fazer com cuidado porque senão vai não deixá-los.
+
 34
 00:10:59,800 --> 00:11:04,160
 Não consigo mais relacionar um evento a uma cobrança e que o evento não existe ou que a cobrança não existe.
@@ -165,11 +166,11 @@ Aqui a ajuda de retorno pode ser das posições que existem e isso posso definir
 
 41
 00:11:42,580 --> 00:11:45,800
-Aqui vai me dizer que o cargo não existe e vai cadastrar.
+Aqui vai me dizer que a cobrança não existe e vai cadastrar.
 
 42
 00:11:46,440 --> 00:11:51,640
-Poderia também associar um cargo que já existe aqui e que também me permite fazê-lo.
+Poderia também associar uma cobrança que já existe aqui e que também me permite fazê-lo.
 
 43
 00:11:55,840 --> 00:12:04,640
@@ -193,11 +194,11 @@ Exonerável.
 
 48
 00:12:26,440 --> 00:12:40,180
-O exonerável significa, em determinado caso, eu posso perguntar ao usuário e fazer com que o usuário me diga, ah, ele vai exonerar essa taxa e eu não vou cobrar até o dente nesse caso.
+O exonerável significa, em determinado caso, eu posso perguntar ao usuário e fazer com que o usuário me diga. Ah, ele vai exonerar essa taxa e eu não vou cobrar até o dente nesse caso.
 
 49
 00:12:40,380 --> 00:12:43,860
-Se o usuário na operação me disser isso eu o exonerarei.
+Se o usuário na operação me disser isso, eu o exonerarei.
 
 50
 00:12:44,140 --> 00:12:48,720
@@ -205,7 +206,7 @@ Se quiser, nem sempre você vai querer coletá-lo e não terá essa opção.
 
 51
 00:12:49,095 --> 00:12:58,200
-Quando vou executar a operação, ele me permite, abre uma caixinha do módulo Cobrança, onde conforme eu medir aí posso alterar.
+Quando vou executar a operação, ele me permite abrir uma caixinha do módulo Cobrança, onde, conforme eu medir, posso alterar.
 
 52
 00:12:58,540 --> 00:13:01,160
@@ -213,11 +214,11 @@ Por exemplo, afirmando que está exonerado.
 
 53
 00:13:02,220 --> 00:13:04,280
-E que foi bom neste caso não se aplica.
+E que foi, bom, neste caso não se aplica.
 
 54
 00:13:07,410 --> 00:13:14,720
-Aqui está o que mencionei sobre a condição, no caso do meu banco tenho que escrever aqui a condição de quando esse preço se aplica.
+Aqui está o que mencionei sobre a condição. No caso do meu banco, tenho que escrever aqui a condição de quando esse preço se aplica.
 
 55
 00:13:15,695 --> 00:13:23,260
@@ -836,7 +837,7 @@ Na verdade, coloco o valor que vai ter.
 
 209
 00:32:18,350 --> 00:32:22,630
-E na relação do cargo e do acontecimento, é onde vou dizer a mim mesmo qual é o campo.
+E na relação da cobrança e do acontecimento, é onde vou dizer a mim mesmo qual é o campo.
 
 210
 00:32:23,470 --> 00:33:03,450
@@ -2327,12 +2328,12 @@ Até agora, não me lembro de muito mais.
 
 571
 01:11:58,600 --> 01:12:03,300
-Porque equilíbrio, e você tem isso, mas é propriedade
+Porque equilíbrio, e você tem isso. Mas é propriedade
 que você tem da operação, não é como na memória.
 
 572
 01:12:03,620 --> 01:12:04,880
-Em geral, é aquela Susan na memória, são essas.
+Em geral, é aquela Susan na memória. São essas.
 
 573
 01:12:04,881 --> 01:12:05,881
@@ -2340,7 +2341,7 @@ Em geral, é aquela Susan na memória, são essas.
 
 574
 01:12:07,900 --> 01:12:15,500
-Até agora, o plano peru, despesas com taxas e cobranças de memória, e agora temos esse novo, cmcronograma.
+Até agora, o plano peru, despesas com taxas e cobranças de memória. Agora temos esse novo, cmcronograma.
 
 575
 01:12:17,300 --> 01:12:19,120
@@ -2348,18 +2349,18 @@ Bem, alguma outra pergunta?
 
 576
 01:12:19,700 --> 01:12:21,660
-Não, aqui, pontualidade, e
-agora não? Sim Sim SIM SIM.
+Não, aqui, pontualidade. E
+agora não? Sim, sim, SIM, SIM.
 
 577
 01:12:22,000 --> 01:12:23,640
-perus.
+Perus.
 
 578
 01:12:24,150 --> 01:12:25,560
-Tchau tchau tchau.
+Tchau, tchau, tchau.
 
 579
 01:12:25,935 --> 01:12:27,420
-Bye Bye.
+Bye, bye.
 
