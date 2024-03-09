@@ -500,11 +500,11 @@ Se eu torná-lo atualizável, sim, você poderá modificá-lo e definir outro va
 
 125
 00:22:33,350 --> 00:22:34,790
-Normalmente vamos dizer não.
+Normalmente, vamos dizer não.
 
 126
 00:22:35,170 --> 00:22:37,470
-Você também pode pular um valor do carteiro para representar? Não não.
+Você também pode pular um valor do carteiro para representar? Não, não.
 
 127
 00:22:38,240 --> 00:22:40,990
@@ -512,7 +512,7 @@ Se eu posso fazer isso, você disse a ele que poderia fazer isso, eu posso fazer
 
 128
 00:22:42,630 --> 00:22:50,650
-Sim Sim. Depois, bom, você pode em qualquer caso, na operação de programação, que se o valor mudou, o que você vê para autorizar.
+Sim, sim. Depois, bom, você pode, em qualquer caso, na operação de programação, verificar se o valor mudou e autorizar.
 
 129
 00:22:51,350 --> 00:22:53,590
@@ -528,20 +528,19 @@ Onde você vê as opções na caixa do capítulo?
 
 132
 00:22:59,590 --> 00:23:07,490
-Quando o modo Cobrança, claro, quando aquela foto aparece, Você pode
-clicar no valor, no número que ele calcula e inserir outro número.
+Quando o modo Cobrança, claro, quando aquela foto aparece, você pode clicar no valor, no número que ele calcula e inserir outro número.
 
 133
 00:23:07,990 --> 00:23:10,230
-Normalmente clientes que podem ser atualizados, não.
+Normalmente, clientes que podem ser atualizados, não.
 
 134
 00:23:10,750 --> 00:23:14,030
-Mas depende, claro, do que acontece que você poderia definir.
+Mas depende, claro, do que acontece, que você poderia definir.
 
 135
 00:23:14,170 --> 00:23:18,850
-Bem, na verdade eu quero que essa comissão passe de 5 para 10.
+Bem, na verdade, eu quero que essa comissão passe de 5 para 10.
 
 136
 00:23:18,851 --> 00:23:22,650
@@ -561,8 +560,7 @@ Assim, tudo o que qualquer cliente precisa pode ser feito.
 
 140
 00:23:34,210 --> 00:23:42,690
-E essa opção e a parte de ação do tempo em um atendimento, pode
-ser atualizada, pois não vai dar interação para saber o que foi.
+E essa opção e a parte de ação do tempo em um atendimento podem ser atualizadas, pois não vai dar interação para saber o que foi.
 
 141
 00:23:44,090 --> 00:23:45,990
