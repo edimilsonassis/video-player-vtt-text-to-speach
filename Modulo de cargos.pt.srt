@@ -67,7 +67,7 @@ Então, aqui você tem um menu que permite mesclar a maioria das tabelas do mód
 
 17
 00:04:10,460 --> 00:04:41,030
-sim, é sempre algo que vou cobrar das pessoas, mas podem ter em geral esses são os mais típicos, seguros, despesas e comissões, sim, são encargos, o evento que eu posso associar vários encargos e dizer, por exemplo, numa eventualidade que é o desembolso, bom, eu vou cobrar,
+ é sempre algo que vou cobrar das pessoas, mas podem ter em geral esses são os mais típicos, seguros, despesas e comissões, sim, são encargos, o evento que eu posso associar vários encargos e dizer, por exemplo, numa eventualidade que é o desembolso, bom, eu vou cobrar,
 
 18
 00:04:41,340 --> 00:05:33,410
