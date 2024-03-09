@@ -98,39 +98,39 @@ base, também tem fórmulas para a condição, a condição de quando incide ou 
 
 24
 00:07:53,970 --> 00:08:02,986
-No caso do meu banco não, nesse caso quando você define a cobrança você define a condição ali num campo com a fórmula.
+No caso do meu banco, quando você define a cobrança, você define a condição ali num campo com a fórmula.
 
 25
 00:08:02,998 --> 00:08:06,290
-Na linha de base é paramétrico e aí você define.
+Na linha de base, é paramétrico e você define.
 
 26
 00:08:06,291 --> 00:08:14,026
-Na fórmula, você informa se é uma condição ou não, e então pode aplicar a mesma fórmula de condição a diversas posições.
+Na fórmula, você informa se é uma condição ou não e pode aplicar a mesma fórmula de condição a diversas posições.
 
 27
 00:08:14,038 --> 00:08:20,410
-No outro caso, bom, você coloca em cada posição na mesma fórmula que você colocou, escrevendo tudo de novo, sabe?
+No outro caso, você coloca em cada posição na mesma fórmula que você colocou, escrevendo tudo de novo.
 
 28
 00:08:38,945 --> 00:09:23,360
-Depois temos as taxas por cobrança, é isso que eu estava falando para vocês, que as cobranças eu vou conseguir parametrizar as taxas, seja aquela sem portfix no meu banco ou a taxa, ou no caso da linha base como simplesmente duas parâmetros, que por sua vez podem ser usados ​​em fórmulas, certo? na fórmula de cobrança. alíquota de imposto, bom, se eu vou cobrar um imposto, bom, é uma alíquota fixa, impostos, por exemplo, no Chile, que é uma alíquota fixa, que vou cobrar sempre igual, ou também podem ser uma taxa que vou calcular sobre o mundo, ok? Nesse caso você lembra que o imposto é calculado sobre a cobrança, então é sobre a cobrança que eu vou calcular essa alíquota, nesse caso,
+Depois temos as taxas por cobrança. É isso que eu estava falando para vocês: as cobranças podem ser parametrizadas com taxas. Seja aquela sem portfix no meu banco ou a taxa, ou no caso da linha base, como simplesmente duas parâmetros que podem ser usados em fórmulas, certo? Na fórmula de cobrança, temos a alíquota de imposto. Se vou cobrar um imposto, pode ser uma alíquota fixa, como no Chile, ou uma taxa calculada sobre o valor da cobrança. Nesse caso, o imposto é calculado sobre a cobrança.
 
 29
 00:09:23,960 --> 00:10:01,000
-e aí aqui eu associo, associo o evento, o cargo, como na primeira opção você só define os eventos na segunda você define os cargos, e nessa outra você associa, bom, como falamos, um evento pode ter muitos cargos, eu associo aqui, e você também pode associar a cobrança com o imposto, pois a gente viu que eles trabalhavam juntos, então aqui na verdade é quem registra os impostos, não é que ele relaciona, então ele relaciona aqui, mas aqui já está claro que os impostos Estão superfaturados como mencionei para diferenciar do fato de que, como no caso do ITF, é definido como um encargo e não como um imposto.
+Aqui, eu associo o evento ao cargo. Na primeira opção, você só define os eventos. Na segunda, você define os cargos. Nessa outra opção, você associa os eventos aos cargos. Um evento pode ter muitos cargos. Também é possível associar a cobrança com o imposto, pois eles trabalham juntos. Os impostos são registrados aqui, diferenciando-se do caso do ITF, que é definido como um encargo e não como um imposto.
 
 30
 00:10:23,135 --> 00:10:31,560
-depois será a inscrição na tabela de eventos, a inscrição na tabela de cobranças e a inscrição na tabela que relaciona o evento à cobrança.
+Em seguida, ocorre a inscrição na tabela de eventos, na tabela de cobranças e na tabela que relaciona o evento à cobrança.
 
 31
 00:10:31,820 --> 00:10:40,240
-Ele já faz tudo junto, então quando estou definindo algo novo, a ideia é definir aqui por operação e será muito mais fácil.
+Todas essas etapas são realizadas em conjunto, tornando mais fácil definir algo novo.
 
 32
 00:10:40,760 --> 00:10:45,480
-Se eu quiser fazer para as tabelas, para os bancos de dados, é muito mais complicado de fazer.
+Se for necessário fazer para as tabelas e bancos de dados, será muito mais complicado.
 
 33
 00:10:45,905 --> 00:10:59,320
