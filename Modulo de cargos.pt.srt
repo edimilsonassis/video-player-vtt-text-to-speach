@@ -928,16 +928,15 @@ Como pode ser um texto, o valor que precisamos.
 
 232
 00:35:07,760 --> 00:35:08,760
-EU.
+Ok.
 
 233
 00:35:08,840 --> 00:35:10,940
-Ah, isso está
-claro.
+Ah, isso está claro.
 
 234
 00:35:16,230 --> 00:35:23,140
-Na parte imposta não vou entrar em muitos detalhes, porque é muito parecida com a parte das cobranças e não é algo que se usa muito.
+Na parte imposta, não vou entrar em muitos detalhes, porque é muito parecida com a parte das cobranças e não é algo que se usa muito.
 
 235
 00:35:23,840 --> 00:35:27,680
@@ -945,7 +944,7 @@ Então, só de saber que posso definir e defino aí.
 
 236
 00:35:27,920 --> 00:35:31,300
-É um pouco mais simples que um Cobrança, mas é muito parecido.
+É um pouco mais simples que uma Cobrança, mas é muito parecido.
 
 237
 00:35:37,680 --> 00:35:42,300
@@ -981,7 +980,7 @@ Mas não preciso mais modificar tudo em cascata.
 
 245
 00:36:16,540 --> 00:36:23,600
-Tenho que ir modificar o evento, tenho que ir modificar o preço, tenho que ir modificar a alíquota, modificar o imposto cada coisa separadamente.
+Tenho que ir modificar o evento, tenho que ir modificar o preço, tenho que ir modificar a alíquota, modificar o imposto, cada coisa separadamente.
 
 246
 00:36:24,080 --> 00:36:26,440
@@ -1001,8 +1000,7 @@ Pode ser que na operação já tenham modificado minhas cobranças, por exemplo,
 
 250
 00:36:48,485 --> 00:37:02,740
-E há outros casos em que, por exemplo, para empréstimos, É muito comum eu falar, bom, eu quero
-cobrar dos empréstimos, de cada parcela, quero cobrar, por exemplo, uma comissão ou um seguro, certo?
+E há outros casos em que, por exemplo, para empréstimos, é muito comum eu falar, bom, eu quero cobrar dos empréstimos, de cada parcela, quero cobrar, por exemplo, uma comissão ou um seguro, certo?
 
 251
 00:37:03,640 --> 00:37:08,920
@@ -1014,17 +1012,15 @@ Então, quando eu vou, por exemplo, fazer um empréstimo, eu digo, bom, em todas
 
 253
 00:37:18,160 --> 00:37:29,840
-Então aí também vai ser pelo módulo de cobranças, onde eu vou parametrizar
-aquele seguro, aquela comissão, que eu quero cobrar em todas as parcelas, Ok?
+Então aí também vai ser pelo módulo de cobranças, onde eu vou parametrizar aquele seguro, aquela comissão, que eu quero cobrar em todas as parcelas, Ok?
 
 254
 00:37:31,060 --> 00:37:41,060
-Nesse caso a forma como será a chamada é
-diferente porque a chamada é diretamente pelo cor.
+Nesse caso a forma como será a chamada é diferente porque a chamada é diretamente pelo cor.
 
 255
 00:37:41,710 --> 00:37:46,280
-Agora vemos como chamamos naquele outro caso que cobro na operação.
+Agora vemos como chamamos naquele outro caso em que cobro na operação.
 
 256
 00:37:46,630 --> 00:37:48,360
@@ -1032,21 +1028,19 @@ Sim, quero receber o pagamento agora mesmo.
 
 257
 00:37:48,880 --> 00:38:05,060
-Mas quando acaba, nas parcelas que vou ter que cobrar, nesse caso parar nos gastos por parcela, vai, por
-exemplo, no desenvolvimento é algo automático, que o cor já automaticamente no o desenvolvimento sabe e vai parar
+Mas quando acaba, nas parcelas que vou ter que cobrar, nesse caso parar nos gastos por parcela, vai, por exemplo, no desenvolvimento é algo automático, que o cor já automaticamente no o desenvolvimento sabe e vai parar.
 
 258
 00:38:06,100 --> 00:38:08,900
-as cobranças que você parametrizou, Ok?
+As cobranças que você parametrizou, Ok?
 
 259
 00:38:09,580 --> 00:38:15,280
-No caso do meu banco, todos os encargos que parametrizei
+No caso do meu banco, todos os encargos que parametrizei.
 
 260
 00:38:16,875 --> 00:38:28,740
-No caso de incorporação, ou seja, qualquer pessoa que eu queira incluir
-no parcelamento, Tem que ser parametrizado no evento 3000, certo?
+No caso de incorporação, ou seja, qualquer pessoa que eu queira incluir no parcelamento, tem que ser parametrizado no evento 3000, certo?
 
 261
 00:38:29,000 --> 00:38:35,160
