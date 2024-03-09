@@ -1048,11 +1048,11 @@ A configuração do meu banco só permite um evento para isso, ok?
 
 262
 00:38:35,600 --> 00:38:48,320
-Não consigo definir, bom, nesses desenvolvimentos é esse evento, por exemplo, para empréstimo eu uso esse evento 3000 e para depósito a prazo fixo, quando tem prazo fixo alto eu uso o evento 4000, certo?  Não se pode.
+Não consigo definir, por exemplo, nesses desenvolvimentos é esse evento. Para empréstimo, uso o evento 3000 e para depósito a prazo fixo, quando tem prazo fixo alto, uso o evento 4000, certo? Não se pode.
 
 263
 00:38:49,020 --> 00:38:52,140
-Na instalação do meu banco é um evento único para toda a instalação.
+Na instalação do meu banco, é um evento único para toda a instalação.
 
 264
 00:38:52,780 --> 00:38:55,940
@@ -1060,17 +1060,15 @@ Você pode definir qual é, mas é apenas um para toda a instalação.
 
 265
 00:38:56,430 --> 00:39:02,580
-Agora ao nível do que faz na linha, isso foi alterado e diferentes eventos podem ser parametrizados.
+Agora, ao nível do que faz na linha, isso foi alterado e diferentes eventos podem ser parametrizados.
 
 266
 00:39:02,740 --> 00:39:09,700
-Você pode definir aí, indicar, bom, agora para isso, Vou
-usar esse evento ou usar outro, você pode definir diferentes.
+Você pode definir, indicar, bom, agora para isso, vou usar esse evento ou usar outro. Você pode definir diferentes.
 
 267
 00:39:10,050 --> 00:39:15,520
-No caso do meu banco não, é um evento único,
-então saiba, sempre será no evento 3000.
+No caso do meu banco, não. É um evento único, então saiba, sempre será no evento 3000.
 
 268
 00:39:16,370 --> 00:39:21,080
@@ -1078,12 +1076,11 @@ Isso faz com que eu tenha que ter muito cuidado com as condições dos cargos.
 
 269
 00:39:21,640 --> 00:39:28,440
-Porque cada vez que você se inscreve, um empréstimo ou um
-depósito a prazo fixo, o evento 3000 é sempre acionado.
+Porque cada vez que você se inscreve em um empréstimo ou um depósito a prazo fixo, o evento 3000 é sempre acionado.
 
 270
 00:39:29,330 --> 00:39:32,080
-Então, como sempre, o evento 3000 é disparado,
+Então, como sempre, o evento 3000 é disparado.
 
 271
 00:39:33,110 --> 00:39:38,940
@@ -1091,73 +1088,67 @@ Todas as cobranças associadas a ele podem eventualmente ser carregadas no crono
 
 272
 00:39:40,325 --> 00:39:46,700
-Então, eu tenho que ter muito cuidado, que essa condição realmente vai ocorrer para os meus casos e para nenhum outro.
+Então, eu tenho que ter muito cuidado, pois essa condição realmente ocorrerá apenas para os meus casos e para nenhum outro.
 
 273
 00:39:47,925 --> 00:39:53,720
-E é preciso deixar claro que não se trata apenas de empréstimos, mas de empréstimos e de depósitos a prazo fixo.
+É preciso deixar claro que não se trata apenas de empréstimos, mas também de depósitos a prazo fixo.
 
 274
 00:39:53,900 --> 00:39:55,800
-É para todas as operações quadradas.
+É válido para todas as operações quadradas.
 
 275
 00:40:02,060 --> 00:40:09,940
-Então aqui, por exemplo, você vê que configuramos, no caso
-do meu banco, diversas cobranças associadas ao evento 3000.
+Aqui, por exemplo, configuramos diversas cobranças associadas ao evento 3000 no caso do meu banco.
 
 276
 00:40:12,590 --> 00:40:15,000
-Então aqui, por exemplo, tem uma ponta afiada.
+Neste caso, temos uma ponta afiada.
 
 277
 00:40:15,120 --> 00:40:17,820
-Bem, isso é seguro de veículo.
+Trata-se do seguro de veículo.
 
 278
 00:40:18,140 --> 00:40:21,620
-Então, bom, você tem que ter esse campo carregado com BP.
+Portanto, é necessário que esse campo esteja carregado com BP.
 
 279
 00:40:24,215 --> 00:40:32,820
-Aqui também temos que ter muito cuidado com as condições que definimos nestas posições.
+Também devemos ter muito cuidado com as condições definidas nessas posições.
 
 280
 00:40:33,450 --> 00:40:40,120
-Porque é diferente, no outro caso eu chamo o modelo de cobrança na operação e ele carrega naquele momento.
+A diferença é que, no outro caso, eu chamo o modelo de cobrança na operação e ele é carregado naquele momento.
 
 281
 00:40:40,820 --> 00:40:48,360
-Mas neste caso, do evento 3000, é algo que está
-sempre recalculando os encargos nas parcelas.
+Mas neste caso, do evento 3000, é algo que está sempre recalculando os encargos nas parcelas.
 
 282
 00:40:49,100 --> 00:41:02,940
-Então, nesse caso é importante que esses campos que eu coloquei nas condições, nas fórmulas,
-sejam campos, podem ser saldos, podem ser do produto e eu acho que é do cliente e acabou.
+Então, nesse caso, é importante que esses campos que eu coloquei nas condições, nas fórmulas, sejam campos. Podem ser saldos, podem ser do produto e acho que é do cliente e acabou.
 
 283
 00:41:03,440 --> 00:41:13,860
-Não posso colocar nenhum campo e aqueles que eu coloco nas condições ou
-nas fórmulas de cobrança no evento 3000 nunca poderão ser campos livres.
+Não posso colocar nenhum campo e aqueles que eu coloco nas condições ou nas fórmulas de cobrança no evento 3000 nunca poderão ser campos livres.
 
 284
 00:41:15,030 --> 00:41:20,720
-Porque se não, quando tiver alta tenho o campo livre, funcionou muito bem para mim.
+Porque se não, quando tiver alta, tenho o campo livre, funcionou muito bem para mim.
 
 285
 00:41:20,790 --> 00:41:25,640
-Bom, um evento no núcleo que recalcula os empréstimos e ele quebrou e não vai mais conseguir calcular.
+Bom, um evento no núcleo recalcula os empréstimos e ele quebrou e não vai mais conseguir calcular.
 
 286
 00:41:26,820 --> 00:41:32,460
-Então, é importante que, nesses casos, tenhamos
-muito cuidado com qual campo utilizamos.
+Então, é importante que, nesses casos, tenhamos muito cuidado com qual campo utilizamos.
 
 287
 00:41:32,710 --> 00:41:39,240
-Especialmente em geral aqueles que são utilizados são,
-ou o produto ou saldos, mas também um plano de pados.
+Especialmente em geral, aqueles que são utilizados são o produto ou saldos, mas também um plano de pados.
 
 288
 00:41:39,460 --> 00:41:41,820
@@ -1177,7 +1168,7 @@ Então, você tem que ver, se eventualmente tiver que usar outra, você tem que 
 
 292
 00:42:02,400 --> 00:42:05,580
-Mas basicamente a ideia aqui é a mesma,
+Mas basicamente, a ideia aqui é a mesma.
 
 293
 00:42:07,020 --> 00:42:12,140
@@ -1185,8 +1176,7 @@ Terá um pivô que será onde será contado.
 
 294
 00:42:13,700 --> 00:42:24,150
-O que você precisa saber aqui é por que estamos falando de esquemas
-contábeis, que o pivô me ajuda nos esquemas contábeis a parametrizar
+O que você precisa saber aqui é por que estamos falando de esquemas contábeis. O pivô me ajuda nos esquemas contábeis a parametrizar.
 
 295
 00:42:25,230 --> 00:42:27,580
@@ -1194,20 +1184,19 @@ Como vou contabilizar esse carro?
 
 296
 00:42:28,130 --> 00:42:37,360
-Então, o que se passa? No caso particular deste, que é o que
-há nas despesas com cotas, Eu programo isso no desembolso.
+Então, o que se passa? No caso particular deste, que é o que há nas despesas com cotas, eu programo isso no desembolso.
 
 297
 00:42:38,515 --> 00:42:43,300
-E aí, na verdade nesse momento eu não vou usar o pivô, porque naquele momento eu não carrego ele.
+E aí, na verdade, nesse momento, eu não vou usar o pivô, porque naquele momento eu não carrego ele.
 
 298
 00:42:43,350 --> 00:42:47,240
-Vou retirar depois, quando o cliente vier ele vai me pagar, eu pego lá.
+Vou retirar depois, quando o cliente vier, ele vai me pagar, eu pego lá.
 
 299
 00:42:47,900 --> 00:42:49,740
-E nessa hora vou usar o esboço.
+E nessa hora, vou usar o esboço.
 
 300
 00:42:50,540 --> 00:42:59,640
