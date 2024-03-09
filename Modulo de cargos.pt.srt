@@ -1981,7 +1981,7 @@ guarda mais, porque nessa transação, não há mais informações.
 
 486
 01:05:46,880 --> 01:05:50,480
-Então, vai salvar o valor zero, ao invés de salvar as informações corretas.
+Então, vai salvar o valor zero ao invés de salvar as informações corretas.
 
 487
 01:05:50,820 --> 01:05:51,940
@@ -1989,12 +1989,12 @@ E aí vou ter problemas.
 
 488
 01:05:52,220 --> 01:05:55,300
-Então, isso é algo importante para sempre lembrar.
+Isso é algo importante para sempre lembrar.
 
 489
 01:05:57,005 --> 01:06:02,960
 Não sei se você tem alguma dúvida ou mais ou menos isso
-ferozmente, É um pouco sobre isso que eu queria falar.
+ferozmente. É um pouco sobre isso que eu queria falar.
 
 490
 01:06:03,360 --> 01:06:06,096
@@ -2002,15 +2002,15 @@ ferozmente, É um pouco sobre isso que eu queria falar.
 
 491
 01:06:06,120 --> 01:06:06,420
-Sim Sim.
+Sim, sim.
 
 492
 01:06:06,880 --> 01:06:09,020
-Claro, sim, para você aqui,
+Claro, sim, para você aqui.
 
 493
 01:06:11,415 --> 01:06:12,860
-você tem aquele hicar sememoneano.
+Você tem aquele hicar sememoneano.
 
 494
 01:06:13,060 --> 01:06:23,260
