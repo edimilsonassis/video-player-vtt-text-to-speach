@@ -82,20 +82,19 @@ No caso particular do Peru, o imposto mais utilizado é o ITF, que incide sobre 
 
 20
 00:06:25,810 --> 00:06:40,990
-Eu vou cobrar o imposto, estou cobrando do cliente, agora o cliente vem e me paga as parcelas daquele empréstimo, ele me paga o capital, ele me paga os juros, ele me paga as amortizações, ele me paga os encargos, principalmente o dinheiro que eu recebo, que o cliente está me pagando, eu vou cobrar o imposto dele,
+Eu vou cobrar o imposto. Estou cobrando do cliente. Agora o cliente vem e me paga as parcelas daquele empréstimo. Ele me paga o capital, os juros, as amortizações, os encargos. Principalmente o dinheiro que eu recebo, que o cliente está me pagando, eu vou cobrar o imposto dele.
 
 21
 00:06:41,590 --> 00:07:22,130
-então nesse caso não é um imposto sobre uma cobrança, mas é o imposto sobre um valor que eu vou calcular.  Então, como eu vou calcular um imposto sobre um valor genérico e não está associado um encargo, nesse caso a gente definimos o imposto como encargo, não definimos como encargo sobre cobrança, ok?  Portanto, no
+Então, nesse caso, não é um imposto sobre uma cobrança, mas sim um imposto sobre um valor que eu vou calcular. Como vou calcular um imposto sobre um valor genérico e não está associado a um encargo, nesse caso a gente define o imposto como encargo, não definimos como encargo sobre cobrança. Portanto, no
 
 22
 00:07:23,080 --> 00:07:46,630
-caso oriental do Peru, o ITF não está definido na tabela de impostos, mas sim na tabela de encargos, certo? É claro por que existe a diferença. Então aqui temos as fórmulas, certo? Aqui nas fórmulas também há outra diferença
-em termos do módulo do meu banco e do módulo de outros clientes de qual é a linha de base, Ok? No meu módulo bancário as fórmulas referem-se à fórmula de cálculo do encargo, certo? Por outro lado, no que é a linha de
+caso oriental do Peru, o ITF não está definido na tabela de impostos, mas sim na tabela de encargos. É claro por que existe a diferença. Então aqui temos as fórmulas. Aqui nas fórmulas também há outra diferença em termos do módulo do meu banco e do módulo de outros clientes de qual é a linha de base. No meu módulo bancário, as fórmulas referem-se à fórmula de cálculo do encargo. Por outro lado, na linha de
 
 23
 00:07:47,035 --> 00:07:53,670
-base, também tem fórmulas para a condição, a condição de quando incide ou não incide o encargo, também é uma fórmula, certo?
+base, também tem fórmulas para a condição, a condição de quando incide ou não incide o encargo, também é uma fórmula.
 
 24
 00:07:53,970 --> 00:08:02,986
