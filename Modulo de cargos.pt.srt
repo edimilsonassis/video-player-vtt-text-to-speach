@@ -135,14 +135,13 @@ Se for necessário fazer para as tabelas e bancos de dados, será muito mais com
 33
 00:10:45,905 --> 00:10:59,320
 Tirando o módulo de cobrança, é o único caso que as tabelas possuem chave estrangeira, então eles têm que ter cuidado na hora de criá-las, eles fazem os inserts nas tabelas, têm que fazer com cuidado porque senão vai não deixá-los.
-
 34
 00:10:59,800 --> 00:11:04,160
 Não consigo mais relacionar um evento a uma cobrança e que o evento não existe ou que a cobrança não existe.
 
 35
 00:11:04,460 --> 00:11:08,160
-não primeiro registrar a posição depois de registrar o evento e depois apenas o relacionamento.
+Não primeiro registrar a posição depois de registrar o evento e depois apenas o relacionamento.
 
 36
 00:11:08,760 --> 00:11:15,100
@@ -158,11 +157,11 @@ Talvez em certos casos possa levar algum valor padrão já definido, se quisermo
 
 39
 00:11:29,900 --> 00:11:33,420
-mas, em geral, a maioria dos casos funciona e é melhor fazê-lo aqui.
+Mas, em geral, a maioria dos casos funciona e é melhor fazê-lo aqui.
 
 40
 00:11:34,400 --> 00:11:42,140
-aqui a ajuda de retorno pode ser das posições que existem e isso posso definir aqui mas uma nova.
+Aqui a ajuda de retorno pode ser das posições que existem e isso posso definir aqui mas uma nova.
 
 41
 00:11:42,580 --> 00:11:45,800
@@ -190,7 +189,7 @@ Agora o que vamos medir é o Cobrança.
 
 47
 00:12:24,180 --> 00:12:25,180
-exonerável.
+Exonerável.
 
 48
 00:12:26,440 --> 00:12:40,180
@@ -206,21 +205,19 @@ Se quiser, nem sempre você vai querer coletá-lo e não terá essa opção.
 
 51
 00:12:49,095 --> 00:12:58,200
-Quando vou executar a operação, ele me permite, abre uma caixinha
-do módulo Cobrança, onde conforme eu medir aí posso alterar.
+Quando vou executar a operação, ele me permite, abre uma caixinha do módulo Cobrança, onde conforme eu medir aí posso alterar.
 
 52
 00:12:58,540 --> 00:13:01,160
-por exemplo, afirmando que está exonerado.
+Por exemplo, afirmando que está exonerado.
 
 53
 00:13:02,220 --> 00:13:04,280
-e que foi bom neste caso não se aplica.
+E que foi bom neste caso não se aplica.
 
 54
 00:13:07,410 --> 00:13:14,720
-Aqui está o que mencionei sobre a condição, no caso do meu banco
-tenho que escrever aqui a condição de quando esse preço se aplica.
+Aqui está o que mencionei sobre a condição, no caso do meu banco tenho que escrever aqui a condição de quando esse preço se aplica.
 
 55
 00:13:15,695 --> 00:13:23,260
@@ -236,15 +233,15 @@ Quando eu executar a operação o cliente vai querer contabilizar o que estou co
 
 58
 00:13:35,920 --> 00:13:41,440
-então a contabilização de itens cobranças é sempre feita por esquema contábil.
+Então a contabilização de itens cobranças é sempre feita por esquema contábil.
 
 59
 00:13:42,280 --> 00:13:46,700
-então os esquemas contábeis são definidos através deste pivô.
+Então os esquemas contábeis são definidos através deste pivô.
 
 60
 00:13:47,110 --> 00:13:52,780
-Esse pivô será o campo onde o mogulo Cobrança deixará o valor que calcula para esse Cobrança.
+Esse pivô será o campo onde o módulo Cobrança deixará o valor que calcula para esse Cobrança.
 
 61
 00:13:53,520 --> 00:14:02,260
@@ -252,7 +249,7 @@ Por exemplo, posso cadastrar um evento com três faces e cada face será contabi
 
 62
 00:14:02,720 --> 00:14:11,440
-então vou definir cada um o seu pivô e o mogulo Cobrança vai me deixar o pivô de cada Cobrança, o valor que cai no cu desse Cobrança para eu dar conta.
+Então vou definir cada um o seu pivô e o módulo Cobrança vai me deixar o pivô de cada Cobrança, o valor que cai no cu desse Cobrança para eu dar conta.
 
 63
 00:14:14,570 --> 00:14:23,260
@@ -260,43 +257,35 @@ Então simplesmente quando eu defino o esquema contábil no campo, vocês veem o
 
 64
 00:14:24,580 --> 00:14:30,820
-Se ainda não sei, por algum motivo posso deixar a sério,
-mas tenho que lembrar que não vai ser contabilizado.
+Se ainda não sei, por algum motivo posso deixar a sério, mas tenho que lembrar que não vai ser contabilizado.
 
 65
 00:14:31,960 --> 00:14:39,040
-Se eu quiser usar as cobranças mogulo, só efeitos paramétricos para
-demonstrar um cálculo ou algo assim, poderia deixar a sério.
+Se eu quiser usar as cobranças módulo, só efeitos paramétricos para demonstrar um cálculo ou algo assim, poderia deixar a sério.
 
 66
 00:14:39,440 --> 00:14:47,920
-Se não consigo registrar assim então adiciono o pivô, mas o que
-deve ficar claro é que enquanto tiver pivô 0 não terá como contar.
+Se não consigo registrar assim então adiciono o pivô, mas o que deve ficar claro é que enquanto tiver pivô 0 não terá como contar.
 
 67
 00:14:50,250 --> 00:15:06,820
-aqui o valor mínimo e o valor máximo, se eu quiser definir que essa cobrança só começa a ser cobrada a partir de um determinado mínimo ou que
-se o valor for menor já houve um valor determinado que calcula a cobrança, não, eu vou cobrar esse mínimo, menos eu não vou cobrar por isso.
+Aqui o valor mínimo e o valor máximo, se eu quiser definir que essa cobrança só começa a ser cobrada a partir de um determinado mínimo ou que se o valor for menor já houve um valor determinado que calcula a cobrança, não, eu vou cobrar esse mínimo, menos eu não vou cobrar por isso.
 
 68
 00:15:08,360 --> 00:15:29,000
-Sim, a moeda desse valor mínimo e desse valor máximo e o tratamento do mínimo, ou seja, tem duas formas, uma quer dizer, se eu colocar que o valor
-mínimo é 10 e eu calculo e me dá 5, O que eu tenho que fazer, tenho que cobrar os 10 dele ou devo dizer que como é menos de 10 não vou cobrar.
+Sim, a moeda desse valor mínimo e desse valor máximo e o tratamento do mínimo, ou seja, tem duas formas, uma quer dizer, se eu colocar que o valor mínimo é 10 e eu calculo e me dá 5, O que eu tenho que fazer, tenho que cobrar os 10 dele ou devo dizer que como é menos de 10 não vou cobrar.
 
 69
 00:15:30,410 --> 00:15:37,120
-Se eu mandar você cobrar significa que vou cobrar no mínimo 10,
-se eu mandar descartar significa que se você der 5 não vou cobrar.
+Se eu mandar você cobrar significa que vou cobrar no mínimo 10, se eu mandar descartar significa que se você der 5 não vou cobrar.
 
 70
 00:15:45,530 --> 00:15:57,310
-Aqui temos o QI, aí vem, se eu for cobrar eu sempre vou adiar, ele
-adia só quando não tem verba ou não adia e rejeita por falta de verba.
+Aqui temos o QI, aí vem, se eu for cobrar eu sempre vou adiar, ele adia só quando não tem verba ou não adia e rejeita por falta de verba.
 
 71
 00:15:57,990 --> 00:16:22,250
-Quando estou dentro, ou seja, num empréstimo, algo assim não faz sentido neste campo, no momento que vou cobrar, a questão é, por exemplo, posso cobrar pelas contas visualizadas, uma
-comissão para manutenção da conta Então todo mês eu cobro a conta à vista, ou cobro todas as contas à vista, ou digo, bom, aquelas que têm valor menor que 1000, vou cobrar uma comissão, Ok?
+Quando estou dentro, ou seja, num empréstimo, algo assim não faz sentido neste campo, no momento que vou cobrar, a questão é, por exemplo, posso cobrar pelas contas visualizadas, uma comissão para manutenção da conta Então todo mês eu cobro a conta à vista, ou cobro todas as contas à vista, ou digo, bom, aquelas que têm valor menor que 1000, vou cobrar uma comissão, Ok?
 
 72
 00:16:22,600 --> 00:16:27,890
@@ -348,8 +337,7 @@ Ou seja, se já vou coletar, não adianta tentar novamente, porque já coletei.
 
 84
 00:18:02,500 --> 00:18:12,750
-A questão é, se eu estou adiando, estou programando, por exemplo, para que quando
-tiver dinheiro, naquele momento eu só recolha, bom, quantas vezes você tenta coletar?
+A questão é, se eu estou adiando, estou programando, por exemplo, para que quando tiver dinheiro, naquele momento eu só recolha, bom, quantas vezes você tenta coletar?
 
 85
 00:18:13,290 --> 00:18:21,410
@@ -381,8 +369,7 @@ Então não tem tentativa por idade, tenta a cadeia de fechamento, certo? Corret
 
 92
 00:18:55,870 --> 00:19:13,890
-E sim, porque normalmente é um momento em que, quer dizer, se não tem dinheiro aí, então eles têm, bom, casos especiais de algum outro
-processo que quer cobrar, mas alguma coisa especial foi definida, por exemplo, em é o caso do Iban, mas o clássico é assim, é isso.
+E sim, porque normalmente é um momento em que, quer dizer, se não tem dinheiro aí, então eles têm, bom, casos especiais de algum outro processo que quer cobrar, mas alguma coisa especial foi definida, por exemplo, em é o caso do Iban, mas o clássico é assim, é isso.
 
 93
 00:19:15,415 --> 00:19:16,690
@@ -414,7 +401,7 @@ Contra, por exemplo, a conta visível, Ok?
 
 100
 00:19:39,790 --> 00:19:45,950
-Então, o muro Cobrança tem que fazer a contabilização do débito e do crédito, ambos.
+Então, o módulo Cobrança tem que fazer a contabilização do débito e do crédito, ambos.
 
 101
 00:19:46,330 --> 00:19:55,110
