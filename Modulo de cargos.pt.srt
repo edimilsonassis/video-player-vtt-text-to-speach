@@ -804,16 +804,15 @@ Assim, posso usar critérios diferentes para posições e eventos diferentes.
 
 201
 00:31:24,290 --> 00:31:29,850
-Então aí eu vou parametrizar em qual carga, em qual campo eu vou carregar aquele segmento.
+Então, eu vou parametrizar em qual campo eu vou carregar aquele segmento.
 
 202
 00:31:30,500 --> 00:31:39,230
-Sim, na medida em que eu tenho que definir um segmento, com certeza, eu também
-tenho que passar essa informação para ele na operação para que ele tenha a cidade.
+Sim, na medida em que eu tenho que definir um segmento, com certeza, eu também tenho que passar essa informação para ele na operação para que ele tenha a cidade.
 
 203
 00:31:39,880 --> 00:31:45,090
-Porque se você não vai ter os dados do segmento, você não vai saber como isso é aplicável.
+Porque se você não tiver os dados do segmento, você não vai saber como isso é aplicável.
 
 204
 00:31:45,690 --> 00:31:59,530
@@ -825,12 +824,11 @@ E esse segmento tem como fazer algum padrão para escrevê-lo.
 
 206
 00:32:04,930 --> 00:32:11,670
-Porque a ideia é... ...porque a ideia é...
-...porque a ideia é como a comissão, sim, do valor.
+Porque a ideia é... Porque a ideia é... Porque a ideia é como a comissão, sim, do valor.
 
 207
 00:32:11,790 --> 00:32:13,610
-Não, não é bem assim. Então campo é igual a nós.
+Não, não é bem assim. Então, o campo é igual a nós.
 
 208
 00:32:14,550 --> 00:32:17,910
@@ -842,8 +840,7 @@ E na relação do cargo e do acontecimento, é onde vou dizer a mim mesmo qual �
 
 210
 00:32:23,470 --> 00:33:03,450
-Então, se formos aqui, vamos ver que vários estão definidos
-aí, aqui você vê as condições que estão definidas.
+Então, se formos aqui, vamos ver que vários estão definidos. Aqui você vê as condições que estão definidas.
 
 211
 00:33:04,380 --> 00:33:05,380
@@ -855,11 +852,11 @@ Aqui você vê, por exemplo, que diz bom.
 
 213
 00:33:39,920 --> 00:33:44,460
-Esse, que é a cobrança 1, nessa tarifa, tem valor 9.
+Esse é a cobrança 1, nessa tarifa, tem valor 9.
 
 214
 00:33:46,460 --> 00:33:48,200
-Nesta taxa que tem um valor de 8.
+Nesta taxa, tem um valor de 8.
 
 215
 00:33:50,380 --> 00:33:51,380
@@ -883,8 +880,7 @@ E aí eu vou te dizer, que nesse caso, por exemplo, é regionalizar.
 
 220
 00:34:28,540 --> 00:34:36,400
-Então, vou te passar o código da região, porque vou cobrar o
-seguro dependendo da região, vou cobrar uma tarifa diferente.
+Então, vou te passar o código da região, porque vou cobrar o seguro dependendo da região, vou cobrar uma tarifa diferente.
 
 221
 00:34:36,401 --> 00:34:38,780
@@ -892,12 +888,11 @@ Em funcionamento, toda vez que quebra ou você vai quebrar.
 
 222
 00:34:39,660 --> 00:34:42,560
-Exato. Então se os 48.909 estão na operação, diz 9.
+Exato. Então, se os 48.909 estão na operação, diz 9.
 
 223
 00:34:43,420 --> 00:34:45,300
-Lá você usará
-a taxa que diz 9.
+Lá você usará a taxa que diz 9.
 
 224
 00:34:45,690 --> 00:34:47,840
@@ -909,28 +904,23 @@ Então eu só, no outro, coloco o valor direto.
 
 226
 00:34:53,040 --> 00:34:54,860
-E aí,
-e é isso.
+E aí, é isso.
 
 227
 00:34:55,280 --> 00:34:57,320
-Um vôo
-corajoso e pronto.
+Um vôo corajoso e pronto.
 
 228
 00:34:58,440 --> 00:34:59,440
-Ah, ele
-tem 24 anos.
+Ah, ele tem 24 anos.
 
 229
 00:34:59,680 --> 00:35:01,000
-Bem, é um campo
-alfa.
+Bem, é um campo alfa.
 
 230
 00:35:01,460 --> 00:35:03,160
-Então, pode ser
-esse número.
+Então, pode ser esse número.
 
 231
 00:35:03,161 --> 00:35:07,320
