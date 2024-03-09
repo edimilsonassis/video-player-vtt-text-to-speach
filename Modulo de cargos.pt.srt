@@ -1580,7 +1580,7 @@ Isso nos chama de cobranças múltiplas.
 
 392
 00:55:56,380 --> 00:56:03,280
-Atas onde eu digo a eles que se essas acusações tiverem que eu possa exonerar, eles vão me deixar colocar ou retirar o cheque.
+Atas onde eu digo a eles que, se essas acusações tiverem que eu possa exonerar, eles vão me deixar colocar ou retirar o cheque.
 
 393
 00:56:03,900 --> 00:56:09,480
@@ -1588,12 +1588,12 @@ Se essa cobrança tiver algo que eu possa modificar o valor da atualização, ta
 
 394
 00:56:10,170 --> 00:56:12,760
-Mas se eu for para esse Cobrança no dia 5,
+Mas se eu for para essa cobrança no dia 5,
 
 395
 00:56:21,090 --> 00:56:26,290
-aqui ele me diz inocentável, não, atualizável,
-não, É por isso que não me permite modificá-lo.
+aqui ele me diz que não é inocentável, não é atualizável,
+não é por isso que não me permite modificá-lo.
 
 396
 00:56:30,160 --> 00:56:33,490
@@ -1601,7 +1601,7 @@ E tem cliente que olha e não gosta dessa janelinha.
 
 397
 00:56:35,330 --> 00:56:41,950
-Então, à parte, Você tem o problema de eu sempre
+Então, à parte, você tem o problema de eu sempre
 colocar esse sinal de pressão no palco para continuar.
 
 398
@@ -1610,7 +1610,7 @@ Isso é muito importante na operação.
 
 399
 00:56:44,330 --> 00:56:48,230
-Se você não colocar essa placa não
+Se você não colocar essa placa, não
 funciona, a ligação terá vários encargos.
 
 400
@@ -1630,7 +1630,7 @@ colocaram uma janela diferente.
 
 403
 00:57:03,530 --> 00:57:09,321
-Bom, na verdade não vou atualizar, não vou exonerar,
+Bom, na verdade, não vou atualizar, não vou exonerar,
 então não preciso que você me mostre a janelinha do gol.
 
 404
@@ -1639,12 +1639,11 @@ Dê-me uma janelinha como esta que me diga o total e meu medidor.
 
 405
 00:57:14,070 --> 00:57:16,770
-Então aí eu tenho que colocar o parâmetro not display.
+Então, aí eu tenho que colocar o parâmetro not display.
 
 406
 00:57:17,495 --> 00:57:22,410
-Com o parâmetro not display, o que ele faz é
-não mostrar a janela em múltiplas posições.
+Com o parâmetro not display, ele não mostra a janela em múltiplas posições.
 
 407
 00:57:23,660 --> 00:57:26,070
@@ -1652,39 +1651,35 @@ Em seguida, temos que retirar o ingresso.
 
 408
 00:57:26,420 --> 00:57:33,890
-Não faz sentido deixar muita pressão para continuar
-depois de removermos o sinal da janela de carga múltipla.
+Não faz sentido deixar muita pressão para continuar depois de removermos o sinal da janela de carga múltipla.
 
 409
 00:57:34,970 --> 00:57:40,930
-Então, a gente também tem que lembrar que na hora de colocar de volta, coloque a plaquinha de volta, senão não vai servir para gente.
+Também temos que lembrar de colocar a plaquinha de volta, senão não vai servir para nós.
 
 410
 00:57:42,250 --> 00:57:50,270
-Tem também uma coisa que, em geral, toda vez que atualizam o
-servidor, é sempre bom tentar uma operação com múltiplas cobranças.
+Em geral, é sempre bom tentar uma operação com múltiplas cobranças quando atualizam o servidor.
 
 411
 00:57:50,680 --> 00:57:54,630
-Para mim, uma das coisas mais comuns é que chega uma atualização e quebra.
+Uma das coisas mais comuns é que chega uma atualização e quebra.
 
 412
 00:57:55,170 --> 00:58:04,130
-Então, para mim, como quando atualizamos o servidor com uma alteração cor,
-É melhor fazer uma operação rápida e ligar para as cobranças múltiplas.
+Quando atualizamos o servidor com uma alteração cor, é melhor fazer uma operação rápida e ligar para as cobranças múltiplas.
 
 413
 00:58:04,131 --> 00:58:09,741
-Vamos ver se isso funcionou para você, para que serve, para que várias cobranças o chamam.  Normalmente, tudo deu certo para você na mudança.
+Vamos ver se isso funcionou para você, para que serve, para que várias cobranças o chamam. Normalmente, tudo deu certo para você na mudança.
 
 414
 00:58:10,170 --> 00:58:16,570
-Em outras palavras, ou além do que é a mudança específica e do que eles tiveram
-que fazer, Você sabe que em geral o servidor está funcionando muito bem.
+Além da mudança específica e do que eles tiveram que fazer, você sabe que, em geral, o servidor está funcionando muito bem.
 
 415
 00:58:21,145 --> 00:58:24,190
-Então aí temos essa ligação, as cobranças múltiplas.
+Então, temos essa ligação, as cobranças múltiplas.
 
 416
 00:58:27,480 --> 00:58:31,930
@@ -1692,12 +1687,11 @@ A ligação com cobrança múltipla sempre tem que ser uma transação salgada, 
 
 417
 00:58:33,500 --> 00:58:42,930
-Então, eu tenho que fazer uma transação salt, Pode ser uma transação
-de consulta, pode ser uma transação, por exemplo, como você vê isto,
+Eu tenho que fazer uma transação salt. Pode ser uma transação de consulta, pode ser uma transação, por exemplo, como você vê isto.
 
 418
 00:58:44,510 --> 00:58:46,590
-que é um sal alto automático.
+É um sal alto automático.
 
 419
 00:58:48,330 --> 00:58:53,250
@@ -1705,7 +1699,7 @@ Mas sempre tem que ser uma transação salgada, isso é importante.
 
 420
 00:58:53,730 --> 00:58:56,550
-Colocamos todos os campos da chave salt,
+Colocamos todos os campos da chave salt.
 
 421
 00:58:58,310 --> 00:59:05,210
@@ -1718,16 +1712,15 @@ Então, isso é importante.
 
 423
 00:59:09,410 --> 00:59:13,470
-Então colocamos o 24 ou o 39,
-por que colocamos este campo?
+Então, colocamos o campo 24 ou 39. Por que colocamos este campo?
 
 424
 00:59:13,471 --> 00:59:15,730
-Porque se viemos aqui, olhamos,
+Porque, se viemos aqui, olhamos.
 
 425
 00:59:16,780 --> 00:59:19,710
-O que diz aqui, diz que o campo tributável era 24 ou 39.
+O que diz aqui é que o campo tributável era 24 ou 39.
 
 426
 00:59:19,711 --> 00:59:20,711
@@ -1735,7 +1728,7 @@ O que diz aqui, diz que o campo tributável era 24 ou 39.
 
 427
 00:59:21,820 --> 00:59:27,410
-Se estivéssemos neste outro, o que temos que colocar é 24 ou 40, 24 ou 39 não seria oferecido.
+Se estivéssemos neste outro, o que temos que colocar é 24 ou 40. 24 ou 39 não seria oferecido.
 
 428
 00:59:28,110 --> 00:59:34,330
@@ -1743,17 +1736,17 @@ Se não tivermos na operação, o campo nos avisará e nos dará um erro.
 
 429
 00:59:42,570 --> 00:59:52,600
-E então temos o evento isso normalmente é o ideal, que esse parâmetro
-de um lado e a partir daí lemos, não colocamos fogo na operação.
+E então, temos o evento. Isso normalmente é o ideal, que esse parâmetro
+esteja de um lado e a partir daí lemos, não colocamos fogo na operação.
 
 430
 00:59:53,100 --> 00:59:58,260
-Mas às vezes dependendo do caso, isso é tudo o que
+Mas, às vezes, dependendo do caso, isso é tudo o que
 existe para um determinado cliente, pode ser feito.
 
 431
 00:59:58,640 --> 01:00:04,620
-Quando estamos trabalhando mais no produto, No que é
+Quando estamos trabalhando mais no produto, no que é
 algo mais genérico, a ideia é que sejam todos parâmetros.
 
 432
@@ -1763,29 +1756,29 @@ existe um parâmetro.
 
 433
 01:00:45,280 --> 01:00:47,140
-E então estes três pequenos campos,
+E então, temos estes três pequenos campos.
 
 434
 01:00:49,020 --> 01:00:57,960
-quando eu chamo o módulo de carros e na verdade eu vou
+Quando eu chamo o módulo de carros e na verdade eu vou
 cobrar e vou ver se eles carregam as tabelas de faturas, ok?
 
 435
 01:00:59,050 --> 01:01:06,500
-Tabelas de faturas são seis, Todas as tabelas de
+Tabelas de faturas são seis. Todas as tabelas de
 módulos do carro começam com seis para o módulo.
 
 436
 01:01:11,720 --> 01:01:22,860
-Não, agora é um campo pequeno, então todas as tabelas dos módulos do carro são seis, ok?
+Não, agora é um campo pequeno. Então, todas as tabelas dos módulos do carro são seis, ok?
 
 437
 01:01:24,080 --> 01:01:25,980
-Aqui temos seis faturas,
+Aqui temos seis faturas.
 
 438
 01:01:28,860 --> 01:01:31,400
-cada vez cadastra a tabela de faturas.
+Cada vez cadastra a tabela de faturas.
 
 439
 01:01:31,700 --> 01:01:34,160
@@ -1793,7 +1786,7 @@ Este passa a atuar como cabeça, certo?
 
 440
 01:01:34,520 --> 01:01:40,060
-para que se eu precisar eu possa imprimir uma fatura com os dados de quanto cobro, ok?
+Para que, se eu precisar, eu possa imprimir uma fatura com os dados de quanto cobro, ok?
 
 441
 01:01:42,550 --> 01:01:49,840
