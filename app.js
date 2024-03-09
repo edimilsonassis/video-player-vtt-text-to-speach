@@ -101,7 +101,7 @@ function speakme() {
     })[0];
 
     ttsrange = document.getElementById("ttsrange");
-    utt.rate = ttsrange.value;
+    utt.rate = ttsrange.value * 1.2;
 
     player.play();
 

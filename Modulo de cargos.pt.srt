@@ -399,6 +399,7 @@ Bom, vou contabilizar a comissão que cobro em determinado item, ok?
 99
 00:19:35,970 --> 00:19:39,070
 Contra, por exemplo, a conta visível, Ok?
+
 100
 00:19:39,790 --> 00:19:45,950
 Então, o módulo Cobrança deve fazer a contabilização do débito e do crédito, ambos.
