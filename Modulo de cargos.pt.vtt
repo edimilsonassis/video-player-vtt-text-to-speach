@@ -1,721 +1,572 @@
-﻿1
-00:00:07,970 --> 00:00:36,550
+﻿WEBVTT
+
+00:00:07.970 --> 00:00:36.550
 Bom, a ideia é ver o módulo Cobrança, o módulo Cobrança serve para qualquer conceito que o banco cobra. O banco vai cobrar do cliente, em nenhum caso ele é usado para o cliente receber, mas não, é sempre para cobrar do cliente, quer eu use associado a um empréstimo, quer tenha, tenha sido associado a uma conta à
 
-2
-00:00:36,900 --> 00:01:16,990
+00:00:36.900 --> 00:01:16.990
 ordem, a um depósito a prazo , não importa se é um ativo, se é um passivo, ou então que você está usando, ou pode ser, apenas que você cobre alguma coisa do cliente, ou até mesmo do uma pessoa que não é cliente e está cobrando de você. Mas em nenhum caso
 será para te pagar, será sempre para cobrar algo do cliente, certo? Então, vamos ver... Aqui temos o que é a instalação do meu banco. A instalação do meu banco não possui o módulo de cobrança base, mas sim uma versão mais antiga do módulo de cobrança.
 
-3
-00:01:17,190 --> 00:01:55,450
+00:01:17.190 --> 00:01:55.450
 Então, você tem que saber que se formos para outro cliente, existe uma versão mais recente, então tem outras funcionalidades, um pouco diferentes desta, mas a ideia básica é a mesma. Como eles diferem, por exemplo, vamos ver que no módulo de cobranças
 do meu banco, você não pode colocar uma fórmula e usar, por exemplo, vamos ver nas taxas, onde posso definir, enfim, um valor permanente. Então por exemplo eu quero cobrar uma comissão de 10, definir uma taxa de 10 e pronto, não preciso definir fórmula.
 
-4
-00:01:56,475 --> 00:02:34,850
+00:01:56.475 --> 00:02:34.850
 Ah, posso dizer, bem, vou cobrar uma comissão que será de 5%. Então, defina as alíquotas, uma alíquota de 5% e eu vou definir... Quando eu chamar o módulo de encargos, vou indicar em qual mundo tributável vou calcular e vou calcular essa alíquota, com essa
 alíquota e 5%, e também não preciso de fórmula . Quando eu quero algo diferente dessas duas opções, que é uma taxa sobre um valor ou um valor fixo, sim, preciso de um jeito. No caso do módulo de cobranças, a linha de base, sempre terei que usar uma fórmula.
 
-5
-00:02:35,030 --> 00:02:58,130
+00:02:35.030 --> 00:02:58.130
 Não há possibilidade de eu não definir uma fórmula, porque a ideia é que essas duas fórmulas sejam muito simples, ou seja, o valor fixo, que eu ia cobrar 10, é simplesmente uma fórmula
 com aquele campo fixo, e o a outra é uma fórmula percentual que funciona em todo o mundo. Assim, definiram como básicas essas duas fórmulas, que são sempre definidas em cada instalação.
 
-6
-00:02:58,795 --> 00:03:30,130
+00:02:58.795 --> 00:03:30.130
 E por que isso foi feito, para dizer, bom, eu sempre preciso de uma fórmula para que antes de eu nas taxas, vamos ver, eu tenha um campo para o valor fixo e outro campo para a taxa, mas não consegui usar os dois variáveis ​​na fórmula, porque eu defini,
 ok, seria um valor fixo? Ok, seria por causa da tarifa? Por outro lado, como está na linha de base, você tem duas variáveis ​​para usar, você pode metrizar as duas variáveis, e com essas duas variáveis ​​você pode metrizar fórmulas mais complexas.
 
-7
-00:03:31,170 --> 00:03:38,330
+00:03:31.170 --> 00:03:38.330
 Então, essa é uma das diferenças, por exemplo, em termos de qual é o patamar e qual é o meu banco.
 
-8
-00:03:41,385 --> 00:03:56,850
+00:03:41.385 --> 00:03:56.850
 Então, a operação que é usada, seja de microfinanças ou do meu banco, é uma genérica para cadastrar as cobranças, que é 8041.
 
-9
-00:03:58,610 --> 00:04:41,030
+00:03:58.610 --> 00:04:41.030
 Então, aqui você tem um menu que permite mesclar a maioria das tabelas do módulo de cobranças, que são os eventos, os eventos são como instâncias que eu defino, quando eu defino uma cobrança, uma cobrança pode ser uma comissão, pode ser um seguro, pode ser uma despesa,
 é sempre algo que vou cobrar das pessoas, mas podem ter em geral esses são os mais típicos, seguros, despesas e comissões, sim, são encargos, o evento que eu posso associar vários encargos e dizer, por exemplo, numa eventualidade que é o desembolso, bom, eu vou cobrar,
 
-10
-00:04:41,340 --> 00:05:33,410
+00:04:41.340 --> 00:05:33.410
 Vou cobrar uma comissão, vou cobrar um seguro, vou cobrar uma despesa, então todos esses encargos estão associados ao evento, então na operação quando vou ligar para o departamento de cobranças , normalmente vou chamar isso de evento. , Ok? então eu ligo para o evento e esse evento terá cobranças associadas a ele e então o módulo de cobranças tentará cobrar essas cobranças associadas a esse evento, Ok? então um evento pode ter nas cobranças, Ok? e ao mesmo tempo a mesma posição pode estar em eventos diferentes, certo? Posso dizer, bom, eu tenho que cobrar o mesmo seguro no desembolso e também tenho que cobrar na arrecadação, no empréstimo. Pronto, aí eu defino um Cobrança e associo o mesmo Cobrança ao evento, aquele bolso e ao evento de arrecadação, Ok?
 
-11
-00:05:33,510 --> 00:06:25,390
+00:05:33.510 --> 00:06:25.390
 Aí eu tenho imposto sobre os encargos, quando eu tenho, por exemplo, um encargo que é uma comissão e eu falo, eu tenho que cobrar um imposto sobre a comissão, Ok?
 Então, por um lado, vou definir numa tabela qual é o imposto e, por outro lado, vou definir sobre quais encargos esse imposto incide.
 Assim, estabeleço a relação entre as cobranças que cobram o mesmo imposto.
 No caso particular do Peru, o imposto mais utilizado é o ITF, que incide sobre todas as operações financeiras, incluindo desembolsos e empréstimos.
 
-12
-00:06:25,810 --> 00:07:22,130
+00:06:25.810 --> 00:07:22.130
 Eu vou cobrar o imposto. Estou cobrando do cliente. Agora o cliente vem e me paga as parcelas daquele empréstimo. Ele me paga o capital, os juros, as amortizações, os encargos. Principalmente o dinheiro que eu recebo, que o cliente está me pagando, eu vou cobrar o imposto dele. Então, nesse
 caso, não é um imposto sobre uma cobrança, mas sim um imposto sobre um valor que eu vou calcular. Como vou calcular um imposto sobre um valor genérico e não está associado a um encargo, nesse caso a gente define o imposto como encargo, não definimos como encargo sobre cobrança. Portanto, no
 
-13
-00:07:23,080 --> 00:07:53,670
+00:07:23.080 --> 00:07:53.670
 caso oriental do Peru, o ITF não está definido na tabela de impostos, mas sim na tabela de encargos. É claro por que existe a diferença. Então aqui temos as fórmulas. Aqui nas fórmulas também há outra diferença em termos do módulo do meu banco e do módulo de outros
 clientes de qual é a linha de base. No meu módulo bancário, as fórmulas referem-se à fórmula de cálculo do encargo. Por outro lado, na linha de base, também tem fórmulas para a condição, a condição de quando incide ou não incide o encargo, também é uma fórmula.
 
-14
-00:07:53,970 --> 00:08:20,410
+00:07:53.970 --> 00:08:20.410
 No caso do meu banco, quando você define a cobrança, você define a condição ali num campo com a fórmula. Na linha de base, é paramétrico e você define. Na fórmula, você informa se é uma
 condição ou não e pode aplicar a mesma fórmula de condição a diversas posições. No outro caso, você coloca em cada posição na mesma fórmula que você colocou, escrevendo tudo de novo.
 
-15
-00:08:38,945 --> 00:09:23,360
+00:08:38.945 --> 00:09:23.360
 Depois temos as taxas por cobrança. É isso que eu estava falando para vocês: as cobranças podem ser parametrizadas com taxas. Seja aquela sem portfix no meu banco ou a taxa, ou no caso da linha base, como simplesmente duas parâmetros que podem ser usados em fórmulas, certo? Na fórmula de cobrança, temos a alíquota de imposto. Se vou cobrar um imposto, pode ser uma alíquota fixa, como no Chile, ou uma taxa calculada sobre o valor da cobrança. Nesse caso, o imposto é calculado sobre a cobrança.
 
-16
-00:09:23,960 --> 00:10:01,000
+00:09:23.960 --> 00:10:01.000
 Aqui, eu associo o evento à cobrança. Na primeira opção, você só define os eventos. Na segunda, você define os cargos. Nessa outra opção, você associa os eventos aos cargos. Um evento pode ter muitos cargos. Também é possível associar a cobrança com o imposto, pois eles trabalham juntos. Os impostos são registrados aqui, diferenciando-se do caso do ITF, que é definido como um encargo e não como um imposto.
 
-17
-00:10:23,135 --> 00:10:59,320
+00:10:23.135 --> 00:10:59.320
 Em seguida, ocorre a inscrição na tabela de eventos, na tabela de cobranças e na tabela que relaciona o evento à cobrança. Todas essas etapas são realizadas em conjunto, tornando mais fácil definir algo novo. Se for necessário fazer para as tabelas e bancos de
 dados, será muito mais complicado. Tirando o módulo de cobrança, é o único caso que as tabelas possuem chave estrangeira, então eles têm que ter cuidado na hora de criá-las, eles fazem os inserts nas tabelas, têm que fazer com cuidado porque senão vai não deixá-los.
 
-18
-00:10:59,800 --> 00:11:19,820
+00:10:59.800 --> 00:11:19.820
 Não consigo mais relacionar um evento a uma cobrança e que o evento não existe ou que a cobrança não existe. Não primeiro registrar a posição depois de registrar o evento e depois apenas
 o relacionamento. Portanto, na seção de cobranças, estão todas as tabelas relacionadas e você deve fazê-las em uma determinada ordem. Então essa operação te ajuda muito e já está ajudando.
 
-19
-00:11:21,970 --> 00:11:51,640
+00:11:21.970 --> 00:11:51.640
 Talvez em certos casos possa levar algum valor padrão já definido, se quisermos algo bem diferente, se eu disser, poderíamos ir com um banco de dados. Mas, em geral, a maioria dos casos funciona e é melhor fazê-lo aqui. Aqui a ajuda
 de retorno pode ser das posições que existem e isso posso definir aqui mas uma nova. Aqui vai me dizer que a cobrança não existe e vai cadastrar. Poderia também associar uma cobrança que já existe aqui e que também me permite fazê-lo.
 
-20
-00:11:55,840 --> 00:12:17,620
+00:11:55.840 --> 00:12:17.620
 Então temos uma descrição que aqui vou listar acima que diz quitação de cobranças. Isso os ajuda porque o que essa operação tem, alguém tem sido uma
 coisa após a outra. Eles também precisam ter clareza sobre onde estão para ver o que precisam fazer para medir. Agora o que vamos medir é o Cobrança.
 
-21
-00:12:24,180 --> 00:13:04,280
+00:12:24.180 --> 00:13:04.280
 Exonerável. O exonerável significa, em determinado caso, eu posso perguntar ao usuário e fazer com que o usuário me diga. Ah, ele vai exonerar essa taxa e eu não vou cobrar até o dente nesse caso. Se o usuário na operação me disser isso, eu o exonerarei. Se quiser, nem
 sempre você vai querer coletá-lo e não terá essa opção. Quando vou executar a operação, ele me permite abrir uma caixinha do módulo Cobrança, onde, conforme eu medir, posso alterar. Por exemplo, afirmando que está exonerado. E que foi, bom, neste caso não se aplica.
 
-22
-00:13:07,410 --> 00:13:23,260
+00:13:07.410 --> 00:13:23.260
 Aqui está o que mencionei sobre a condição. No caso do meu banco, tenho que escrever aqui a condição de quando
 esse preço se aplica. No caso do que é a linha de base, aí tenho que escolher uma fórmula e ou medir a fórmula.
 
-23
-00:13:25,850 --> 00:14:02,260
+00:13:25.850 --> 00:14:02.260
 Então aqui eu tenho que definir o pivô. Quando eu executar a operação o cliente vai querer contabilizar o que estou cobrando do cliente. Então a contabilização de itens cobranças é sempre feita por esquema contábil. Então os esquemas contábeis são
 definidos através deste pivô. Esse pivô será o campo onde o módulo Cobrança deixará o valor que calcula para esse Cobrança. Por exemplo, posso cadastrar um evento com três faces e cada face será contabilizada, pode ser contabilizada em itens diferentes.
 
-24
-00:14:02,720 --> 00:14:11,440
+00:14:02.720 --> 00:14:11.440
 Então vou definir cada um o seu pivô e o módulo Cobrança vai me deixar o pivô de cada Cobrança, o valor que calcula para essa Cobrança para eu dar conta.
 
-25
-00:14:14,570 --> 00:14:47,920
+00:14:14.570 --> 00:14:47.920
 Então simplesmente quando eu defino o esquema contábil no campo, vocês veem o esquema contábil, eu vou colocar esse pivô, que é onde deixei esse valor. Se ainda não sei, por algum motivo posso deixar a sério, mas tenho que lembrar que não vai ser contabilizado.
 Se eu quiser usar as cobranças módulo, só efeitos paramétricos para demonstrar um cálculo ou algo assim, poderia deixar a sério. Se não consigo registrar assim então adiciono o pivô, mas o que deve ficar claro é que enquanto tiver pivô 0 não terá como contar.
 
-26
-00:14:50,250 --> 00:15:29,000
+00:14:50.250 --> 00:15:29.000
 Aqui o valor mínimo e o valor máximo, se eu quiser definir que essa cobrança só começa a ser cobrada a partir de um determinado mínimo ou que se o valor for menor já houve um valor determinado que calcula a cobrança, não, eu vou cobrar esse mínimo, menos eu não vou cobrar por isso. Sim,
 a moeda desse valor mínimo e desse valor máximo e o tratamento do mínimo, ou seja, tem duas formas, uma quer dizer, se eu colocar que o valor mínimo é 10 e eu calculo e me dá 5, O que eu tenho que fazer, tenho que cobrar os 10 dele ou devo dizer que como é menos de 10 não vou cobrar.
 
-27
-00:15:30,410 --> 00:15:37,120
+00:15:30.410 --> 00:15:37.120
 Se eu mandar você cobrar significa que vou cobrar no mínimo 10, se eu mandar descartar significa que se você der 5 não vou cobrar.
 
-28
-00:15:45,530 --> 00:16:22,250
+00:15:45.530 --> 00:16:22.250
 Aqui temos o QI, aí vem, se eu for cobrar eu sempre vou adiar, ele adia só quando não tem verba ou não adia e rejeita por falta de verba. Quando estou dentro, ou seja, num empréstimo, algo assim não faz sentido neste campo, no momento que vou cobrar, a
 questão é, por exemplo, posso cobrar pelas contas visualizadas, uma comissão para manutenção da conta Então todo mês eu cobro a conta à vista, ou cobro todas as contas à vista, ou digo, bom, aquelas que têm valor menor que 1000, vou cobrar uma comissão, Ok?
 
-29
-00:16:22,600 --> 00:16:58,150
+00:16:22.600 --> 00:16:58.150
 Então, será executado um processo que dirá, bom, tenho que cobrar todas essas contas vistas. Ok, bem, mas e se a conta vista estiver ativa? Uma conta à vista pode estar aberta e não ter dinheiro. Como é conosco? A gente recolhe o salário, tira todo o dinheiro, a conta está zerada, mas
 a conta está aberta. Ok? Então, o que o sistema precisa fazer? Você tem que falar, bom, vou cobrar e nossa, é isso, estou com saldo negativo na conta, está negativo, não importa, mas vou cobrar. Nesse momento. Ou tenho que dizer não, eu programo para que quando chegar a conta eu receba.
 
-30
-00:17:00,100 --> 00:17:42,270
+00:17:00.100 --> 00:17:42.270
 Ou eu te digo, só difere quando não tem dinheiro, ou seja, se tem dinheiro eu cobro e se não tem dinheiro é aí que eu agendo para a próxima vez. Por outro lado sempre é diferente, sempre vou agendar, ainda não carrego naquele mesmo momento. E não adia e rejeita por falta de verba,
 quer dizer pronto, não, não vou fazer porque não tem verba. Então, por exemplo, pode ser para outros casos como o frete foi contabilizado, eu digo, bom, se não tiver verba eu não vou fazer e o que eu vou fazer. E bem, eu não te mando o status, bem, essa pode ser outra opção.
 
-31
-00:17:47,450 --> 00:18:24,290
+00:17:47.450 --> 00:18:24.290
 As novas tentativas, as novas tentativas estão associadas ao que a gente viu como se vou cobrar ou não. Ou seja, se já vou coletar, não adianta tentar novamente, porque já coletei. A questão é, se eu estou adiando, estou programando, por exemplo, para
 que quando tiver dinheiro, naquele momento eu só recolha, bom, quantas vezes você tenta coletar? Porque em geral tudo tem limite, bom, eu tentei, 100 vezes, se eu tento ou já desisto e digo, não, não vou cobrar mais por isso. Existe esse parâmetro.
 
-32
-00:18:27,750 --> 00:18:54,710
+00:18:27.750 --> 00:18:54.710
 Claro, o que acontece é que existe um processo, falando de outra forma, existe um processo que roda na cadeia de fechamento, o que vai ser e o que vai tentar cobrar. Então, vai ter balcão, bom, eu tentei uma vez, é isso, não tinha dinheiro. No dia seguinte,
 bom, tentei de novo, não tinha dinheiro. Então, tentei de novo, não houve. Então, quantas vezes você precisa continuar tentando esse processo para receber a mesma comissão? Então não tem tentativa por idade, tenta a cadeia de fechamento, certo? Correto.
 
-33
-00:18:55,870 --> 00:19:39,070
+00:18:55.870 --> 00:19:39.070
 E sim, porque normalmente é um momento em que, quer dizer, se não tem dinheiro aí, então eles têm, bom, casos especiais de algum outro processo que quer cobrar, mas alguma coisa especial foi definida, por exemplo, em é o caso do Iban, mas o clássico é assim, é isso. Para as
 comissões. Este campo, compensação. O nome não é muito feliz. Então é por isso que, em geral, é sempre difícil lembrar o que significa. Vou cobrar, por exemplo, uma comissão. Bom, vou contabilizar a comissão que cobro em determinado item, ok? Contra, por exemplo, a conta visível, Ok?
 
-34
-00:19:39,790 --> 00:20:18,530
+00:19:39.790 --> 00:20:18.530
 Então, o módulo Cobrança deve fazer a contabilização do débito e do crédito, ambos. Ou seja, a conta de resultados, por exemplo, para a comissão, contra a conta visível, deve fazer as duas pernas da cadeira ou não. Eu quero que ele faça a parte em que você recebe,
 mesmo, do resultado, mas a outra parte, eu vinguei a operação do Estado, Ok? Para que serve isso e por que surgiu o nome netting? No Chile, é cobrada uma comissão por cada operação. Então, se eu, por exemplo, tiver que sacar de uma conta, veja, ele cobra o imposto.
 
-35
-00:20:19,030 --> 00:21:00,730
+00:20:19.030 --> 00:21:00.730
 Se você cobrar a comissão, vamos ver, isso é outra jogada, eu cobro de volta. Em outras palavras, cada movimento que faço gera retorno. Então, se eu mexer três vezes na conta visível, vou cobrar três vezes, o valor fixo é importante e o cliente vai ficar muito chateado. Então a ideia é que a operação
 se encarregue de dizer, se eu tiver três, eu movo uma vez a conta vista pelo total e cobro uma vez de imposto da pessoa. Então assim o cliente ganha, a gente deixa ele feliz, o cliente, o nosso cliente também, e por isso é como se fosse uma rede, é que eu unifico todos os movimentos em um só.
 
-36
-00:21:01,380 --> 00:21:34,110
+00:21:01.380 --> 00:21:34.110
 Mas isso pode ocorrer por diferentes razões. Esse foi o primeiro que surgiu em todos esses anos, que tenho usado para muitos casos diferentes, o que é necessário. Então, o que você tem que deixar claro é sempre, eu quero que o módulo corporal faça as duas pernas do meu assento, aquele que me cobra,
 o resultado um, ou outra conta pode ser um passivo, sempre será isso. A questão é se você também tem que fazer para outra pessoa, ou seja, você tem o crédito dessa pessoa, você sempre vai fazer, é um débito. Se o módulo de cobrança está no comando ou eu ficarei encarregado da operação de torra.
 
-37
-00:21:34,730 --> 00:21:42,750
+00:21:34.730 --> 00:21:42.750
 Se eu colocar netar, sim, significa que ficarei encarregado da operação.
 Se eu colocar netar não, aí o módulo de cargas faz as duas pernas.
 
-38
-00:21:48,305 --> 00:22:25,770
+00:21:48.305 --> 00:22:25.770
 E isso tem muito a ver também, temos então a ver com os esquemas e tudo mais, como queremos nos definir. Atualizável. Se você concorda que falamos sobre isso na operação quando você executa, A caixinha aparecerá para poder mostrar os dados do cálculo dos encargos e eventualmente
 se quisermos modificar alguma coisa, como foi o caso do exonerado, poderíamos dizer, não quero cobrar aí. Se tivéssemos tornado isso exonerável, sim. Pois bem, o atualizável é o mesmo, mas para variar o valor. Bem, o sistema me calculou 10. Adoro dar 8. Posso colocar 8 ou não?
 
-39
-00:22:27,210 --> 00:22:58,690
+00:22:27.210 --> 00:22:58.690
 Se eu torná-lo atualizável, sim, você poderá modificá-lo e definir outro valor. Normalmente, vamos dizer não. Você também pode pular um valor do carteiro para representar? Não, não. Se eu posso fazer isso, você disse a ele que poderia fazer isso, eu posso fazer isso. Sim,
 sim. Depois, bom, você pode, em qualquer caso, na operação de programação, verificar se o valor mudou e autorizar. Não é algo natural, não vou te contar. Se você dissesse a ele que ele poderia mudar isso, ele poderia mudar. Onde você vê as opções na caixa do capítulo?
 
-40
-00:22:59,590 --> 00:23:33,010
+00:22:59.590 --> 00:23:33.010
 Quando o modo Cobrança, claro, quando aquela foto aparece, você pode clicar no valor, no número que ele calcula e inserir outro número. Normalmente, clientes que podem ser atualizados, não. Mas depende, claro, do que acontece, que você poderia definir. Bem, na verdade, eu
 quero que essa comissão passe de 5 para 10. Então, bom, vou deixar aí, atualizar, depois vou verificar. Bom, sim, então, um valor, não sei, para casos diferentes. Ou a ideia de que o modo de cobrança é superparamente. Assim, tudo o que qualquer cliente precisa pode ser feito.
 
-41
-00:23:34,210 --> 00:24:08,410
+00:23:34.210 --> 00:24:08.410
 E essa opção e a parte de ação do tempo em um atendimento podem ser atualizadas, pois não vai dar interação para saber o que foi. Não sei, você nunca vê isso. Não sei, posso te provar a verdade. Não sei se é possível ou não. Porque não sei como acessar, ou
 seja, o valor. Em que campo você deve passar? Qual camada está no mundo? Se o valor que ele retorna para você, em geral, porque tem algumas parametrizações aí que normalmente são da camada 36, ​​se é essa que temos. Camada que você pode passar ali, outro valor.
 
-42
-00:24:12,570 --> 00:24:36,830
+00:24:12.570 --> 00:24:36.830
 Bem, você entra, fórmulas. Isso é o que eu estava lhe contando. Aqui fica a questão: vou usar fórmulas ou não? Se eu disser não, é porque não uso fórmulas e
 dá certo. No caso da criança, eles não vão perguntar se não é uma fórmula, porque sempre terão que usar um formulário. Então, isso vai ser necessariamente.
 
-43
-00:24:41,870 --> 00:24:49,810
+00:24:41.870 --> 00:24:49.810
 Esta é a verdade em letras maiúsculas. Caso contrário, isso é algo muito
 específico do meu banco. Não é algo muito genérico sobre decoração.
 
-44
-00:24:54,660 --> 00:25:34,210
+00:24:54.660 --> 00:25:34.210
 Não me lembro exatamente por que definimos isso, mas é algo muito particular. Não é algo genérico sobre o que move cartas. Então, às vezes você consegue, dentro da tabela de 6 posições, definir outros campos, outros conceitos, os parâmetros que você precisa. Por exemplo, às vezes também
 é definido, bom, o que é um encargo, uma comissão, um seguro. Bem, adiciono este campo porque eles querem saber. Então, você pode adicionar outros campos além daqueles do núcleo. Esse campo, portanto, não é um campo normalmente utilizado no cor, e isso não é, não é um campo de estado.
 
-45
-00:25:37,730 --> 00:26:04,560
+00:25:37.730 --> 00:26:04.560
 Em seguida, insira as taxas. Não faz sentido se eu não inserisse a fórmula e você não inserisse as taxas, porque em algum lugar você tem que dizer quando deve calcular. Mas, no caso de eu usar fórmula, ou
 no caso da garota básica, que sempre usa fórmula, eu poderia eventualmente não usar taxas, porque a partir de quando eu também não calculo nada de fórmula e não preciso de nenhuma variável aí para medir.
 
-46
-00:26:07,790 --> 00:26:18,780
+00:26:07.790 --> 00:26:18.780
 Aqui vamos definir, bom, se neste caso eu tinha dito que não era uma fórmula, então se vou ter que definir taxas, e se o intervalo vai ser por quantidade ou por valor.
 
-47
-00:26:21,780 --> 00:26:46,480
+00:26:21.780 --> 00:26:46.480
 Então, vou definir uma faixa porque a tarifa eu posso dizer, bom, até 1000 eu cobro 10, até 5000 eu cobro 12, então existe uma faixa e pode ser, por exemplo, que a faixa seja para um valor, como a gente estava vendo aí, ou pode falar não, até 180 dias eu cobro 10, até 3600 dias, então esse é o valor.
 
-48
-00:26:50,070 --> 00:27:21,260
+00:26:50.070 --> 00:27:21.260
 Então aqui quando eu defino as taxas, bem, eu defino a moeda para a qual essa taxa será aplicada, porque posso definir uma cobrança e a mesma cobrança se aplica a moedas diferentes, mas posso
 precisar inserir taxas diferentes, porque eu digo, bom, se for em dólar vou cobrar 3 dólares, mas se for em pesos vou colocar outro valor aí, porque obviamente vai ser um valor diferente.
 
-49
-00:27:21,965 --> 00:27:48,740
+00:27:21.965 --> 00:27:48.740
 Principalmente quando estamos falando de um valor fixo, que não faz muito sentido ele ser igual, um número em todos os valores, aí eu defino taxas diferentes, quando for um percentual eu poderia definir igual,
 mas vou tem que medir cada moeda. Se não for mais tarde, quando eu for usar o módulo de cobrança, ele não encontrará minha moeda e esse será o problema. Não defino as taxas para todas as moedas que vou usar.
 
-50
-00:27:52,740 --> 00:28:22,170
+00:27:52.740 --> 00:28:22.170
 Aqui posso eventualmente dizer, bom, quero definir uma tarifa especial para esse cliente, a ideia nunca é usada, porque não tem muito desempenho se começarmos a parametrizar cada cliente. A ideia é tentar, por exemplo, trazer para o segmento,
 num segmento se eu agrupar, uma determinada condição, aí tio de todos os clientes que são assim, eu cobro essa tarifa de todos esses clientes, eu cobro eles outro, mas se eu começar a parametrizar cada um dos clientes posso ter muitas taxas.
 
-51
-00:28:22,290 --> 00:28:29,910
+00:28:22.290 --> 00:28:29.910
 Então a ideia é tentar evitar usar o cliente, sozinho, se for motivo de força maior, mas sempre tente usar o segmento.
 
-52
-00:28:33,310 --> 00:28:40,350
+00:28:33.310 --> 00:28:40.350
 Então no segmento, bom, eu posso definir, bom, eu cobro uma coisa dos homens, cobro outra das mulheres, o que vier na cabeça.
 
-53
-00:28:44,610 --> 00:29:18,530
+00:28:44.610 --> 00:29:18.530
 Faixa. Então, o que falamos hoje que pode fazer o valor variar aqui é a taxa. É disso que estávamos falando, que no caso é do meu banco, ou eu defino a taxa, ou eu defino o valor. Então, bom, eu quero
 definir, bom, uma taxa de um ou posso definir melhor um valor. Vou definir 100, é o valor que vou aplicar. E a moeda desse valor. Normalmente, o ideal é que ambos os campos monetários tenham a mesma coisa.
 
-54
-00:29:21,930 --> 00:29:43,970
+00:29:21.930 --> 00:29:43.970
 E aí evitamos problemas com os tipos de campos e tudo mais. E aqui o tópico é retornado, se for o caso. Não, aqui cabe a questão de isso, mínimo e máximo
 ou não. Posso definir, bom, que vou cobrar isso com mínimo e máximo ou não. Eu falo que mínimo e máximo não se aplicam e ele sempre fará esse valor.
 
-55
-00:29:47,550 --> 00:29:56,030
+00:29:47.550 --> 00:29:56.030
 Posso até continuar inserindo mais taxas. Sim, por exemplo, eu
 entro para outra moeda, para outro segmento, para outra faixa.
 
-56
-00:30:00,620 --> 00:30:09,230
+00:30:00.620 --> 00:30:09.230
 Depois, posso inserir impostos. Se eu quiser o que
 falamos hoje, os impostos associados são cobranças.
 
-57
-00:30:16,985 --> 00:31:02,850
+00:30:16.985 --> 00:31:02.850
 E aqui, aqui ele já está relacionando, bom, esse evento que eu diria alto com o Cobrança. Com todos os valores que defini para isso. Então aqui eles definem se essa cobrança vai ser cobrada por segmento. Então eu digo que sim, aqui você vai colocar a descrição do segmento. E vai
 parametrizar um campo para mim lá. Eu meio que defini as taxas no relacionamento, eles viram que tinha um segmento. Então, em qual campo vou carregar esse segmento? Sim, pois pode ser diferente para os diferentes cargos e eventos que em um segmento sejam pessoas físicas e jurídicas.
 
-58
-00:31:03,550 --> 00:31:45,090
+00:31:03.550 --> 00:31:45.090
 Por exemplo, se forem empresas, se forem pessoas, vou cobrar-lhes uma comissão diferente. Noutro caso, não sei se são bancos ou se são empresas públicas. Então, ele estabeleceu um critério diferente. Assim, posso usar critérios diferentes para posições e eventos diferentes. Então, eu vou parametrizar
 em qual campo eu vou carregar aquele segmento. Sim, na medida em que eu tenho que definir um segmento, com certeza, eu também tenho que passar essa informação para ele na operação para que ele tenha a cidade. Porque se você não tiver os dados do segmento, você não vai saber como isso é aplicável.
 
-59
-00:31:45,690 --> 00:32:22,630
+00:31:45.690 --> 00:32:22.630
 Então, eu também tenho que pensar que na programação da operação, quando eu definir por segmento, por exemplo, eu também vou ter que ter esses dados inseridos para poder usar em configurações bem locais. E esse segmento tem como fazer algum padrão para escrevê-lo.
 Porque a ideia é... Porque a ideia é... Porque a ideia é como a comissão, sim, do valor. Não, não é bem assim. Então, o campo é igual a nós. Na verdade, coloco o valor que vai ter. E na relação da cobrança e do acontecimento, é onde vou dizer a mim mesmo qual é o campo.
 
-60
-00:32:23,470 --> 00:33:05,380
+00:32:23.470 --> 00:33:05.380
 Então, se formos aqui, vamos ver que vários estão definidos.
 Aqui você vê as condições que estão definidas. Bem, aqui está um.
 
-61
-00:33:35,860 --> 00:33:44,460
+00:33:35.860 --> 00:33:44.460
 Aqui você vê, por exemplo, que diz bom. Esse
 é a cobrança 1, nessa tarifa, tem valor 9.
 
-62
-00:33:46,460 --> 00:33:48,200
+00:33:46.460 --> 00:33:48.200
 Nesta taxa, tem um valor de 8.
 
-63
-00:33:50,380 --> 00:33:51,380
+00:33:50.380 --> 00:33:51.380
 Eu estou indo aqui.
 
-64
-00:34:01,990 --> 00:34:07,810
+00:34:01.990 --> 00:34:07.810
 Para a posição 1, você vê que esta é a posição 1 e que possui parametrização de segmento.
 
-65
-00:34:12,630 --> 00:34:57,320
+00:34:12.630 --> 00:34:57.320
 Aqui diz que a cobrança 1, aqui no campo 48.909, é que eu vou cobrar esse segmento. Então, tenho que colocar o campo 48.909. E aí eu vou te dizer, que nesse caso, por exemplo, é regionalizar. Então, vou te passar o código da região, porque vou cobrar o seguro dependendo da região, vou cobrar
 uma tarifa diferente. Em funcionamento, toda vez que quebra ou você vai quebrar. Exato. Então, se os 48.909 estão na operação, diz 9. Lá você usará a taxa que diz 9. Se disser 8, usará a outra taxa de 8. Então eu só, no outro, coloco o valor direto. E aí, é isso. Um vôo corajoso e pronto.
 
-66
-00:34:58,440 --> 00:35:10,940
+00:34:58.440 --> 00:35:10.940
 Ah, ele tem 24 anos. Bem, é um campo alfa. Então, pode ser esse número.
 Como pode ser um texto, o valor que precisamos. Ok. Ah, isso está claro.
 
-67
-00:35:16,230 --> 00:35:31,300
+00:35:16.230 --> 00:35:31.300
 Na parte imposta, não vou entrar em muitos detalhes, porque é muito parecida com a parte das cobranças e não é algo que se
 usa muito. Então, só de saber que posso definir e defino aí. É um pouco mais simples que uma Cobrança, mas é muito parecido.
 
-68
-00:35:37,680 --> 00:35:42,300
+00:35:37.680 --> 00:35:42.300
 E aqui você pode inserir mais encargos associados a esta venda.
 
-69
-00:35:44,960 --> 00:35:47,560
+00:35:44.960 --> 00:35:47.560
 E pronto, terminei. Sim.
 
-70
-00:35:49,700 --> 00:35:50,700
+00:35:49.700 --> 00:35:50.700
 Então.
 
-71
-00:35:53,340 --> 00:36:09,840
+00:35:53.340 --> 00:36:09.840
 Aí você vê que já cadastramos toda a tabela relacionada e tudo funcionará na ordem correta. Se agora eu quiser
 dizer um, não gostei do nome que dei ao evento e quero modificar o nome do evento. Ah, então vou nessa opção, certo?
 
-72
-00:36:11,960 --> 00:36:26,440
+00:36:11.960 --> 00:36:26.440
 Mas não preciso mais modificar tudo em cascata. Tenho que ir modificar o evento, tenho que ir modificar o preço, tenho que ir
 modificar a alíquota, modificar o imposto, cada coisa separadamente. É por isso que as opções também estão aqui separadamente.
 
-73
-00:36:32,180 --> 00:37:08,920
+00:36:32.180 --> 00:37:08.920
 Depois. Existem várias maneiras de usar o módulo de cobranças. Pode ser que na operação já tenham modificado minhas cobranças, por exemplo, bom, eu quero cobrar uma comissão e aí eu chamo o módulo de cobranças e recebo a comissão na hora, Ok? E há outros
 casos em que, por exemplo, para empréstimos, é muito comum eu falar, bom, eu quero cobrar dos empréstimos, de cada parcela, quero cobrar, por exemplo, uma comissão ou um seguro, certo? Isso é o que fica registrado depois nas despesas de cotas, certo?
 
-74
-00:37:09,340 --> 00:37:48,360
+00:37:09.340 --> 00:37:48.360
 Então, quando eu vou, por exemplo, fazer um empréstimo, eu digo, bom, em todas as suas compras eu quero cobrar um seguro de dez, Ok? Então aí também vai ser pelo módulo de cobranças, onde eu vou parametrizar aquele seguro, aquela comissão, que eu
 quero cobrar em todas as parcelas, Ok? Nesse caso a forma como será a chamada é diferente porque a chamada é diretamente pelo cor. Agora vemos como chamamos naquele outro caso em que cobro na operação. Sim, quero receber o pagamento agora mesmo.
 
-75
-00:37:48,880 --> 00:38:35,160
+00:37:48.880 --> 00:38:35.160
 Mas quando acaba, nas parcelas que vou ter que cobrar, nesse caso parar nos gastos por parcela, vai, por exemplo, no desenvolvimento é algo automático, que o cor já automaticamente no o desenvolvimento sabe e vai parar. As cobranças que você parametrizou, Ok?
 No caso do meu banco, todos os encargos que parametrizei. No caso de incorporação, ou seja, qualquer pessoa que eu queira incluir no parcelamento, tem que ser parametrizado no evento 3000, certo? A configuração do meu banco só permite um evento para isso, ok?
 
-76
-00:38:35,600 --> 00:39:09,700
+00:38:35.600 --> 00:39:09.700
 Não consigo definir, por exemplo, nesses desenvolvimentos é esse evento. Para empréstimo, uso o evento 3000 e para depósito a prazo fixo, quando tem prazo fixo alto, uso o evento 4000, certo? Não se pode. Na instalação do meu banco, é um evento único para toda a instalação. Você
 pode definir qual é, mas é apenas um para toda a instalação. Agora, ao nível do que faz na linha, isso foi alterado e diferentes eventos podem ser parametrizados. Você pode definir, indicar, bom, agora para isso, vou usar esse evento ou usar outro. Você pode definir diferentes.
 
-77
-00:39:10,050 --> 00:39:46,700
+00:39:10.050 --> 00:39:46.700
 No caso do meu banco, não. É um evento único, então saiba, sempre será no evento 3000. Isso faz com que eu tenha que ter muito cuidado com as condições dos cargos. Porque cada vez que você se inscreve em um empréstimo ou um depósito a prazo fixo, o evento 3000 é sempre acionado.
 Então, como sempre, o evento 3000 é disparado. Todas as cobranças associadas a ele podem eventualmente ser carregadas no cronograma daquela operação. Então, eu tenho que ter muito cuidado, pois essa condição realmente ocorrerá apenas para os meus casos e para nenhum outro.
 
-78
-00:39:47,925 --> 00:39:55,800
+00:39:47.925 --> 00:39:55.800
 É preciso deixar claro que não se trata apenas de empréstimos, mas também
 de depósitos a prazo fixo. É válido para todas as operações quadradas.
 
-79
-00:40:02,060 --> 00:40:09,940
+00:40:02.060 --> 00:40:09.940
 Aqui, por exemplo, configuramos diversas cobranças associadas ao evento 3000 no caso do meu banco.
 
-80
-00:40:12,590 --> 00:40:21,620
+00:40:12.590 --> 00:40:21.620
 Neste caso, temos uma ponta afiada. Trata-se do seguro de veículo.
 Portanto, é necessário que esse campo esteja carregado com BP.
 
-81
-00:40:24,215 --> 00:41:02,940
+00:40:24.215 --> 00:41:02.940
 Também devemos ter muito cuidado com as condições definidas nessas posições. A diferença é que, no outro caso, eu chamo o modelo de cobrança na operação e ele é carregado naquele momento. Mas neste caso, do evento 3000, é algo que
 está sempre recalculando os encargos nas parcelas. Então, nesse caso, é importante que esses campos que eu coloquei nas condições, nas fórmulas, sejam campos. Podem ser saldos, podem ser do produto e acho que é do cliente e acabou.
 
-82
-00:41:03,440 --> 00:41:41,820
+00:41:03.440 --> 00:41:41.820
 Não posso colocar nenhum campo e aqueles que eu coloco nas condições ou nas fórmulas de cobrança no evento 3000 nunca poderão ser campos livres. Porque se não, quando tiver alta, tenho o campo livre, funcionou muito bem para mim. Bom, um evento no núcleo recalcula os empréstimos e ele quebrou
 e não vai mais conseguir calcular. Então, é importante que, nesses casos, tenhamos muito cuidado com qual campo utilizamos. Especialmente em geral, aqueles que são utilizados são o produto ou saldos, mas também um plano de pados. Em termos de pados, alguns campos também podem ser utilizados.
 
-83
-00:41:42,280 --> 00:42:00,140
+00:41:42.280 --> 00:42:00.140
 Mas são duas ou três mesas, não são muito mais. Por isso eu saio, esse é o plano, esse é o produto e não lembro se o cliente está lá, são três, quatro, não
 mais desses. Então, você tem que ver, se eventualmente tiver que usar outra, você tem que pedir uma alteração ao cor para que ele considere usar outra tabela.
 
-84
-00:42:02,400 --> 00:42:49,740
+00:42:02.400 --> 00:42:49.740
 Mas basicamente, a ideia aqui é a mesma. Terá um pivô que será onde será contado. O que você precisa saber aqui é por que estamos falando de esquemas contábeis. O pivô me ajuda nos esquemas contábeis a parametrizar. Como vou contabilizar esse carro? Então, o que se passa? No caso particular
 deste, que é o que há nas despesas com cotas, eu programo isso no desembolso. E aí, na verdade, nesse momento, eu não vou usar o pivô, porque naquele momento eu não carrego ele. Vou retirar depois, quando o cliente vier, ele vai me pagar, eu pego lá. E nessa hora, vou usar o esboço.
 
-85
-00:42:50,540 --> 00:43:33,340
+00:42:50.540 --> 00:43:33.340
 O que acontece é que quando eu cobro, o cor aciona uma primeira transação dessa cobrança. Por exemplo, pelo empréstimo você vai cobrar e vai dizer, bom, tanto capital, tantos juros, tantos atrasos de pagamento e tantos encargos. E para os encargos, com o valor total de todos os
 encargos. E aí, temos que desagregar, porque, por exemplo, teve seguro e comissão. Precisaremos contabilizar cada um deles em áreas diferentes. Então, para carregar cada um desses pivôs, ele meio que clona aquela transação que tinha o principal e o interesse amoroso nas cobranças.
 
-86
-00:43:33,550 --> 00:43:59,100
+00:43:33.550 --> 00:43:59.100
 E lá ele liga para o múltiplo de cobrança e diz: "Alô, às 11:3:45 eu coloquei o seguro". Em 11. 528 coloquei a comissão. E ele atribui o valor
 dessa posição a cada um. Então, o que se passa? Se olharmos os esquemas, temos que ter cuidado. Existe um campo onde colocamos um valor 1-0.
 
-87
-00:44:24,650 --> 00:44:58,720
+00:44:24.650 --> 00:44:58.720
 Nesse campo 4-91, que diz diferente de 1, é porque, quando você chama o múltiplo de cobranças, você atribui um valor 1 para esse campo. Como se quisesse dizer: "Esta é a clonagem que fiz para filmar, para os diferentes pivôs do múltiplo de cargas".
 E já tenho a transação original que também tinha o valor principal do interesse amoroso. Se eu não colocar isso aqui, o que vai acontecer comigo é que isso vai me duplicar. a contabilização do capital do interesse do amor dos demais conceitos.
 
-88
-00:44:59,360 --> 00:45:29,760
+00:44:59.360 --> 00:45:29.760
 Então, quando eu montar as tabelas de cobrança, sim, não preciso colocar o 4-91 nelas, porque ele só estará lá uma vez, que é quando o 4-91 for 1. Então, essa condição não foi especificada lá. Mas para os outros conceitos, na realidade
 é mais do que juros de mora e capital. Se eu precisar colocar o 4-91 diferente de 1, para que quando for aquela clonagem do múltiplo de encargos, você não conta, você conta apenas no principal, para que não tenhamos duplicatas.
 
-89
-00:45:38,010 --> 00:45:58,910
+00:45:38.010 --> 00:45:58.910
 Então, eles têm um valor mínimo, um valor máximo e a moeda para cobrar tudo igual, como vimos antes. E a fórmula. Temos que pensar na fórmula nesse caso. Como vou montar os gastos por parcela? É como
 se eu estivesse parando em cada uma das parcelas e tivesse que ver as fórmulas que tenho que usar. Às vezes uso essas fórmulas para os campos do plano de pagamento. É assim que diferenciamos cada um.
 
-90
-00:46:01,720 --> 00:46:09,570
+00:46:01.720 --> 00:46:09.570
 Às vezes, essas coisas também são feitas sem tentar um pouco. Então vemos que funciona exatamente como precisamos.
 
-91
-00:46:12,710 --> 00:46:52,410
+00:46:12.710 --> 00:46:52.410
 Aqui também podemos ver as tarifas. Eles também têm tarifas. Por exemplo, neste caso, eu tenho que cobrar 10 soles para um, cobrar dois é duplicar, cobrar três é contrato. Trata-se, por exemplo, de uma comissão pelo envio de extratos de conta. E aqui, por exemplo, imposto, não tem
 nada associado. Assim como vimos no cadastro, que tem todas as tabelas diferentes, posso cadastrar tudo com catenates. Na consulta também tem a mesma coisa. E você pode consultar tudo com catenação, o que facilita a leitura e o entendimento da parametrização de todas aquelas tabelas.
 
-92
-00:47:00,120 --> 00:47:07,700
+00:47:00.120 --> 00:47:07.700
 Então... Existem alguns desses parâmetros
 que estão aqui nos parâmetros jotece.
 
-93
-00:47:20,930 --> 00:47:36,510
+00:47:20.930 --> 00:47:36.510
 Aqui você vê, por exemplo, o que estávamos falando nesse campo. Para condicionar os esquemas contábeis, o registro clonado no original
 é o número 4. 91, cada um onde está definido qual é esse campo. E se for o que temos no meu banco, a instalação pode ser outro campo.
 
-94
-00:47:39,270 --> 00:47:49,510
+00:47:39.270 --> 00:47:49.510
 Depois, o valor tributável, que será aquele sobre o qual terá o valor calculado.
 
-95
-00:47:52,370 --> 00:47:56,110
+00:47:52.370 --> 00:47:56.110
 Esses campos que temos aqui são os que nos retornam os valores nas operações.
 
-96
-00:47:59,460 --> 00:48:08,030
+00:47:59.460 --> 00:48:08.030
 Sim, não é tudo o que é retornado. São os campos que o módulo de cobranças
 parametrizou para utilizar. Em alguns casos, eles são entrada e outros são saída.
 
-97
-00:48:15,230 --> 00:48:47,650
+00:48:15.230 --> 00:48:47.650
 Não é propriamente isso. A questão é, por exemplo, o valor tributável. É o que me devolve o valor do copo vezes a base
 tributável ou o valor fixo. Então, quero usá-lo em uma fórmula para este resultado. Aí tenho que clicar na fórmula desta posição.
 
-98
-00:48:50,600 --> 00:49:03,050
+00:48:50.600 --> 00:49:03.050
 No caso do campo faixa tarifária, quer dizer aquele campo, eu tenho
 que cobrar por ele. Aí, a faixa tarifária. É tipo, isso é mais entrada,
 
-99
-00:49:06,090 --> 00:49:09,130
+00:49:06.090 --> 00:49:09.130
 Valores genéricos de diferentes segmentos.
 
-100
-00:49:15,470 --> 00:49:34,420
+00:49:15.470 --> 00:49:34.420
 São campos para utilizar, mas não é exatamente o que eles fornecem, não sei. Por exemplo,
 se eu quiser usar o campo "taxa" que parametrizei na fórmula de cobrança, utilizo 1770.
 
-101
-00:49:36,580 --> 00:50:09,280
+00:49:36.580 --> 00:50:09.280
 Nas fórmulas, como o ITF, por exemplo, é o resultado da multiplicação da alíquota do ITF pelo valor, que
 retorna 34. Utilizo essas fórmulas para calcular, pois preciso resumir posteriormente. Em outro caso,
 
-102
-00:50:16,020 --> 00:50:18,280
+00:50:16.020 --> 00:50:18.280
 aqui em 1771,
 
-103
-00:50:20,330 --> 00:50:22,940
+00:50:20.330 --> 00:50:22.940
 é o valor multiplicado pelo valor fixo.
 
-104
-00:50:32,085 --> 00:51:24,480
+00:50:32.085 --> 00:51:24.480
 É importante lembrar que esses campos parametrizados não são utilizados diariamente. No caso do campo "cabe", por exemplo, é 1771, que retorna a taxa fixa. Posso utilizar esse valor fixo em uma fórmula. Por que utilizar esse valor? Em uma fórmula mais complexa, que parametrizei na
 taxa. Entende? Na verdade, nesse caso, o valor fixo é igual a 34. Está lá no valor fixo também. A diferença seria se houvesse um mínimo, um máximo, nada mais. No caso da taxa, se não houver, sempre retorna 34. Já tenho a taxa para o mundo. Então aí eu só tenho a taxa, seria 1770. Esse.
 
-105
-00:51:27,460 --> 00:51:30,350
+00:51:27.460 --> 00:51:30.350
 .. é isso.
 
-106
-00:51:34,350 --> 00:51:36,720
+00:51:34.350 --> 00:51:36.720
 Existem alguns campos aqui também.
 
-107
-00:51:47,480 --> 00:52:23,660
+00:51:47.480 --> 00:52:23.660
 Aqui também posso configurar que, quando utilizo uma faixa de taxas, ele crie um campo especial que desejo utilizar, para poder definir que nem todas as faixas de taxas serão carregadas no mesmo campo. Então você sabe quando usá-los como valor padrão. Mas se eu quiser definir algo mais aí, eu
 meio que uso aqui. Então, quando quero fazer esse tipo de coisa especial na operação, tem a coisa mais genérica, para não confundir o usuário, que se pedirmos tantos dados, não sabe o que colocar. Então, quando fazemos esse tipo de coisa mais especial, às vezes é melhor fazermos isso com base.
 
-108
-00:52:24,000 --> 00:52:34,580
+00:52:24.000 --> 00:52:34.580
 Bom, aqui eu tenho que colocar nesse campo qual é o campo onde
 vou carregar o intervalo da taxa. Então, fazemos isso com base.
 
-109
-00:52:44,160 --> 00:53:14,281
+00:52:44.160 --> 00:53:14.281
 Aqui também está o campo do mundo tributável, voltando à mesma coisa. Ou seja, quando eu quero, por padrão, ele assume que eu venha nos dias 24 a 39. É esse que você vai usar, ou seja, é aquele que se multiplica pela alíquota para calcular aquela forma, a forma
 bem básica que eu falei com a alíquota. Mas se eu quiser, por exemplo, o que pode acontecer, tenho um evento associado a isso, três cobranças. Então, quando eu ligo tem várias cobranças, em 24-39 vou passar um valor, não consigo passar três valores diferentes.
 
-110
-00:53:14,940 --> 00:53:43,700
+00:53:14.940 --> 00:53:43.700
 E quero que eles usem um mundo tributável diferente para cada uma das posições. Bem, então, nesse caso, o que eu tenho que fazer? Coloco três campos diferentes e realizo a operação em cada campo com o valor que desejo. Para
 fazer isso de volta, aí fazemos por base. Como eu disse, é difícil complicar muito o alisamento ou você não sabe mensurar. Então, há mais generalidade na operação. Bem, são coisas muito particulares, lá, fazemos isso com base.
 
-111
-00:54:47,905 --> 00:55:14,270
+00:54:47.905 --> 00:55:14.270
 Aqui você vê como são chamadas as múltiplas cobranças da operação. Aqui colocamos o macrocomando no parâmetro de comissão. E o campo aqui, que é
 o campo 6161, é onde está o evento, pois sempre irei convocar múltiplas posições para um determinado evento. E este campo 24 é simplesmente sim.
 
-112
-00:55:17,690 --> 00:55:30,211
+00:55:17.690 --> 00:55:30.211
 Aqui está um parâmetro adicional que posso colocar. O que é Notisplay? A
 notificação do que sou eu quando executo a operação. Vamos executá-los e vir.
 
-113
-00:55:54,410 --> 00:56:12,760
+00:55:54.410 --> 00:56:12.760
 Isso nos chama de cobranças múltiplas. Atas onde eu digo a eles que, se essas acusações tiverem que eu possa exonerar, eles vão me deixar colocar ou retirar o
 cheque. Se essa cobrança tiver algo que eu possa modificar o valor da atualização, também me deixará atualizado aqui. Mas se eu for para essa cobrança no dia 5,
 
-114
-00:56:21,090 --> 00:56:26,290
+00:56:21.090 --> 00:56:26.290
 aqui ele me diz que não é inocentável, não é atualizável,
 não é por isso que não me permite modificá-lo.
 
-115
-00:56:30,160 --> 00:57:03,390
+00:56:30.160 --> 00:57:03.390
 E tem cliente que olha e não gosta dessa janelinha. Então, à parte, você tem o problema de eu sempre colocar esse sinal de pressão no palco para continuar. Isso é muito importante na operação. Se você não colocar essa placa, não funciona, a ligação terá vários encargos.
 Porque é o jeito que faz ele esperar, que eu tenho a janelinha e só assim posso continuar. Então, sempre que eu ligo para as múltiplas cobranças, tenho que colocar uma mensagem de pressão no palco para continuar. Então, dizem alguns, colocaram uma janela diferente.
 
-116
-00:57:03,530 --> 00:57:40,930
+00:57:03.530 --> 00:57:40.930
 Bom, na verdade, não vou atualizar, não vou exonerar, então não preciso que você me mostre a janelinha do gol. Dê-me uma janelinha como esta que me diga o total e meu medidor. Então, aí eu tenho que colocar o parâmetro not display. Com o parâmetro not display, ele não mostra
 a janela em múltiplas posições. Em seguida, temos que retirar o ingresso. Não faz sentido deixar muita pressão para continuar depois de removermos o sinal da janela de carga múltipla. Também temos que lembrar de colocar a plaquinha de volta, senão não vai servir para nós.
 
-117
-00:57:42,250 --> 00:58:16,570
+00:57:42.250 --> 00:58:16.570
 Em geral, é sempre bom tentar uma operação com múltiplas cobranças quando atualizam o servidor. Uma das coisas mais comuns é que chega uma atualização e quebra. Quando atualizamos o servidor com uma alteração cor, é melhor fazer uma operação rápida e ligar para as cobranças
 múltiplas. Vamos ver se isso funcionou para você, para que serve, para que várias cobranças o chamam. Normalmente, tudo deu certo para você na mudança. Além da mudança específica e do que eles tiveram que fazer, você sabe que, em geral, o servidor está funcionando muito bem.
 
-118
-00:58:21,145 --> 00:58:24,190
+00:58:21.145 --> 00:58:24.190
 Então, temos essa ligação, as cobranças múltiplas.
 
-119
-00:58:27,480 --> 00:59:15,730
+00:58:27.480 --> 00:59:15.730
 A ligação com cobrança múltipla sempre tem que ser uma transação salgada, sempre. Eu tenho que fazer uma transação salt. Pode ser uma transação de consulta, pode ser uma transação, por exemplo, como você vê isto. É um sal alto automático. Mas sempre tem que ser uma transação salgada, isso é
 importante. Colocamos todos os campos da chave salt. como se fôssemos fazer um movimento, porque na verdade vamos fazer um movimento porque em certos casos vamos prestar contas. Então, isso é importante. Então, colocamos o campo 24 ou 39. Por que colocamos este campo? Porque, se viemos aqui, olhamos.
 
-120
-00:59:16,780 --> 00:59:34,330
+00:59:16.780 --> 00:59:34.330
 O que diz aqui é que o campo tributável era 24 ou 39. Se estivéssemos neste outro, o que temos que colocar é
 24 ou 40. 24 ou 39 não seria oferecido. Se não tivermos na operação, o campo nos avisará e nos dará um erro.
 
-121
-00:59:42,570 --> 01:00:09,100
+00:59:42.570 --> 01:00:09.100
 E então, temos o evento. Isso normalmente é o ideal, que esse parâmetro esteja de um lado e a partir daí lemos, não colocamos fogo na operação. Mas, às vezes, dependendo do caso, isso é tudo o que existe
 para um determinado cliente, pode ser feito. Quando estamos trabalhando mais no produto, no que é algo mais genérico, a ideia é que sejam todos parâmetros. Neste caso, por exemplo, existe um parâmetro.
 
-122
-01:00:45,280 --> 01:01:06,500
+01:00:45.280 --> 01:01:06.500
 E então, temos estes três pequenos campos. Quando eu chamo o módulo de carros e na verdade eu vou cobrar e vou ver se eles carregam
 as tabelas de faturas, ok? Tabelas de faturas são seis. Todas as tabelas de módulos do carro começam com seis para o módulo.
 
-123
-01:01:11,720 --> 01:01:25,980
+01:01:11.720 --> 01:01:25.980
 Não, agora é um campo pequeno. Então, todas as tabelas dos
 módulos do carro são seis, ok? Aqui temos seis faturas.
 
-124
-01:01:28,860 --> 01:01:40,060
+01:01:28.860 --> 01:01:40.060
 Cada vez cadastra a tabela de faturas. Este passa a atuar como cabeça, certo? Para
 que, se eu precisar, eu possa imprimir uma fatura com os dados de quanto cobro, ok?
 
-125
-01:01:42,550 --> 01:02:17,120
+01:01:42.550 --> 01:02:17.120
 Então aqui me permite colocar três pequenos campos que posso nomear na operação e carregar com as informações que preciso. Por exemplo, no caso do Peru, eu registro bem, quem é o cliente? Qual é a operação de empréstimo, a conta à vista, tanto faz? Porque, depois, por exemplo, no caso do ITF, do
 imposto, eu tenho que informar para qual cliente cobrar e para qual operação. Então, eu guardo lá essa informação e qual é a taxa de câmbio que estava sendo usada naquele momento. Então, as ideias são três campos livres em pelúmes, se não fosse por isso, nenhum outro lugar colocaria para outra coisa.
 
-126
-01:02:17,440 --> 01:02:34,060
+01:02:17.440 --> 01:02:34.060
 Mas eu posso fazer isso. Então, nas operações, eu sempre tenho que carregar esses campos para ter essa
 informação. Em seguida, carregado na tabela de faturas. E, por sua vez, na fatura, o que eu vou ter é
 
-127
-01:02:37,370 --> 01:02:53,780
+01:02:37.370 --> 01:02:53.780
 o detalhe dessa fatura de cada uma das cobranças. O outro é o chefe que chamou a mula de carga. Ele acabou
 tendo tantas acusações quanto este evento estava associado a ele. Outra tabela que também é importante.
 
-128
-01:02:57,080 --> 01:03:19,320
+01:02:57.080 --> 01:03:19.320
 Existem alguns tablists aqui com seis posições na memória. Em Valleza tabla, você nunca terá informações. Sempre fui feliz porque, como a
 palavra diz, fica na memória. O que é muito importante nessa tabela é quando eu a tenho em uma operação. Sim, por exemplo Eles não colocam 1656.
 
-129
-01:03:24,170 --> 01:04:03,400
+01:03:24.170 --> 01:04:03.400
 O que está acontecendo? Eu chamo a mula da cobrança e, na operação, por exemplo, eu tenho três cobranças no evento e quero registrar um campozinho com a comissão, outro campozinho com o seguro, outro campozinho e quero conhecer cada um que valor tem. Então, na minha qualidade de mula das acusações,
 vejo os detalhes, mas como leio e vejo essas informações para cada uma das acusações? Isso permanece na minha memória. Então, na tabela de cobranças na memória, eu tenho informações para poder revisar na operação e poder registrar. Posso mostrar, posso fazer o que preciso. O que está acontecendo?
 
-130
-01:04:04,000 --> 01:04:41,120
+01:04:04.000 --> 01:04:41.120
 Numa operação, posso chamar a mula de carga diversas vezes. Por exemplo, no caso do meu banco, eu ligo, falo bem, ligo para o microsseguro, ligo depois para calcular o seguro e posso confirmar outras coisas. Ligo para dirigir, faço várias ligações. Então, quando vou ler cobranças na memória, como
 saber qual das chamadas de mula de cobrança é a que estou lendo? Tenho que colocar o número da transação. Então, aqui eu te conto bem, o que é o evento e o que é porque no mesmo evento também pode ser como alimentar vale a pena. Em seguida, filtre pelo evento e qual transação o está chamando.
 
-131
-01:04:42,020 --> 01:05:27,860
+01:04:42.020 --> 01:05:27.860
 Este valor é constante. Aqui, em um clone, não tenho como saber ou atualizar esse valor. Então, o que é uma constante? Se eu adicionar ou excluir transações, isso será quebrado. É muito importante verificar sempre se a tabela está presente na operação e se há cobranças na memória ao adicionar ou
 excluir transações. Caso contrário, ocorrerá uma quebra. Então, isso é algo muito importante, sempre verificar, certo? Porque isso nunca será atualizado automaticamente. Então, é sempre importante você olhar e dizer: "Bem, eu tenho essas cobranças na memória, então tenho que adicionar transações."
 
-132
-01:05:28,200 --> 01:06:02,960
+01:05:28.200 --> 01:06:02.960
 Não há problemas, mas eu vou e olho aqui e eu mudo a nuvem e parece bom lá. Porque além do que acontece, se eu não fizer isso, você não vai me atacar dizendo que quebrou alguma coisa, certo? Sem mente. Mas onde eu estava guardando as informações, ele não o guarda mais, porque nessa
 transação, não há mais informações. Então, vai salvar o valor zero ao invés de salvar as informações corretas. E aí vou ter problemas. Isso é algo importante para sempre lembrar. Não sei se você tem alguma dúvida ou mais ou menos isso ferozmente. É um pouco sobre isso que eu queria falar.
 
-133
-01:06:03,360 --> 01:06:09,020
+01:06:03.360 --> 01:06:09.020
 É como se eu tivesse feito uma transação importante ou tivesse que
 colocar aquele menu nela. Sim, sim. Claro, sim, para você aqui.
 
-134
-01:06:11,415 --> 01:06:46,640
+01:06:11.415 --> 01:06:46.640
 Você tem aquele hicar sememoneano. Ou seja, sempre quando você adiciona, Você vai e faz root aqui, tudo por causa do número, porque você só precisa se preocupar quando vir transações aqui que a tabela principal é aquele hicarus sememoneano. Se você não possui placa principal,
 adicione-a com calma. Você tem que olhar para as outras coisas, mas você não vai mais lidar. Se você tem o que acontece, aqui está 56. Então você vai, olha aqui e realmente 56, o que aconteceu? Chama o módulo do carro. E você vê como vimos, hoje o display está aqui. Ok? Então está bem.
 
-135
-01:06:47,060 --> 01:07:24,160
+01:06:47.060 --> 01:07:24.160
 Se eu adicionar aqui essa transação, eu adiciono aqui uma transação entre 55 e 56. A nova começa usando 56. E o meu que chama o módulo do carro é o número 57. Para saber o número, para onde você liga? É exatamente. Para onde você está ligando? Sim, porque a partir de qual
 transação foi chamado o módulo carts e não quero passar pela memória. Como uma constante? É uma constante. Correto. Então, isso é muito importante atualizar sempre, porque fica constante com o valor que a gente coloca nele, até que a gente vá fazer na mão, ninguém vai cruzar.
 
-136
-01:07:24,180 --> 01:07:34,140
+01:07:24.180 --> 01:07:34.140
 E será que essa tarefa de fato causará repulsa entre os que se deslocam? Exato. Sim,
 porque está na memória. É o mesmo que funciona. Veja quando você tem, por exemplo, no...
 
-137
-01:07:38,880 --> 01:07:41,420
+01:07:38.880 --> 01:07:41.420
 ... 25, 33.
 
-138
-01:07:53,980 --> 01:08:14,820
+01:07:53.980 --> 01:08:14.820
 Você viu que também tem aqui, aqui, por exemplo, é gasto por taxa de entidade de memória. Ou seja, posso percorrer diferentes tabelas na memória. Ok?
 Aqui passo as despesas por cota na memória. Então, é uma coisa que está atualizando meu cor e eu passo por isso. Da mesma forma, aqui, é que eu sou.
 
-139
-01:08:17,220 --> 01:08:37,460
+01:08:17.220 --> 01:08:37.460
 Tenho entidade de memória e, neste caso, é Cobrança em memória. Então, chamei o módulo Cobrança na memória, fiquei com, essa é aquela tabela. E então, eu passo por isso
 enquanto executo a operação. Ou seja, acabou e você não tem mais informações. Foi registrado nas tabelas correspondentes. Isso ocorre enquanto estou realizando uma negociação.
 
-140
-01:08:40,400 --> 01:08:43,680
+01:08:40.400 --> 01:08:43.680
 Claro. E essa transação?
 
-141
-01:08:45,690 --> 01:09:20,080
+01:08:45.690 --> 01:09:20.080
 Não há paraíso para recuperar. E mais ou menos modifique o que você não precisa. Na verdade, é um dos meus oito e ainda tem um longo caminho a percorrer na memória. Claro. Sim, sim. Mas isso não significa, pelo menos, isso. A ideia da memória é sempre que quero explorar algo que ainda
 não foi comprometido. É algo que o coração mantém em mente. Portanto, existem conceitos diferentes. Isso é o que ele carrega na memória. É por isso que eu lhe disse que existe fisicamente, mas está sempre vazio. Como varia, faz isso na memória, mas nunca registra. Isso é o que cobrar.
 
-142
-01:09:20,500 --> 01:09:49,040
+01:09:20.500 --> 01:09:49.040
 E também, o mesmo conceito de memória de algo que está na memória é usado para outras tabelas. A partir disso aqui também, o plano de pagamento. Posso cadastrar, quero cadastrar, não tratável, quero mostrar. Por exemplo, neste caso, serve para
 mostrar em um formulário. Estou fazendo uma preparação, vou agendar uma preparação, vou falar bem. Se o cliente me adiantar tanto dinheiro, como ficaria minha agenda? Então eu falo para ele o cor, como se você fosse fazer, ele não faz, só simula.
 
-143
-01:09:49,140 --> 01:10:23,120
+01:09:49.140 --> 01:10:23.120
 E o que eu faço é ler o relatório, o plano de pagamento, se gasto adequadamente e posso dar mais. É a mesma ideia. Então, posso fazer isso com tabelas diferentes que o cor planeja carregar na memória. Não é que eu possa fazer alguma coisa. São apenas aqueles que o
 cor planejou na memória, que são alguns específicos. Quando prevejo outro, não o tenho pronto, peço que publiquem este relatório. Quando dizemos de memória é que nunca vou jogar fora um confuso, o confuso e estou contratado, que é o da hora e a honra. Claro, isso é.
 
-144
-01:10:23,160 --> 01:10:52,940
+01:10:23.160 --> 01:10:52.940
 Ou em algum momento, posso verificar se a tabela com meu cor está processada e deixá-los. Neste caso, por exemplo, o plano de pagamento, na tabela, foi pago, tem os dados desse empréstimo. Porque o que estou fazendo é mudar e ver se eu pagasse isso, como
 isso mudaria? Bom, eu tenho alguns dados, mas os dados são diferentes do que vou ver na memória. Não são iguais. Então pode haver informação ou não, mas normalmente a informação que vejo na memória é diferente da que está no banco de dados naquele momento.
 
-145
-01:10:52,941 --> 01:11:07,780
+01:10:52.941 --> 01:11:07.780
 Então, se eu precisar, mal posso esperar para me comprometer ou estou fazendo uma simulação que nem vou me comprometer,
 eu faço na memória, e a operação foi finalizada e ela sumiu, porque algo que eu estava simulando não estava cortando.
 
-146
-01:11:10,340 --> 01:11:32,160
+01:11:10.340 --> 01:11:32.160
 Então, diferente, a ideia, eu sei disso, que ele está me calculando. Mas é importante saber que tudo o que é lembrado são coisas específicas que o núcleo tem que planejar. Não é que
 eu inventei uma tabela e uso ela na memória, porque me ocorreu, se o COR não tiver planejado, não vai funcionar. Você sempre tem que ter previsto o núcleo, aquela mesa específica.
 
-147
-01:11:35,230 --> 01:11:37,140
+01:11:35.230 --> 01:11:37.140
 E, em geral, eles são um plano para o Peru,
 
-148
-01:11:39,840 --> 01:11:56,020
+01:11:39.840 --> 01:11:56.020
 despesas com taxas, o das posições na memória, e por exemplo, agora temos um novo, com certeza multirejo, o dcmcronograma,
 que certamente é multitempo, também está sendo publicado na memória para isso. Até agora, não me lembro de muito mais.
 
-149
-01:11:58,600 --> 01:12:05,881
+01:11:58.600 --> 01:12:05.881
 Porque equilíbrio, e você tem isso. Mas é propriedade que você tem da operação,
 não é como na memória. Em geral, é aquela Susan na memória. São essas.
 
-150
-01:12:07,900 --> 01:12:27,420
+01:12:07.900 --> 01:12:27.420
 Até agora, o plano peru, despesas com taxas e cobranças de memória. Agora temos esse novo, cmcronograma. Bem, alguma
 outra pergunta? Não, aqui, pontualidade. E agora não? Sim, sim, SIM, SIM. Perus. Tchau, tchau, tchau. Bye, bye.
-

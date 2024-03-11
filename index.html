@@ -88,8 +88,9 @@
     <div class="content centered">
       <div class="place">
 
-        <video id="player" controls muted>
-          <source src="file:///C:/Users/edy-a/Downloads/Videos/Modulo%20de%20cargos.mp4">
+        <video id="player" controls muted preload="metadata">
+          <source src="file:///C:/Users/edy-a/Downloads/Videos/Modulo%20de%20cargos.mp4" type="video/mp4">
+          <track kind="subtitles" srclang="pt" label="Português" default>
           Seu navegador não suporta a tag de vídeo.
         </video>
 
@@ -100,7 +101,7 @@
       <div class="place">
         <label class="subtitles">
           <span id="currentstr">Carregar Legendas</span>
-          <input type="file" id="srtfile" accept=".srt" title="Escolher Leganda" hidden />
+          <input type="file" id="srtfile" accept=".vtt" title="Escolher Leganda" hidden />
         </label>
         <textarea id="txtspeak" rows="15" hidden></textarea>
       </div>

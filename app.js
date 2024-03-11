@@ -101,7 +101,7 @@ function speakme() {
     })[0];
 
     ttsrange = document.getElementById("ttsrange");
-    utt.rate = ttsrange.value * 1.2;
+    utt.rate = ttsrange.value * 1.3;
 
     player.play();
 
@@ -172,13 +172,66 @@ function srttometka() {
     updateCurrentStr();
 }
 
+function vtttometka() {
+    txtlog.value = "";
+
+    timear = [];
+    strar = [];
+    timestart = [];
+
+    var a, e = document.domain, l = 0;
+    removeOptions(txtfrom);
+
+    addTimeOption(null, 'Desde o Inicio');
+
+    function t(e, t, n, r, s, i) {
+        var o = "";
+        if (t != c) {
+            o = t + "###" + r;
+            a = strtotime(t) - l;
+            timear[timear.length] = a;
+            l = strtotime(t);
+            strar[strar.length] = r;
+            timestart[timestart.length] = l;
+
+            addTimeOption(timear.length - 1, t);
+        }
+        return o;
+    }
+
+    var n = /([0-9][0-9]:[0-9][0-9]:[0-9][0-9]\.[0-9][0-9][0-9])\s-->\s([0-9][0-9]:[0-9][0-9]:[0-9][0-9]\.[0-9][0-9][0-9])(?:.*)(?:[\r\n]|[\n])((?:.+(?:[\r\n]|[\n]))+)(?:[\r\n]|[\n])/m,
+        r = getdocel().value.replace('WEBVTT', '') + "\n\n",
+        s = "",
+        i = r.length,
+        c = "00:00:00.000";
+
+    while (s != i) {
+        s = i;
+        i = (r = r.replace(n, t)).length;
+    }
+
+    writelog(timear.length + " legendas");
+    txtfrom.selectedIndex = 0;
+    updateCurrentStr();
+}
+
+function srttometkaOrVtt() {
+    var fileContent = getdocel().value;
+    if (fileContent.includes("WEBVTT")) {
+        vtttometka();
+    } else {
+        srttometka();
+    }
+}
+
 function getdocel() {
     return txtspeak;
 }
 
 function strtotime(e) {
-    var t = e.split(/:|,/),
+    var t = e.split(/[:.,]/);
         n = 0;
+    console.log(t);
     n = 3600 * parseInt(t[0]) * 1e3;
     n += 60 * parseInt(t[1]) * 1e3;
     n += 1e3 * parseInt(t[2]);
@@ -307,16 +360,22 @@ ttsrange.addEventListener("change", function () {
 })
 
 txtspeak.addEventListener("change", function () {
-    srttometka()
+    srttometkaOrVtt()
 })
 
 srtfile.addEventListener("change", function () {
-    var e = new FileReader;
-    e.onload = function (e) {
-        txtspeak.value = e.target.result;
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        var fileContent = e.target.result;
+        var uint8Array = new TextEncoder().encode(fileContent);
+        var base64String = btoa(String.fromCharCode.apply(null, uint8Array));
+
+        txtspeak.value = fileContent;
+        player.querySelector('track').src = "data:text/vtt;base64," + base64String;
+
         txtspeak.dispatchEvent(new Event('change'));
     };
-    e.readAsText(this.files[0]);
+    reader.readAsText(this.files[0]);
 });
 
 player.addEventListener("click", function () {
