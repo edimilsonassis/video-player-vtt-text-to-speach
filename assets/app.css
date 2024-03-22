@@ -202,11 +202,16 @@ button {
       gap: 6px;
       width: 100%;
     }
-  }
-  li:hover {
-    border-color: #007bff;
-    button {
-      opacity: 1;
+
+    &:hover {
+      border-color: #666;
+
+      &.active {
+        border-color: #419dff;
+      }
+      button {
+        opacity: 1;
+      }
     }
   }
 }

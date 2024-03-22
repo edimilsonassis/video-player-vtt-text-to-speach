@@ -185,7 +185,7 @@ function updateList() {
             var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
             var cue = player.textTracks[0].cues[index];
             splitCue(cue);
-            refreshCue();
+            updateList();
         });
 
         mergeButton.addEventListener("click", function (e) {
@@ -195,7 +195,7 @@ function updateList() {
             var nextCue = player.textTracks[0].cues[parseInt(index) + 1];
 
             mergeCues(cue, nextCue);
-            refreshCue();
+            updateList();
         });
 
         li.addEventListener("dblclick", async function () {
