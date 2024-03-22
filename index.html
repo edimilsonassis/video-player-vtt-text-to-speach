@@ -6,218 +6,73 @@
   <title>SRT Speaker</title>
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <script src="./sweetalert2@11.js"></script>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    label {
-      margin-bottom: 5px;
-    }
-
-    input {
-      padding: 10px;
-      height: 2rem;
-      margin: 5px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    input,
-    textarea,
-    select {
-      min-height: 2rem;
-      width: 100%;
-    }
-
-    [hidden] {
-      display: none;
-    }
-
-    button {
-      padding: 10px;
-      margin: 5px 0;
-      cursor: pointer;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-    }
-
-    video::-webkit-media-text-track-display {
-      font-size: 50%;
-    }
-
-    video {
-      width: 100%;
-      height: 100%;
-    }
-
-    ul {
-      list-style: none;
-      padding: 10px;
-      margin: 0;
-      height: 100%;
-      overflow-y: auto;
-    }
-
-    li {
-      border: 1px solid transparent;
-      position: relative;
-      cursor: pointer;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-
-      button {
-        opacity: 0;
-        bottom: -10px;
-        left: 50%;
-        padding: 5px;
-      }
-
-      &.active {
-        border-color: #007bff;
-      }
-
-      img {
-        display: block;
-        width: 160px;
-        height: 90px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        padding: 5px;
-        object-fit: cover;
-      }
-
-      .content {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-      }
-
-      .tools {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 5px;
-
-        button {
-          background-color: rgba(0, 0, 0, 0.05);
-          color: #333;
-
-          &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-          }
-        }
-
-      }
-    }
-
-    li:hover {
-      border-color: #007bff;
-
-      button {
-        opacity: 1;
-      }
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      box-sizing: border-box;
-      height: 100vh;
-    }
-
-    .sidebar {
-      float: left;
-      width: 30%;
-      height: 100%;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-
-      .top {
-        padding: 10px;
-        position: sticky;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 5px;
-      }
-    }
-
-    .player {
-      float: left;
-      width: 70%;
-      height: 100%;
-      padding: 20px;
-      box-sizing: border-box;
-      background-color: #000;
-    }
-
-    div:where(.swal2-container) .swal2-textarea {
-      height: auto !important;
-    }
-  </style>
+  <script src="./assets/sweetalert2@11.js"></script>
+  <link rel="stylesheet" href="./assets/app.css" type="text/css" />
 </head>
 
 <body>
-  <form id='myform' method='post'>
-    <div class="container">
-      <div class="sidebar">
-        <div class="top">
-          <select id="selvoices"></select>
-          <select id="rate" style="max-width: 70px;">
-            <option value="0.5">-50%</option>
-            <option value="0.3">-30%</option>
-            <option value="0.8">-20%</option>
-            <option value="0.9">-10%</option>
-            <option value="1">Normal</option>
-            <option value="1.1">+10%</option>
-            <option value="1.2" selected>+20%</option>
-            <option value="1.3">+30%</option>
-            <option value="1.5">+50%</option>
-          </select>
-          <button type="button" id="open">Carregar</button>
-          <button type="button" id="save">Salvar</button>
-        </div>
-        <ul id="list"></ul>
+  <div class="modal" id="config">
+    <div class="content">
+      <div class="close" data-dismiss="modal">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
       </div>
-
-      <div class="player">
-
-        <video id="player" controls preload="metadata">
-          <source type="video/mp4,audio/mpeg" />
-          <track kind="subtitles" srclang="pt" label="Português" default>
-          Seu navegador não suporta a tag de vídeo.
-        </video>
-
-        <input hidden type="file" id="files" multiple accept=".vtt, .mp4, .mp3" title="Escolher Arquivos" value="Escolher Arquivos" />
-
+      <div class="title">
+        <div>Configurações</div>
+      </div>
+      <div class="body">
+        <div class="input-group">
+          <label title="Velocidade da Narração" for="configRate">Velocidade <span id="labelRate"></span></label>
+          <input title="Velocidade da Narração" type="range" id="configRate" min="0.5" max="2" step="0.1" />
+        </div>
+        <div class="input-group">
+          <label for="configVoice">Voz</label>
+          <select id="configVoice"></select>
+        </div>
+      </div>
+      <div class="footer">
+        <button type="button" id="btnClose" data-dismiss="modal">Fechar</button>
       </div>
     </div>
-  </form>
+    <div class="backdrop" data-dismiss='modal'></div>
+  </div>
 
-  <script src="app.js" type="text/javascript"></script>
+  <div class="container">
+    <div class="sidebar">
+      <div class="top">
+        <div class="grow-1">
+          <button type="button" title="Carregar Arquivos" id="btnOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776" />
+            </svg>
+          </button>
+          <button type="button" title="Salvar a Legenda" id="btnSave">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+          </button>
+          <input hidden type="file" id="files" multiple accept=".vtt, .mp4, .mp3" title="Escolher Arquivos" value="Escolher Arquivos" />
+        </div>
+        <div>
+          <button type="button" title="Configurações" id="btnConfig">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <ul id="list"></ul>
+    </div>
+
+    <div class="player">
+      <video id="player" class="player" controls preload="metadata">
+        Seu navegador não suporta a tag de vídeo.
+      </video>
+    </div>
+  </div>
+
+  <script src="./assets/app.js" type="text/javascript"></script>
 
 </body>
 
