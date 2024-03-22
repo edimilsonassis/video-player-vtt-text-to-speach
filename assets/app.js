@@ -101,6 +101,8 @@ function updateList() {
     for (var i = 0; i < player.textTracks[0].cues.length; i++) {
         var cue = player.textTracks[0].cues[i];
 
+        cue.size = 90;
+
         /**
          * Create a new list item
          */
@@ -131,6 +133,25 @@ function updateList() {
         mergeButton.title = "Mesclar com a próxima legenda";
         time.innerHTML = new Date(cue.startTime * 1000).toISOString().substr(11, 8);
         time.classList.add("time");
+
+        mergeButton.addEventListener("mouseenter", function () {
+            let index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
+            let cue = player.textTracks[0].cues[index];
+            let nextCue = player.textTracks[0].cues[parseInt(index) + 1];
+
+            if (!nextCue) {
+                this.disabled = true;
+                return;
+            }
+
+            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+            next && next.classList.add("mergeble");
+        });
+
+        mergeButton.addEventListener("mouseleave", function () {
+            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+            next && next.classList.remove("mergeble");
+        });
 
         tools.appendChild(time);
         tools.classList.add("tools");

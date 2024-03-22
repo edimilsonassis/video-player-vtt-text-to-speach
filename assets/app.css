@@ -45,8 +45,14 @@ button {
   }
 }
 
-video::-webkit-media-text-track-display {
+::cue {
+  background: rgba(0, 0, 0, 0.8);
   font-size: 70%;
+}
+
+/* limit the cue container to 80% of video size width */
+::cue-container {
+  max-width: 20%;
 }
 
 ::-webkit-scrollbar {
@@ -135,6 +141,10 @@ video::-webkit-media-text-track-display {
     color: white;
     display: flex;
     flex-direction: column;
+
+    &.mergeble {
+      border-color: #e91e63;
+    }
 
     button {
       border: 1px solid #444;
