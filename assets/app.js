@@ -521,11 +521,10 @@ function loadConfig() {
 
             configVoice.appendChild(option);
         });
-
-        updateVoice();
     };
 
-    configVoice.addEventListener("input", function () {
+    configVoice.addEventListener("change", function () {
+        params.voice = this.value;
         updateVoice();
     });
 
