@@ -1,6 +1,9 @@
 let tts = window.speechSynthesis;
 let utt = new SpeechSynthesisUtterance;
 
+let queue = [];
+let isProcessing = false;
+
 let params = {
     rate: 1.2,
     voice: "Microsoft Thalita Online (Natural) - Portuguese (Brazil)"
@@ -40,6 +43,8 @@ class Modal {
     }
 }
 
+let strItem = document.querySelector("ul li");
+
 let btnOpen = document.getElementById("btnOpen");
 let btnSave = document.getElementById("btnSave");
 let btnConfig = document.getElementById("btnConfig");
@@ -51,18 +56,6 @@ let split = document.getElementById("split");
 let player = document.getElementById("player");
 let clonedPlayer;
 
-async function updateThumbnail() {
-    var items = list.querySelectorAll('li');
-
-    clonedPlayer = player.cloneNode(true);
-
-    for (var i = 0; i < items.length; i++) {
-        var img = items[i].querySelector('img');
-        var startTime = items[i].getAttribute('startTime');
-        img.src = await getThumbnailContent(startTime);
-    }
-}
-
 function updateVoice() {
     utt.voice = tts.getVoices().filter(function (e) {
         return e.name == params.voice;
@@ -73,135 +66,77 @@ function getThumbnailContent(startTime) {
     return new Promise((resolve, reject) => {
         clonedPlayer.currentTime = startTime;
 
-        // Função para ser chamada quando o vídeo terminar de buscar
         function onSeeked() {
+            clonedPlayer.removeEventListener('seeked', onSeeked);
+
             var canvas = document.createElement('canvas');
             canvas.width = clonedPlayer.videoWidth;
             canvas.height = clonedPlayer.videoHeight;
             canvas.getContext('2d').drawImage(clonedPlayer, 0, 0, canvas.width, canvas.height);
             var data = canvas.toDataURL('image/png');
 
-            // Remova o evento listener para evitar vazamentos de memória
-            clonedPlayer.removeEventListener('seeked', onSeeked);
-
             resolve(data);
         }
 
-        // Adicione o evento listener
         clonedPlayer.addEventListener('seeked', onSeeked);
     });
 }
 
-function updateList() {
+async function processQueue() {
+    if (queue.length === 0) {
+        isProcessing = false;
+        return;
+    }
+
+    isProcessing = true;
+    let [source, startTime] = queue.shift();
+
+    if (source)
+        source.src = await getThumbnailContent(startTime);
+
+    processQueue();
+}
+
+function updateList(thumbnail = true) {
     list.innerHTML = "";
 
     if (!player.textTracks.length)
         return;
 
     for (var i = 0; i < player.textTracks[0].cues.length; i++) {
-        var cue = player.textTracks[0].cues[i];
+        let cue = player.textTracks[0].cues[i];
 
-        cue.size = 90;
+        let li = strItem.cloneNode(true);
+        let time = li.querySelector('[name="time"]');
+        let subtitle = li.querySelector('[name="subtitle"]');
 
-        /**
-         * Create a new list item
-         */
-        var li = document.createElement("li");
+        let img = li.querySelector('img');
+        let editButton = li.querySelector('[name="edit"]');
+        let splitButton = li.querySelector('[name="split"]');
+        let mergeButton = li.querySelector('[name="merge"]');
 
         li.setAttribute('index', i);
         li.setAttribute('startTime', cue.startTime);
+        li.setAttribute('title', `Início: ${new Date(cue.startTime * 1000).toISOString().substr(11, 8)} - Fim: ${new Date(cue.endTime * 1000).toISOString().substr(11, 8)}`);
 
-        /**
-         * Create a new div to hold the content
-         */
-        var time = document.createElement("span");
-        var text = document.createElement("div");
-        var img = document.createElement('img');
-
-        var subtitle = document.createElement("div");
-        var content = document.createElement("div");
-        var contentImage = document.createElement("div");
-
-        var tools = document.createElement("div");
-        var splitButton = document.createElement("button");
-        var mergeButton = document.createElement("button");
-
-        splitButton.innerHTML = `<svg aria-hidden="true" fill="currentColor" class="___12fm75w f1w7gpdv fez10in fg4l7m0" width="1em" height="1em" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.92 2.23a.5.5 0 0 0-.84.54L9.4 9.43l-1.92 2.96a3 3 0 1 0 .78.64L10 10.35l1.74 2.68a3 3 0 1 0 .78-.64L5.92 2.23ZM14 17a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM4 15a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm7.2-6.49-.6-.92 3.48-5.36a.5.5 0 0 1 .84.54l-3.73 5.74Z" fill="currentColor"></path></svg>`;
-        mergeButton.innerHTML = `<svg aria-hidden="true" fill="currentColor" class="___12fm75w f1w7gpdv fez10in fg4l7m0" width="1em" height="1em" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 4.5c0 .17-.02.34-.05.5H10a1 1 0 0 1 1 1v2h-1a2 2 0 0 0-2 2v1H6a1 1 0 0 1-1-1V6.95a2.51 2.51 0 0 1-1 0V10c0 1.1.9 2 2 2h2v2c0 1.1.9 2 2 2h3.05a2.51 2.51 0 0 1 0-1H10a1 1 0 0 1-1-1v-2h1a2 2 0 0 0 2-2V9h2a1 1 0 0 1 1 1v3.05a2.51 2.51 0 0 1 1 0V10a2 2 0 0 0-2-2h-2V6a2 2 0 0 0-2-2H6.95c.03.16.05.33.05.5ZM11 9v1a1 1 0 0 1-1 1H9v-1a1 1 0 0 1 1-1h1ZM6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm11 11a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0-11a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm-11 11a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" fill="currentColor"></path></svg>`;
-
-        splitButton.title = "Dividir a legenda em duas partes";
-        mergeButton.title = "Mesclar com a próxima legenda";
+        cue.size = 90;
+        subtitle.innerHTML = cue.text;
         time.innerHTML = new Date(cue.startTime * 1000).toISOString().substr(11, 8);
-        time.classList.add("time");
-
-        mergeButton.addEventListener("mouseenter", function () {
-            let index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
-            let cue = player.textTracks[0].cues[index];
-            let nextCue = player.textTracks[0].cues[parseInt(index) + 1];
-
-            if (!nextCue) {
-                this.disabled = true;
-                return;
-            }
-
-            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
-            next && next.classList.add("mergeble");
-        });
-
-        mergeButton.addEventListener("mouseleave", function () {
-            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
-            next && next.classList.remove("mergeble");
-        });
-
-        tools.appendChild(time);
-        tools.classList.add("tools");
-        tools.appendChild(splitButton);
-        tools.appendChild(mergeButton);
-
-        text.innerHTML = cue.text;
-        content.classList.add("content");
-        subtitle.classList.add("subtitle");
-        subtitle.appendChild(text);
-
-        contentImage.classList.add("content-image");
-        contentImage.appendChild(img);
-        contentImage.appendChild(tools);
-
-        content.appendChild(contentImage);
-        content.appendChild(subtitle);
-        li.appendChild(content);
 
         li.addEventListener("click", function () {
             tts.cancel();
-            player.currentTime = parseFloat(this.getAttribute('startTime'));
+            player.currentTime = parseFloat(this.getAttribute('startTime')) + 0.1;
 
             let cue = player.textTracks[0].cues[this.getAttribute('index')];
             utt.text = cue.text;
             speak();
         });
 
-        splitButton.addEventListener("click", function (e) {
-            e.preventDefault();
-            var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
-            var cue = player.textTracks[0].cues[index];
-            splitCue(cue);
-            updateList();
-        });
-
-        mergeButton.addEventListener("click", function (e) {
-            e.preventDefault();
-            var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
-            var cue = player.textTracks[0].cues[index];
-            var nextCue = player.textTracks[0].cues[parseInt(index) + 1];
-
-            mergeCues(cue, nextCue);
-            updateList();
-        });
-
-        li.addEventListener("dblclick", async function () {
+        editButton.addEventListener("click", async function (e) {
             player.pause();
 
-            var index = this.getAttribute('index');
+            let li = this.parentElement.parentElement.parentElement.parentElement;
+            var index = li.getAttribute('index');
             var cue = player.textTracks[0].cues[index];
 
             let prompt = await swal.fire({
@@ -227,14 +162,59 @@ function updateList() {
 
             if (prompt.value) {
                 cue.text = prompt.value;
-                refreshCue();
+                li.querySelector('[name="subtitle"]').innerHTML = prompt.value;
+            }
+        });
+
+        mergeButton.addEventListener("mouseenter", function () {
+            let index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
+            let cue = player.textTracks[0].cues[index];
+            let nextCue = player.textTracks[0].cues[parseInt(index) + 1];
+
+            if (!nextCue) {
+                this.disabled = true;
+                return;
+            }
+
+            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+            next && next.classList.add("mergeble");
+        });
+
+        mergeButton.addEventListener("mouseleave", function () {
+            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+            next && next.classList.remove("mergeble");
+        });
+
+        splitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
+            var cue = player.textTracks[0].cues[index];
+            splitCue(cue);
+            updateList();
+        });
+
+        mergeButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
+            var cue = player.textTracks[0].cues[index];
+            var nextCue = player.textTracks[0].cues[parseInt(index) + 1];
+
+            mergeCues(cue, nextCue);
+            updateList();
+        });
+
+        img.addEventListener("load", async function (e) {
+            e.target.removeEventListener(e.type, arguments.callee);
+            let startTime = li.getAttribute('startTime');
+            queue.push([this, startTime]);
+
+            if (!isProcessing) {
+                processQueue();
             }
         });
 
         list.appendChild(li);
     }
-
-    updateThumbnail();
 }
 
 function mergeCues(cue1, cue2) {
@@ -296,7 +276,6 @@ function splitCue(activeCue) {
             var cue = new VTTCue(newCue.startTime, newCue.endTime, newCue.text);
             player.textTracks[0].addCue(cue);
         });
-
     }
 }
 
@@ -429,6 +408,7 @@ files.addEventListener("change", function () {
             player.appendChild(source);
 
             player.load();
+            clonedPlayer = player.cloneNode(true);
 
             let time = localStorage.getItem('time');
             time && (player.currentTime = time);
@@ -571,4 +551,5 @@ function loadConfig() {
     configRate.dispatchEvent(new Event("input"));
 }
 
+list.innerHTML = "";
 loadConfig();
