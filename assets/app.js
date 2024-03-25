@@ -54,7 +54,12 @@ let config = document.getElementById("config");
 let list = document.getElementById("list");
 let split = document.getElementById("split");
 let player = document.getElementById("player");
+
+var canvasThumb = document.createElement('canvas');
 let clonedPlayer;
+
+canvasThumb.width = 160;
+canvasThumb.height = 90;
 
 function updateVoice() {
     utt.voice = tts.getVoices().filter(function (e) {
@@ -68,14 +73,8 @@ function getThumbnailContent(startTime) {
 
         function onSeeked() {
             clonedPlayer.removeEventListener('seeked', onSeeked);
-
-            var canvas = document.createElement('canvas');
-            canvas.width = clonedPlayer.videoWidth;
-            canvas.height = clonedPlayer.videoHeight;
-            canvas.getContext('2d').drawImage(clonedPlayer, 0, 0, canvas.width, canvas.height);
-            var data = canvas.toDataURL('image/png');
-
-            resolve(data);
+            canvasThumb.getContext('2d').drawImage(clonedPlayer, 0, 0, canvasThumb.width, canvasThumb.height);
+            resolve(canvasThumb.toDataURL('image/png'));
         }
 
         clonedPlayer.addEventListener('seeked', onSeeked);
@@ -277,14 +276,6 @@ function splitCue(activeCue) {
             player.textTracks[0].addCue(cue);
         });
     }
-}
-
-function captureVideoFrame() {
-    var canvas = document.createElement('canvas');
-    canvas.width = player.videoWidth;
-    canvas.height = player.videoHeight;
-    canvas.getContext('2d').drawImage(player, 0, 0, canvas.width, canvas.height);
-    return canvas.toDataURL('image/png');
 }
 
 function refreshCue() {
