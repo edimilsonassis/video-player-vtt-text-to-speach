@@ -404,7 +404,7 @@ player.addEventListener("play", function () {
     }
 
     let cue = player.textTracks[0].activeCues[0];
-    if (cue && !tts.isPaused && player.currentTime != cue.startTime) {
+    if (cue && !isResumable && player.currentTime != cue.startTime) {
         setNotResumable();
         player.currentTime = cue.startTime;
     }
