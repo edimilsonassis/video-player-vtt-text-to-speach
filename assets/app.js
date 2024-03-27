@@ -1,8 +1,9 @@
 let tts = window.speechSynthesis;
-let utt = new SpeechSynthesisUtterance;
+let utt = new SpeechSynthesisUtterance();
 
 let queue = [];
 let isProcessing = false;
+let isResumable = false;
 
 let params = {
     rate: 1.2,
@@ -61,7 +62,31 @@ let clonedPlayer;
 canvasThumb.width = 160;
 canvasThumb.height = 90;
 
+function logDanger(...data) {
+    console.log(`%c${data.join(' ')}`, 'color: #f44336');
+}
+
+function logSuccess(...data) {
+    console.log(`%c${data.join(' ')}`, 'color: #4caf50');
+}
+
+function logInfo(...data) {
+    console.log(`%c${data.join(' ')}`, 'color: #2196f3');
+}
+
+function logWarning(...data) {
+    console.log(`%c${data.join(' ')}`, 'color: #ff9800');
+}
+
+function setNotResumable() {
+    logDanger('Cancelar narrador');
+    isResumable = false;
+    tts.cancel();
+}
+
 function updateVoice() {
+    logWarning('Atualizando voz', params.voice);
+    setNotResumable();
     utt.voice = tts.getVoices().filter(function (e) {
         return e.name == params.voice;
     })[0];
@@ -82,6 +107,8 @@ function getThumbnailContent(startTime) {
 }
 
 async function processQueue() {
+    // logInfo('Processando fila', queue.length);
+
     if (queue.length === 0) {
         isProcessing = false;
         return;
@@ -96,14 +123,33 @@ async function processQueue() {
     processQueue();
 }
 
-function updateList(thumbnail = true) {
+function getActiveTrack() {
+    let track = Array.from(player.textTracks).filter(function (track) {
+        return track.mode == "showing";
+    })[0];
+
+    if (!track) {
+        track = player.textTracks[0];
+        // track.mode = "showing";
+    }
+
+    logSuccess(track.label);
+
+    return track;
+}
+
+function updateList() {
+    logDanger('Atualizando Lista de Legenda');
+
     list.innerHTML = "";
 
     if (!player.textTracks.length)
         return;
 
-    for (var i = 0; i < player.textTracks[0].cues.length; i++) {
-        let cue = player.textTracks[0].cues[i];
+    let activeTrack = getActiveTrack();
+
+    for (var i = 0; i < activeTrack.cues.length; i++) {
+        let cue = activeTrack.cues[i];
 
         let li = strItem.cloneNode(true);
         let time = li.querySelector('[name="time"]');
@@ -123,12 +169,11 @@ function updateList(thumbnail = true) {
         time.innerHTML = new Date(cue.startTime * 1000).toISOString().substr(11, 8);
 
         li.addEventListener("click", function () {
-            tts.cancel();
-            player.currentTime = parseFloat(this.getAttribute('startTime')) + 0.1;
+            setNotResumable();
 
-            let cue = player.textTracks[0].cues[this.getAttribute('index')];
-            utt.text = cue.text;
-            speak();
+            let seek = parseFloat(this.getAttribute('startTime')) + (player.paused ? 0.1 : -0.01);
+
+            player.currentTime = seek;
         });
 
         editButton.addEventListener("click", async function (e) {
@@ -136,7 +181,7 @@ function updateList(thumbnail = true) {
 
             let li = this.parentElement.parentElement.parentElement.parentElement;
             var index = li.getAttribute('index');
-            var cue = player.textTracks[0].cues[index];
+            var cue = activeTrack.cues[index];
 
             let prompt = await swal.fire({
                 animation: false,
@@ -160,15 +205,17 @@ function updateList(thumbnail = true) {
             });
 
             if (prompt.value) {
+                logInfo('Editando');
                 cue.text = prompt.value;
-                li.querySelector('[name="subtitle"]').innerHTML = prompt.value;
+                refreshCue();
+                // updateList();
             }
         });
 
         mergeButton.addEventListener("mouseenter", function () {
             let index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
-            let cue = player.textTracks[0].cues[index];
-            let nextCue = player.textTracks[0].cues[parseInt(index) + 1];
+            let cue = activeTrack.cues[index];
+            let nextCue = activeTrack.cues[parseInt(index) + 1];
 
             if (!nextCue) {
                 this.disabled = true;
@@ -187,7 +234,7 @@ function updateList(thumbnail = true) {
         splitButton.addEventListener("click", function (e) {
             e.preventDefault();
             var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
-            var cue = player.textTracks[0].cues[index];
+            var cue = activeTrack.cues[index];
             splitCue(cue);
             updateList();
         });
@@ -195,8 +242,8 @@ function updateList(thumbnail = true) {
         mergeButton.addEventListener("click", function (e) {
             e.preventDefault();
             var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
-            var cue = player.textTracks[0].cues[index];
-            var nextCue = player.textTracks[0].cues[parseInt(index) + 1];
+            var cue = activeTrack.cues[index];
+            var nextCue = activeTrack.cues[parseInt(index) + 1];
 
             mergeCues(cue, nextCue);
             updateList();
@@ -217,21 +264,22 @@ function updateList(thumbnail = true) {
 }
 
 function mergeCues(cue1, cue2) {
-    var startTime = cue1.startTime;
-    var endTime = cue2.endTime;
+    let startTime = cue1.startTime;
+    let endTime = cue2.endTime;
 
     // if first cue ends with a dot and second cue starts with a lowercase letter, remove the dot
     if (cue1.text.endsWith(".") && /^[a-z]/.test(cue2.text)) {
         cue1.text = cue1.text.substring(0, cue1.text.length - 1);
     }
 
-    var text = cue1.text + " " + cue2.text;
+    let text = cue1.text + " " + cue2.text;
+    let activeTrack = getActiveTrack();
 
-    player.textTracks[0].removeCue(cue1);
-    player.textTracks[0].removeCue(cue2);
+    activeTrack.removeCue(cue1);
+    activeTrack.removeCue(cue2);
 
-    var cue = new VTTCue(startTime, endTime, text);
-    player.textTracks[0].addCue(cue);
+    let cue = new VTTCue(startTime, endTime, text);
+    activeTrack.addCue(cue);
 }
 
 function splitCueInTwo(startTime, endTime, captionText, middle) {
@@ -259,46 +307,34 @@ function splitCueInTwo(startTime, endTime, captionText, middle) {
 
 function splitCue(activeCue) {
     if (activeCue) {
-        var captionText = activeCue.text;
+        let captionText = activeCue.text;
 
-        var middle = findLastDotInHalf(captionText);
-        var newCues = splitCueInTwo(activeCue.startTime, activeCue.endTime, captionText, middle);
+        let middle = findLastDotInHalf(captionText);
+        let newCues = splitCueInTwo(activeCue.startTime, activeCue.endTime, captionText, middle);
+        let activeTrack = getActiveTrack();
 
         if (newCues[1].text.length < 1) {
-            console.log('Texto muito curto', newCues[1].text, newCues[1].text.length);
+            logWarning('Texto muito curto', newCues[1].text, newCues[1].text.length);
             return;
         }
 
-        player.textTracks[0].removeCue(activeCue);
+        activeTrack.removeCue(activeCue);
 
         newCues.forEach(function (newCue) {
-            var cue = new VTTCue(newCue.startTime, newCue.endTime, newCue.text);
-            player.textTracks[0].addCue(cue);
+            let cue = new VTTCue(newCue.startTime, newCue.endTime, newCue.text);
+            activeTrack.addCue(cue);
         });
     }
 }
 
 function refreshCue() {
-    if (!player.textTracks.length)
-        return updateList();
+    logWarning('Atualizando Exibição de Legenda');
+    let activeTrack = getActiveTrack();
 
-    player.textTracks[0].mode = "hidden";
-    player.textTracks[0].mode = "showing";
-}
+    activeTrack.mode = "hidden";
+    activeTrack.mode = "showing";
 
-function speak() {
-    utt.rate = player.playbackRate * params.rate;
-    utt.volume = player.volume != 1 ? 1 : 0;
-
-    if (tts.isPaused) {
-        tts.resume();
-        tts.isPaused = false;
-        return;
-    }
-
-    if (!player.paused) {
-        tts.speak(utt);
-    }
+    updateList();
 }
 
 function findLastDotInHalf(text) {
@@ -321,32 +357,65 @@ function findLastDotInHalf(text) {
     }
 
     // no dot found
-    console.log('Nenhum ponto encontrado', middle);
+    logInfo('Nenhum ponto encontrado', middle);
     return middle;
 }
 
-player.addEventListener("play", function () {
-    console.log('Play');
+let textSpeaking = '';
 
-    if (!player.textTracks[0].cues.length) {
-        console.log('Nenhuma legenda');
+function speak() {
+    if (utt.text == textSpeaking) {
+        logWarning('Texto repetido');
+        return;
+    }
+
+    if (player.paused) {
+        logWarning('Player pausado');
+        return;
+    }
+
+    utt.rate = player.playbackRate * params.rate;
+    utt.volume = player.volume != 1 ? 1 : 0;
+
+    if (isResumable) {
+        logSuccess('Resumindo');
+        tts.resume();
+        isResumable = false;
+        return;
+    }
+
+    logSuccess('Falando');
+
+    console.table(tts);
+
+    if (!tts.speaking) {
+        tts.cancel();
+    }
+
+    tts.speak(utt);
+
+    return utt;
+}
+
+player.addEventListener("play", function () {
+    if (!getActiveTrack().cues.length) {
+        logInfo('Nenhuma legenda');
         return;
     }
 
     let cue = player.textTracks[0].activeCues[0];
     if (cue && !tts.isPaused && player.currentTime != cue.startTime) {
-        tts.cancel();
+        setNotResumable();
         player.currentTime = cue.startTime;
     }
 
+    logInfo('Iniciando narrador');
     speak();
 });
 
 player.addEventListener("pause", function () {
-    console.log('Pausado');
-
     tts.pause();
-    tts.isPaused = true;
+    isResumable = true;
 });
 
 player.addEventListener("click", function () {
@@ -357,11 +426,12 @@ player.addEventListener("click", function () {
 });
 
 player.addEventListener("ratechange", function (e) {
-    var cue = player.textTracks[0].activeCues[0];
+    logInfo('Velocidade', player.playbackRate);
+    let activeTrack = getActiveTrack();
+    let cue = activeTrack.activeCues[0];
     player.currentTime = cue.startTime;
-    tts.cancel();
-    tts.isPaused = false;
-    speak();
+    setNotResumable();
+    // speak();
 });
 
 player.addEventListener('timeupdate', function () {
@@ -369,8 +439,7 @@ player.addEventListener('timeupdate', function () {
 });
 
 player.addEventListener("seeked", function () {
-    console.log('Seeked');
-    tts.isPaused = false;
+    isResumable = false;
 });
 
 player.addEventListener('loadeddata', function () {
@@ -418,19 +487,15 @@ files.addEventListener("change", function () {
             track.kind = "subtitles";
             track.label = file.name.replace(".vtt", "");
 
-            if (file.name.indexOf("pt") > -1)
-                track.mode = "showing";
+            track.track.mode = file.name.indexOf(".pt") > -1 ? "showing" : "hidden";
 
             player.appendChild(track);
             player.volume = 0;
 
-            track.addEventListener('cuechange', function () {
-                console.log('Mudou a legenda');
+            track.track.addEventListener('cuechange', function () {
+                var cue = this.activeCues[0];
 
-                utt.text = "";
-                var cue = this.track.activeCues[0];
-
-                if (cue) {
+                if (cue && this.mode == "showing") {
                     var active = list.querySelector(".active");
                     if (active) {
                         active.classList.remove("active");
@@ -442,16 +507,13 @@ files.addEventListener("change", function () {
                         li.scrollIntoView({ behavior: "smooth", block: "center" });
                     }
 
+                    logInfo(`Inicio da legenda: ${new Date(cue.startTime * 1000).toISOString().substr(11, 8)}`);
+                    logInfo(`${cue.text}`);
+
                     utt.text = cue.text;
                     speak();
                 }
             });
-
-            track.addEventListener('load', function () {
-                updateList();
-            });
-
-            refreshCue();
         };
 
         readerSrt.readAsText(file);
@@ -463,19 +525,20 @@ btnOpen.addEventListener("click", function () {
 });
 
 btnSave.addEventListener("click", function () {
-    var vtt = "WEBVTT\n\n";
-    var cues = player.textTracks[0].cues;
+    let vtt = "WEBVTT\n\n";
+    let activeTrack = getActiveTrack();
+    let cues = activeTrack.cues;
     for (var i = 0; i < cues.length; i++) {
-        var cue = cues[i];
+        let cue = cues[i];
         vtt += new Date(cue.startTime * 1000).toISOString().substr(11, 8) + ".000 --> " + new Date(cue.endTime * 1000).toISOString().substr(11, 8) + ".000\n";
         vtt += cue.text + "\n\n";
     }
 
-    var blob = new Blob([vtt], { type: "text/vtt" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
+    let blob = new Blob([vtt], { type: "text/vtt" });
+    let url = URL.createObjectURL(blob);
+    let a = document.createElement('a');
     a.href = url;
-    a.download = `${player.textTracks[0].label}.vtt`;
+    a.download = `${activeTrack.label}.vtt`;
     a.click();
     URL.revokeObjectURL(url);
 });
@@ -495,7 +558,7 @@ function loadConfig() {
 
     modal.modal.addEventListener("close", function () {
         if (!player.previousStatePaused) {
-            tts.isPaused = false;
+            setNotResumable();
             player.play();
         }
     });
@@ -504,12 +567,12 @@ function loadConfig() {
     let configRate = document.getElementById("configRate");
     let configVoice = document.getElementById("configVoice");
 
-    configVoice.innerHTML = "";
-
-    tts.onvoiceschanged = function () {
+    setTimeout(() => {
         var voicesBR = tts.getVoices().filter(function (e) {
             return e.lang == "pt-BR";
         });
+
+        configVoice.innerHTML = "";
 
         voicesBR.forEach(function (e) {
             var option = document.createElement("option");
@@ -521,7 +584,9 @@ function loadConfig() {
 
             configVoice.appendChild(option);
         });
-    };
+
+        updateVoice();
+    }, 500);
 
     configVoice.addEventListener("change", function () {
         params.voice = this.value;
