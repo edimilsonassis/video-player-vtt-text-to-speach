@@ -494,7 +494,7 @@ files.addEventListener("change", function () {
             track.track.mode = file.name.indexOf(".pt") > -1 ? "showing" : "hidden";
 
             player.appendChild(track);
-            player.volume = 0;
+            player.muted = true;
 
             track.track.addEventListener('cuechange', function () {
                 var cue = this.activeCues[0];
