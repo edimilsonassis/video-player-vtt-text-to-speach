@@ -357,7 +357,7 @@ function speak() {
     swal.close();
 
     utt.rate = player.playbackRate * params.rate;
-    utt.volume = player.volume != 1 ? 1 : 0;
+    utt.volume = player.volume != 1 || player.muted ? 1 : 0;
 
     if (isResumable) {
         console.log('Resumindo');
