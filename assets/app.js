@@ -62,30 +62,14 @@ let clonedPlayer;
 canvasThumb.width = 160;
 canvasThumb.height = 90;
 
-function logDanger(...data) {
-    console.log(`%c${data.join(' ')}`, 'color: #f44336');
-}
-
-function logSuccess(...data) {
-    console.log(`%c${data.join(' ')}`, 'color: #4caf50');
-}
-
-function logInfo(...data) {
-    console.log(`%c${data.join(' ')}`, 'color: #2196f3');
-}
-
-function logWarning(...data) {
-    console.log(`%c${data.join(' ')}`, 'color: #ff9800');
-}
-
 function setNotResumable() {
-    logDanger('Cancelar narrador');
+    console.error('Cancelar narrador');
     isResumable = false;
     tts.cancel();
 }
 
 function updateVoice() {
-    logWarning('Atualizando voz', params.voice);
+    console.warn('Atualizando voz', params.voice);
     setNotResumable();
     utt.voice = tts.getVoices().filter(function (e) {
         return e.name == params.voice;
@@ -107,7 +91,7 @@ function getThumbnailContent(startTime) {
 }
 
 async function processQueue() {
-    // logInfo('Processando fila', queue.length);
+    // console.info('Processando fila', queue.length);
 
     if (queue.length === 0) {
         isProcessing = false;
@@ -130,16 +114,13 @@ function getActiveTrack() {
 
     if (!track) {
         track = player.textTracks[0];
-        // track.mode = "showing";
     }
-
-    logSuccess(track.label);
 
     return track;
 }
 
 function updateList() {
-    logDanger('Atualizando Lista de Legenda');
+    console.error('Atualizando Lista de Legenda');
 
     list.innerHTML = "";
 
@@ -205,7 +186,7 @@ function updateList() {
             });
 
             if (prompt.value) {
-                logInfo('Editando');
+                console.info('Editando');
                 cue.text = prompt.value;
                 refreshCue();
                 // updateList();
@@ -314,7 +295,7 @@ function splitCue(activeCue) {
         let activeTrack = getActiveTrack();
 
         if (newCues[1].text.length < 1) {
-            logWarning('Texto muito curto', newCues[1].text, newCues[1].text.length);
+            console.warn('Texto muito curto', newCues[1].text, newCues[1].text.length);
             return;
         }
 
@@ -328,7 +309,7 @@ function splitCue(activeCue) {
 }
 
 function refreshCue() {
-    logWarning('Atualizando Exibição de Legenda');
+    console.warn('Atualizando Exibição de Legenda');
     let activeTrack = getActiveTrack();
 
     activeTrack.mode = "hidden";
@@ -357,20 +338,13 @@ function findLastDotInHalf(text) {
     }
 
     // no dot found
-    logInfo('Nenhum ponto encontrado', middle);
+    console.info('Nenhum ponto encontrado', middle);
     return middle;
 }
 
-let textSpeaking = '';
-
 function speak() {
-    if (utt.text == textSpeaking) {
-        logWarning('Texto repetido');
-        return;
-    }
-
     if (player.paused) {
-        logWarning('Player pausado');
+        console.warn('Player pausado');
         return;
     }
 
@@ -378,28 +352,49 @@ function speak() {
     utt.volume = player.volume != 1 ? 1 : 0;
 
     if (isResumable) {
-        logSuccess('Resumindo');
+        console.log('Resumindo');
         tts.resume();
         isResumable = false;
         return;
     }
 
-    logSuccess('Falando');
-
-    console.table(tts);
-
-    if (!tts.speaking) {
-        tts.cancel();
-    }
+    console.log('Falando');
 
     tts.speak(utt);
 
     return utt;
 }
 
+function playWhenPause() {
+    player.removeEventListener("pause", playWhenPause);
+    setNotResumable();
+    setTimeout(() => {
+        player.play();
+    }, 500);
+}
+
+utt.onerror = function (e) {
+    if (e.error == "interrupted")
+        return;
+
+    console.error('Erro ao falar', e);
+
+    swal.fire({
+        title: 'Carregando...',
+        // toast: true,
+        timerProgressBar: true,
+        backdrop: true,
+        timer: 3000,
+        showConfirmButton: false,
+    });
+
+    player.addEventListener("pause", playWhenPause);
+    player.pause();
+}
+
 player.addEventListener("play", function () {
     if (!getActiveTrack().cues.length) {
-        logInfo('Nenhuma legenda');
+        console.info('Nenhuma legenda');
         return;
     }
 
@@ -409,7 +404,7 @@ player.addEventListener("play", function () {
         player.currentTime = cue.startTime;
     }
 
-    logInfo('Iniciando narrador');
+    console.info('Iniciando narrador');
     speak();
 });
 
@@ -426,7 +421,7 @@ player.addEventListener("click", function () {
 });
 
 player.addEventListener("ratechange", function (e) {
-    logInfo('Velocidade', player.playbackRate);
+    console.info('Velocidade', player.playbackRate);
     let activeTrack = getActiveTrack();
     let cue = activeTrack.activeCues[0];
     player.currentTime = cue.startTime;
@@ -507,8 +502,8 @@ files.addEventListener("change", function () {
                         li.scrollIntoView({ behavior: "smooth", block: "center" });
                     }
 
-                    logInfo(`Inicio da legenda: ${new Date(cue.startTime * 1000).toISOString().substr(11, 8)}`);
-                    logInfo(`${cue.text}`);
+                    console.info(`Inicio da legenda: ${new Date(cue.startTime * 1000).toISOString().substr(11, 8)}`);
+                    console.info(`${cue.text}`);
 
                     utt.text = cue.text;
                     speak();
