@@ -63,9 +63,10 @@ canvasThumb.width = 160;
 canvasThumb.height = 90;
 
 function setNotResumable() {
-    console.error('Cancelar narrador');
     isResumable = false;
+
     tts.cancel();
+    console.error('Cancelar narrador');
 }
 
 function updateVoice() {
@@ -129,6 +130,12 @@ function updateList() {
 
     let activeTrack = getActiveTrack();
 
+
+    let activeCue = activeTrack.activeCues[0];
+    if (activeCue) {
+        player.currentTime = activeCue.startTime;
+    }
+
     for (var i = 0; i < activeTrack.cues.length; i++) {
         let cue = activeTrack.cues[i];
 
@@ -152,9 +159,7 @@ function updateList() {
         li.addEventListener("click", function () {
             setNotResumable();
 
-            let seek = parseFloat(this.getAttribute('startTime')) + (player.paused ? 0.1 : -0.01);
-
-            player.currentTime = seek;
+            player.currentTime = parseFloat(this.getAttribute('startTime')) + (player.paused ? 0.1 : -0.01);
         });
 
         editButton.addEventListener("click", async function (e) {
@@ -342,11 +347,14 @@ function findLastDotInHalf(text) {
     return middle;
 }
 
+
 function speak() {
     if (player.paused) {
         console.warn('Player pausado');
         return;
     }
+
+    swal.close();
 
     utt.rate = player.playbackRate * params.rate;
     utt.volume = player.volume != 1 ? 1 : 0;
@@ -358,19 +366,26 @@ function speak() {
         return;
     }
 
-    console.log('Falando');
+    // console.warn(utt.text);
 
     tts.speak(utt);
-
     return utt;
 }
 
-function playWhenPause() {
-    player.removeEventListener("pause", playWhenPause);
-    setNotResumable();
-    setTimeout(() => {
-        player.play();
-    }, 500);
+async function tryAgain() {
+    isResumable = false;
+    player.removeEventListener("pause", tryAgain);
+
+    await swal.fire({
+        title: 'carregando...',
+        // toast: true,
+        timerProgressBar: true,
+        backdrop: true,
+        timer: 1000,
+        showConfirmButton: false,
+    });
+
+    player.play();
 }
 
 utt.onerror = function (e) {
@@ -379,17 +394,9 @@ utt.onerror = function (e) {
 
     console.error('Erro ao falar', e);
 
-    swal.fire({
-        title: 'Carregando...',
-        // toast: true,
-        timerProgressBar: true,
-        backdrop: true,
-        timer: 3000,
-        showConfirmButton: false,
-    });
-
-    player.addEventListener("pause", playWhenPause);
+    player.addEventListener("pause", tryAgain);
     player.pause();
+    setNotResumable();
 }
 
 player.addEventListener("play", function () {
@@ -399,7 +406,8 @@ player.addEventListener("play", function () {
     }
 
     let cue = player.textTracks[0].activeCues[0];
-    if (cue && !isResumable && player.currentTime != cue.startTime) {
+    if (cue && !isResumable && (player.currentTime > cue.startTime + 0.15)) {
+        console.error('Reiniciando narrador', player.currentTime, cue.startTime + 0.15);
         setNotResumable();
         player.currentTime = cue.startTime;
     }
@@ -467,6 +475,7 @@ files.addEventListener("change", function () {
 
             let time = localStorage.getItem('time');
             time && (player.currentTime = time);
+
             continue;
         }
 
@@ -502,8 +511,8 @@ files.addEventListener("change", function () {
                         li.scrollIntoView({ behavior: "smooth", block: "center" });
                     }
 
-                    console.info(`Inicio da legenda: ${new Date(cue.startTime * 1000).toISOString().substr(11, 8)}`);
-                    console.info(`${cue.text}`);
+                    // console.info(`Inicio da legenda: ${new Date(cue.startTime * 1000).toISOString().substr(11, 8)}`);
+                    // console.info(`${cue.text}`);
 
                     utt.text = cue.text;
                     speak();
