@@ -6,13 +6,21 @@
   <title>SRT Speaker</title>
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <script src="./assets/sweetalert2@11.js">
+  <script src="./assets/sweetalert2@11.js"></script>
+  <script src="./assets/tesseract.min.js"></script>
 
-  </script>
   <link rel="stylesheet" href="./assets/app.css" type="text/css" />
 </head>
 
 <body>
+
+  <div id="ocrContainer" class="hide">
+    <img src="" alt="" id="pnp" width="100" height="100" class="preview-picture-in-picture" hidden>
+    <div id="cropBox" class="crop"></div>
+    <img src="" alt="" id="toCrop">
+    <div class="backdrop"></div>
+  </div>
+
   <div class="modal" id="config">
     <div class="content">
       <div class="close" data-dismiss="modal">
@@ -42,9 +50,7 @@
         <button type="button" id="btnClose" data-dismiss="modal">Fechar</button>
       </div>
     </div>
-    <div class="backdrop" data-dismiss='modal'>
-
-    </div>
+    <div class="backdrop" data-dismiss='modal'></div>
   </div>
 
   <div class="container">
@@ -64,6 +70,11 @@
           <input hidden type="file" id="files" multiple accept=".vtt, .mp4, .mp3" title="Escolher Arquivos" value="Escolher Arquivos" />
         </div>
         <div>
+          <button type="button" title="Criar Legenda" id="btnCreate">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </button>
           <button type="button" title="Configurações" id="btnConfig">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
