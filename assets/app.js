@@ -6,9 +6,11 @@ let isProcessing = false;
 let isResumable = false;
 
 let params = {
-    rate: 1.2,
-    voice: "Microsoft Thalita Online (Natural) - Portuguese (Brazil)"
+    rate: localStorage.getItem('rate') || 1.2,
+    voice: localStorage.getItem('voice') || "Microsoft Thalita Online (Natural) - Portuguese (Brazil)"
 }
+
+console.log('Parâmetros', params);
 
 class Modal {
     show() {
@@ -779,6 +781,7 @@ function loadConfig() {
 
     configVoice.addEventListener("change", function () {
         params.voice = this.value;
+        localStorage.setItem('voice', this.value);
         updateVoice();
     });
 
@@ -790,8 +793,11 @@ function loadConfig() {
         let percent = (this.value * 100).toFixed(0) + "%";
         labelRate.innerHTML = percent;
         params.rate = this.value;
+
+        localStorage.setItem('rate', this.value);
     });
 
+    configRate.value = params.rate;
     configRate.dispatchEvent(new Event("input"));
 }
 
