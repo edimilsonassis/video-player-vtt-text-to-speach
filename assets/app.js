@@ -624,6 +624,7 @@ player.addEventListener("ratechange", function (e) {
     let cue = activeTrack.activeCues[0];
     player.currentTime = cue.startTime;
     setNotResumable();
+    localStorage.setItem('playbackRate', player.playbackRate);
     // speak();
 });
 
@@ -665,6 +666,8 @@ files.addEventListener("change", function () {
 
             let time = localStorage.getItem('time');
             time && (player.currentTime = time);
+
+            player.playbackRate = localStorage.getItem('playbackRate') || 1;
 
             continue;
         }
