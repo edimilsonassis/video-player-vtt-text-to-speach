@@ -163,6 +163,8 @@ function updateList() {
         });
 
         editButton.addEventListener("click", async function (e) {
+            player.pause();
+
             let prompt1 = await swal.fire({
                 title: 'O que você deseja fazer?',
                 showDenyButton: true,
@@ -183,8 +185,6 @@ function updateList() {
                 refreshCue();
                 return;
             }
-
-            player.pause();
 
             let li = this.parentElement.parentElement.parentElement.parentElement;
             var index = li.getAttribute('index');
