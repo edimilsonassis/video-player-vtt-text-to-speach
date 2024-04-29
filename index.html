@@ -91,15 +91,37 @@
                 <img class="cover" src="https://placehold.co/160x90/444/FFF?text=..." loading="lazy" alt="Miniatura">
               </div>
               <div class="tools">
-                <button name="edit" title="Editar legenda">
-                  <img class="icon" src="./assets/img/edit.svg">
-                </button>
-                <button name="split" title="Dividir a legenda em duas partes">
-                  <img class="icon" src="./assets/img/split.svg">
-                </button>
-                <button name="merge" title="Mesclar com a próxima legenda">
-                  <img class="icon" src="./assets/img/merge.svg">
-                </button>
+                <div class="drop-down">
+                  <button title="Opções" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                    </svg>
+                  </button>
+                  <div class="drop-down-content">
+                    <a name="ia">
+                      <img class="icon" src="./assets/img/ai.svg">
+                      <span>Corrigir</span>
+                    </a>
+                    <a name="edit">
+                      <img class="icon" src="./assets/img/edit.svg">
+                      <span>Editar</span>
+                    </a>
+                    <div class="divisor"></div>
+                    <a name="split">
+                      <img class="icon" src="./assets/img/split.svg">
+                      <span>Dividir</span>
+                    </a>
+                    <a name="merge">
+                      <img class="icon" src="./assets/img/merge.svg">
+                      <span>Mesclar</span>
+                    </a>
+                    <div class="divisor"></div>
+                    <a name="delete">
+                      <img class="icon" src="./assets/img/delete.svg">
+                      <span>Excluir</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="subtitle" name="subtitle">

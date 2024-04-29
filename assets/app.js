@@ -10,7 +10,7 @@ let params = {
     voice: localStorage.getItem('voice') || "Microsoft Thalita Online (Natural) - Portuguese (Brazil)"
 }
 
-console.log('Parâmetros', params);
+// console.log('Parâmetros', params);
 
 class Modal {
     show() {
@@ -69,11 +69,11 @@ function setNotResumable() {
     isResumable = false;
 
     tts.cancel();
-    console.error('Cancelar narrador');
+    // console.error('Cancelar narrador');
 }
 
 function updateVoice() {
-    console.warn('Atualizando voz', params.voice);
+    // console.warn('Atualizando voz', params.voice);
     setNotResumable();
     utt.voice = tts.getVoices().filter(function (e) {
         return e.name == params.voice;
@@ -123,8 +123,92 @@ function getActiveTrack() {
     return track;
 }
 
+const controller = new AbortController();
+const signal = controller.signal;
+
+async function promptIA(cue) {
+    swal.fire({
+        title: 'Carregando...',
+        text: 'Aguarde um momento',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEscapeKey: true,
+        allowEnterKey: false,
+        // showCloseButton: false,
+    }).then(r => {
+        if (r.dismiss === swal.DismissReason.backdrop) {
+            controller.abort();
+        }
+    });
+
+    let response = await fetch('http://localhost:1234/v1/chat/completions', {
+        signal,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "model": "lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF",
+            "messages": [
+                // { "role": "system", "content": "Melhore o seguinte texto para torná-lo mais claro e preciso: remova as virgulas e pontuação desnecessárias e mantenha as expressões originais. Não comente sobre o que você fez." },
+                { "role": "user", "content": `Corrija o seguinte texto para torná-lo mais claro e preciso: remova as virgulas e pontuação desnecessárias e mantenha as expressões originais. Não comente sobre o que você fez: ${cue.text}` }
+            ],
+            "temperature": 0.7,
+            "max_tokens": -1,
+        })
+    }).then(function (response) {
+        if (!response.ok) {
+            throw new Error('Erro ao solicitar IA');
+        }
+
+        return response.json();
+    }).catch(function (error) {
+        console.error('Erro ao solicitar IA', error);
+        swal.fire({
+            icon: 'error',
+            title: 'Erro ao solicitar IA',
+            text: 'É necessário ter o servidor de IA rodando',
+        });
+    });
+
+    let inputValue = response.choices[0].message.content || '';
+
+    let prompt = await swal.fire({
+        animation: false,
+        title: 'Texto corrigido',
+        input: 'textarea',
+        inputValue,
+        inputAttributes: {
+            autocapitalize: 'off',
+            required: true,
+            height: 300,
+            rows: cue.text.length / 20
+        },
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Salvar',
+        denyButtonText: 'Tentar novamente',
+        cancelButtonText: 'Cancelar',
+        inputValidator: (value) => {
+            if (!value) {
+                return 'Você precisa escrever algo!'
+            }
+        }
+    });
+
+    if (prompt.isDenied) {
+        return promptIA(cue);
+    }
+
+    if (!prompt.value)
+        return;
+
+    cue.text = prompt.value;
+    refreshCue();
+}
+
 function updateList() {
-    console.error('Atualizando Lista de Legenda');
+    // console.error('Atualizando Lista de Legenda');
 
     list.innerHTML = "";
 
@@ -146,9 +230,13 @@ function updateList() {
         let subtitle = li.querySelector('[name="subtitle"]');
 
         let img = li.querySelector('img');
+        let iaButton = li.querySelector('[name="ia"]');
         let editButton = li.querySelector('[name="edit"]');
+        let deleteButton = li.querySelector('[name="delete"]');
         let splitButton = li.querySelector('[name="split"]');
         let mergeButton = li.querySelector('[name="merge"]');
+
+        console.log(cue.startTime);
 
         li.setAttribute('index', i);
         li.setAttribute('startTime', cue.startTime);
@@ -164,35 +252,23 @@ function updateList() {
             player.currentTime = parseFloat(this.getAttribute('startTime')) + (player.paused ? 0.1 : -0.01);
         });
 
+        iaButton.addEventListener("click", function () {
+            player.pause();
+
+            let index = this.closest('li').getAttribute('index');
+            let cue = activeTrack.cues[index];
+
+            promptIA(cue);
+        });
+
         editButton.addEventListener("click", async function (e) {
             player.pause();
 
-            let prompt1 = await swal.fire({
-                title: 'O que você deseja fazer?',
-                showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: `Editar`,
-                denyButtonText: `Remover`,
-                cancelButtonText: `Cancelar`,
-            })
-
-            if (prompt1.isDismissed)
-                return;
-
-            if (prompt1.isDenied) {
-                let activeTrack = getActiveTrack();
-                let index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
-                let cue = activeTrack.cues[index];
-                activeTrack.removeCue(cue);
-                refreshCue();
-                return;
-            }
-
-            let li = this.parentElement.parentElement.parentElement.parentElement;
+            let li = this.closest('li');
             var index = li.getAttribute('index');
             var cue = activeTrack.cues[index];
 
-            let prompt2 = await swal.fire({
+            let prompt = await swal.fire({
                 animation: false,
                 title: 'Editar legenda',
                 input: 'textarea',
@@ -213,16 +289,38 @@ function updateList() {
                 }
             });
 
-            if (prompt2.value) {
+            if (prompt.value) {
                 console.info('Editando');
-                cue.text = prompt2.value;
+                cue.text = prompt.value;
                 refreshCue();
                 // updateList();
             }
         });
 
+        deleteButton.addEventListener("click", async function (e) {
+            player.pause();
+
+            let prompt = await swal.fire({
+                title: 'Tem certeza?',
+                text: "Você não poderá reverter isso!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar',
+            });
+
+            if (!prompt.isConfirmed)
+                return;
+
+            let activeTrack = getActiveTrack();
+            let index = this.closest('li').getAttribute('index');
+            let cue = activeTrack.cues[index];
+            activeTrack.removeCue(cue);
+            refreshCue();
+        })
+
         mergeButton.addEventListener("mouseenter", function () {
-            let index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
+            let index = this.closest('li').getAttribute('index');
             let cue = activeTrack.cues[index];
             let nextCue = activeTrack.cues[parseInt(index) + 1];
 
@@ -231,26 +329,30 @@ function updateList() {
                 return;
             }
 
-            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+            let next = this.closest('li').nextElementSibling;
             next && next.classList.add("mergeble");
         });
 
         mergeButton.addEventListener("mouseleave", function () {
-            let next = this.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+            let next = this.closest('li').nextElementSibling;
             next && next.classList.remove("mergeble");
         });
 
         splitButton.addEventListener("click", function (e) {
+            player.pause();
+
             e.preventDefault();
-            var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
+            var index = this.closest('li').getAttribute('index');
             var cue = activeTrack.cues[index];
             splitCue(cue);
             updateList();
         });
 
         mergeButton.addEventListener("click", function (e) {
+            player.pause();
+
             e.preventDefault();
-            var index = this.parentElement.parentElement.parentElement.parentElement.getAttribute('index');
+            var index = this.closest('li').getAttribute('index');
             var cue = activeTrack.cues[index];
             var nextCue = activeTrack.cues[parseInt(index) + 1];
 
@@ -337,7 +439,7 @@ function splitCue(activeCue) {
 }
 
 function refreshCue() {
-    console.warn('Atualizando Exibição de Legenda');
+    // console.warn('Atualizando Exibição de Legenda');
     let activeTrack = getActiveTrack();
 
     if (activeTrack) {
@@ -402,7 +504,7 @@ function newTrack(base64String = btoa(webVTT), label = 'Legenda.pt') {
             // console.info(`Inicio da legenda: ${new Date(cue.startTime * 1000).toISOString().substr(11, 8)}`);
             // console.info(`${cue.text}`);
 
-            utt.text = cue.text;
+            utt.text = cue.text.replaceAll('\n', ' ');
             speak();
         }
     });

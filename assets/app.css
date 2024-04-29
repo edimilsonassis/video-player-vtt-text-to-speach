@@ -176,7 +176,6 @@ button {
       border: 1px solid #444;
       opacity: 0;
       padding: 2px;
-      /* height: 30px; */
     }
 
     &.active {
@@ -203,10 +202,11 @@ button {
       }
 
       .tools {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
 
+        /* display: flex;
+        gap: 4px;
+        flex-direction: row;
+        flex-wrap: wrap; */
         button {
           padding: 5px;
           border: none;
@@ -218,14 +218,19 @@ button {
           height: 16px;
           display: block;
         }
+
+        ;
+        /* align-items: baseline; */
+        /* width: 56px; */
       }
+
       justify-content: space-between;
     }
 
     .cover {
       display: block;
-      width: 160px;
-      height: 90px;
+      width: 127px;
+      height: 71px;
       border-radius: 5px;
       object-fit: cover;
     }
@@ -251,6 +256,7 @@ button {
       &.active {
         border-color: #419dff;
       }
+
       button {
         opacity: 1;
       }
@@ -332,6 +338,45 @@ button {
   }
 
   &.show {
+    display: block;
+  }
+}
+
+.drop-down {
+  position: relative;
+  display: inline-block;
+
+  .drop-down-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    transform: translateX(-82%);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    .divisor {
+      border-top: 1px solid #555;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: flex;
+      color: #fff;
+      gap: 8px;
+    }
+
+    a:hover {
+      background-color: #555;
+    }
+  }
+
+  &:hover .drop-down-content {
     display: block;
   }
 }

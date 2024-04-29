@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
-    style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M412 136h40c22.091 0 40 17.909 40 40v160c0 22.091-17.909 40-40 40h-40M100 216h80M140 296v-80M332 456V56M292 56h80M292 456h80M332 376H60c-22.091 0-40-17.909-40-40V176c0-22.091 17.909-40 40-40h272" style="stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke="#ffffff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000" opacity="1"></path></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+    stroke="#fff" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round"
+        d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+</svg>
+  
